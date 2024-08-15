@@ -4,26 +4,26 @@ from enum import Enum
 class AnnotationCheckboxStyle(Enum):
     """An enumeration representing different categories.
 
-    :cvar CIRCLE_CHECK: "CIRCLE_CHECK"
-    :vartype CIRCLE_CHECK: str
-    :cvar CIRCLE_FULL: "CIRCLE_FULL"
-    :vartype CIRCLE_FULL: str
-    :cvar SQUARE_CHECK: "SQUARE_CHECK"
-    :vartype SQUARE_CHECK: str
-    :cvar SQUARE_FULL: "SQUARE_FULL"
-    :vartype SQUARE_FULL: str
-    :cvar CHECK_MARK: "CHECK_MARK"
-    :vartype CHECK_MARK: str
-    :cvar TIMES_SQUARE: "TIMES_SQUARE"
-    :vartype TIMES_SQUARE: str
+    :cvar CIRCLECHECK: "CIRCLE_CHECK"
+    :vartype CIRCLECHECK: str
+    :cvar CIRCLEFULL: "CIRCLE_FULL"
+    :vartype CIRCLEFULL: str
+    :cvar SQUARECHECK: "SQUARE_CHECK"
+    :vartype SQUARECHECK: str
+    :cvar SQUAREFULL: "SQUARE_FULL"
+    :vartype SQUAREFULL: str
+    :cvar CHECKMARK: "CHECK_MARK"
+    :vartype CHECKMARK: str
+    :cvar TIMESSQUARE: "TIMES_SQUARE"
+    :vartype TIMESSQUARE: str
     """
 
-    CIRCLE_CHECK = "CIRCLE_CHECK"
-    CIRCLE_FULL = "CIRCLE_FULL"
-    SQUARE_CHECK = "SQUARE_CHECK"
-    SQUARE_FULL = "SQUARE_FULL"
-    CHECK_MARK = "CHECK_MARK"
-    TIMES_SQUARE = "TIMES_SQUARE"
+    CIRCLECHECK = "CIRCLE_CHECK"
+    CIRCLEFULL = "CIRCLE_FULL"
+    SQUARECHECK = "SQUARE_CHECK"
+    SQUAREFULL = "SQUARE_FULL"
+    CHECKMARK = "CHECK_MARK"
+    TIMESSQUARE = "TIMES_SQUARE"
 
     def list():
         """Lists all category values.

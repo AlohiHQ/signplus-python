@@ -11,7 +11,7 @@ class CreateEnvelopeRequest(BaseModel):
 
     :param name: Name of the envelope
     :type name: str
-    :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature, SIGN_MYSELF is a self-signing flow)
+    :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature)
     :type flow_type: EnvelopeFlowType
     :param legality_level: Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qualified Electronic Signature, QES_ZERTES is Qualified Electronic Signature with Zertes)
     :type legality_level: EnvelopeLegalityLevel
@@ -36,7 +36,7 @@ class CreateEnvelopeRequest(BaseModel):
 
         :param name: Name of the envelope
         :type name: str
-        :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature, SIGN_MYSELF is a self-signing flow)
+        :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature)
         :type flow_type: EnvelopeFlowType
         :param legality_level: Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qualified Electronic Signature, QES_ZERTES is Qualified Electronic Signature with Zertes)
         :type legality_level: EnvelopeLegalityLevel

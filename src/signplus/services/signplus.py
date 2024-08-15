@@ -70,7 +70,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -105,7 +104,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -133,7 +131,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return ListEnvelopesResponse._unmap(response)
 
     @cast_models
@@ -161,7 +158,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -187,7 +183,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return response
 
     @cast_models
@@ -220,7 +215,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Document._unmap(response)
 
     @cast_models
@@ -249,7 +243,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return ListEnvelopeDocumentsResponse._unmap(response)
 
     @cast_models
@@ -284,7 +277,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Document._unmap(response)
 
     @cast_models
@@ -319,7 +311,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -354,7 +345,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -383,7 +373,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -412,7 +401,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -441,7 +429,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -476,7 +463,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -511,7 +497,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -546,7 +531,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -581,7 +565,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -616,7 +599,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Envelope._unmap(response)
 
     @cast_models
@@ -645,7 +627,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return [Annotation._unmap(item) for item in response]
 
     @cast_models
@@ -680,7 +661,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return ListEnvelopeDocumentAnnotationsResponse._unmap(response)
 
     @cast_models
@@ -715,7 +695,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Annotation._unmap(response)
 
     @cast_models
@@ -746,7 +725,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return response
 
     @cast_models
@@ -772,7 +750,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Template._unmap(response)
 
     @cast_models
@@ -800,7 +777,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return ListTemplatesResponse._unmap(response)
 
     @cast_models
@@ -828,7 +804,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Template._unmap(response)
 
     @cast_models
@@ -854,7 +829,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return response
 
     @cast_models
@@ -883,7 +857,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Template._unmap(response)
 
     @cast_models
@@ -918,7 +891,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Document._unmap(response)
 
     @cast_models
@@ -951,7 +923,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Document._unmap(response)
 
     @cast_models
@@ -980,7 +951,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return ListTemplateDocumentsResponse._unmap(response)
 
     @cast_models
@@ -1015,7 +985,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Template._unmap(response)
 
     @cast_models
@@ -1050,7 +1019,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Template._unmap(response)
 
     @cast_models
@@ -1085,7 +1053,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Template._unmap(response)
 
     @cast_models
@@ -1120,7 +1087,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Template._unmap(response)
 
     @cast_models
@@ -1151,7 +1117,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return ListTemplateAnnotationsResponse._unmap(response)
 
     @cast_models
@@ -1186,7 +1151,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return ListTemplateDocumentAnnotationsResponse._unmap(response)
 
     @cast_models
@@ -1221,7 +1185,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Annotation._unmap(response)
 
     @cast_models
@@ -1252,7 +1215,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return response
 
     @cast_models
@@ -1278,7 +1240,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return Webhook._unmap(response)
 
     @cast_models
@@ -1306,7 +1267,6 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return ListWebhooksResponse._unmap(response)
 
     @cast_models
@@ -1332,5 +1292,4 @@ class SignplusService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-
         return response

@@ -1,3 +1,4 @@
+import json
 from requests import Response as RequestsResponse
 from urllib.parse import parse_qs
 
@@ -9,9 +10,10 @@ class Response:
     :ivar int status: The status code of the HTTP response.
     :ivar dict headers: The headers of the HTTP response.
     :ivar str body: The body of the HTTP response.
+    :var str chunk: The chunk of the HTTP response.
     """
 
-    def __init__(self, response: RequestsResponse):
+    def __init__(self, response: RequestsResponse, chunk: str | None = None):
         """
         Initializes a Response object.
 
@@ -19,7 +21,10 @@ class Response:
         """
         self.status = response.status_code
         self.headers = response.headers
-        self.body = self._get_response_body(response)
+        if chunk:
+            self.body = json.loads(chunk)
+        else:
+            self.body = self._get_response_body(response)
 
     def __str__(self) -> str:
         """
