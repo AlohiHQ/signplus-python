@@ -4,11 +4,11 @@ Style of the checkbox
 
 **Properties**
 
-| Name         | Type | Required | Description    |
-| :----------- | :--- | :------- | :------------- |
-| CIRCLE_CHECK | str  | ✅       | "CIRCLE_CHECK" |
-| CIRCLE_FULL  | str  | ✅       | "CIRCLE_FULL"  |
-| SQUARE_CHECK | str  | ✅       | "SQUARE_CHECK" |
-| SQUARE_FULL  | str  | ✅       | "SQUARE_FULL"  |
-| CHECK_MARK   | str  | ✅       | "CHECK_MARK"   |
-| TIMES_SQUARE | str  | ✅       | "TIMES_SQUARE" |
+| Name        | Type | Required | Description    |
+| :---------- | :--- | :------- | :------------- |
+| CIRCLECHECK | str  | ✅       | "CIRCLE_CHECK" |
+| CIRCLEFULL  | str  | ✅       | "CIRCLE_FULL"  |
+| SQUARECHECK | str  | ✅       | "SQUARE_CHECK" |
+| SQUAREFULL  | str  | ✅       | "SQUARE_FULL"  |
+| CHECKMARK   | str  | ✅       | "CHECK_MARK"   |
+| TIMESSQUARE | str  | ✅       | "TIMES_SQUARE" |

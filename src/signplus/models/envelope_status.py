@@ -6,8 +6,8 @@ class EnvelopeStatus(Enum):
 
     :cvar DRAFT: "DRAFT"
     :vartype DRAFT: str
-    :cvar IN_PROGRESS: "IN_PROGRESS"
-    :vartype IN_PROGRESS: str
+    :cvar INPROGRESS: "IN_PROGRESS"
+    :vartype INPROGRESS: str
     :cvar COMPLETED: "COMPLETED"
     :vartype COMPLETED: str
     :cvar EXPIRED: "EXPIRED"
@@ -21,7 +21,7 @@ class EnvelopeStatus(Enum):
     """
 
     DRAFT = "DRAFT"
-    IN_PROGRESS = "IN_PROGRESS"
+    INPROGRESS = "IN_PROGRESS"
     COMPLETED = "COMPLETED"
     EXPIRED = "EXPIRED"
     DECLINED = "DECLINED"

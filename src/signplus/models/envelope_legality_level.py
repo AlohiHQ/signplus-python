@@ -6,15 +6,15 @@ class EnvelopeLegalityLevel(Enum):
 
     :cvar SES: "SES"
     :vartype SES: str
-    :cvar QES_EIDAS: "QES_EIDAS"
-    :vartype QES_EIDAS: str
-    :cvar QES_ZERTES: "QES_ZERTES"
-    :vartype QES_ZERTES: str
+    :cvar QESEIDAS: "QES_EIDAS"
+    :vartype QESEIDAS: str
+    :cvar QESZERTES: "QES_ZERTES"
+    :vartype QESZERTES: str
     """
 
     SES = "SES"
-    QES_EIDAS = "QES_EIDAS"
-    QES_ZERTES = "QES_ZERTES"
+    QESEIDAS = "QES_EIDAS"
+    QESZERTES = "QES_ZERTES"
 
     def list():
         """Lists all category values.
