@@ -4,8 +4,8 @@ Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qu
 
 **Properties**
 
-| Name       | Type | Required | Description  |
-| :--------- | :--- | :------- | :----------- |
-| SES        | str  | ✅       | "SES"        |
-| QES_EIDAS  | str  | ✅       | "QES_EIDAS"  |
-| QES_ZERTES | str  | ✅       | "QES_ZERTES" |
+| Name      | Type | Required | Description  |
+| :-------- | :--- | :------- | :----------- |
+| SES       | str  | ✅       | "SES"        |
+| QESEIDAS  | str  | ✅       | "QES_EIDAS"  |
+| QESZERTES | str  | ✅       | "QES_ZERTES" |

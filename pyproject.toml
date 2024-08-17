@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "signplus-python"
-version = "2.0.0"
+version = "1.0.0"
 license = { text = "MIT" }
 description = """Integrate legally-binding electronic signature to your workflow"""
 readme = "README.md"
