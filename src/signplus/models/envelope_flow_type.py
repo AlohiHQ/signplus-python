@@ -4,14 +4,11 @@ from enum import Enum
 class EnvelopeFlowType(Enum):
     """An enumeration representing different categories.
 
-    :cvar REQUEST_SIGNATURE: "REQUEST_SIGNATURE"
-    :vartype REQUEST_SIGNATURE: str
-    :cvar SIGN_MYSELF: "SIGN_MYSELF"
-    :vartype SIGN_MYSELF: str
+    :cvar REQUESTSIGNATURE: "REQUEST_SIGNATURE"
+    :vartype REQUESTSIGNATURE: str
     """
 
-    REQUEST_SIGNATURE = "REQUEST_SIGNATURE"
-    SIGN_MYSELF = "SIGN_MYSELF"
+    REQUESTSIGNATURE = "REQUEST_SIGNATURE"
 
     def list():
         """Lists all category values.

@@ -22,7 +22,7 @@ class Envelope(BaseModel):
     :type comment: str, optional
     :param pages: Total number of pages in the envelope, defaults to None
     :type pages: int, optional
-    :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature, SIGN_MYSELF is a self-signing flow), defaults to None
+    :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature), defaults to None
     :type flow_type: EnvelopeFlowType, optional
     :param legality_level: Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qualified Electronic Signature, QES_ZERTES is Qualified Electronic Signature with Zertes), defaults to None
     :type legality_level: EnvelopeLegalityLevel, optional
@@ -74,7 +74,7 @@ class Envelope(BaseModel):
         :type comment: str, optional
         :param pages: Total number of pages in the envelope, defaults to None
         :type pages: int, optional
-        :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature, SIGN_MYSELF is a self-signing flow), defaults to None
+        :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature), defaults to None
         :type flow_type: EnvelopeFlowType, optional
         :param legality_level: Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qualified Electronic Signature, QES_ZERTES is Qualified Electronic Signature with Zertes), defaults to None
         :type legality_level: EnvelopeLegalityLevel, optional

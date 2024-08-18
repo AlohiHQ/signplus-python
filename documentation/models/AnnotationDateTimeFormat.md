@@ -4,14 +4,14 @@ Format of the date time (DMY_NUMERIC_SLASH is day/month/year with slashes, MDY_N
 
 **Properties**
 
-| Name                   | Type | Required | Description              |
-| :--------------------- | :--- | :------- | :----------------------- |
-| DMY_NUMERIC_SLASH      | str  | ✅       | "DMY_NUMERIC_SLASH"      |
-| MDY_NUMERIC_SLASH      | str  | ✅       | "MDY_NUMERIC_SLASH"      |
-| YMD_NUMERIC_SLASH      | str  | ✅       | "YMD_NUMERIC_SLASH"      |
-| DMY_NUMERIC_DASH_SHORT | str  | ✅       | "DMY_NUMERIC_DASH_SHORT" |
-| DMY_NUMERIC_DASH       | str  | ✅       | "DMY_NUMERIC_DASH"       |
-| YMD_NUMERIC_DASH       | str  | ✅       | "YMD_NUMERIC_DASH"       |
-| MDY_TEXT_DASH_SHORT    | str  | ✅       | "MDY_TEXT_DASH_SHORT"    |
-| MDY_TEXT_SPACE_SHORT   | str  | ✅       | "MDY_TEXT_SPACE_SHORT"   |
-| MDY_TEXT_SPACE         | str  | ✅       | "MDY_TEXT_SPACE"         |
+| Name                | Type | Required | Description              |
+| :------------------ | :--- | :------- | :----------------------- |
+| DMYNUMERICSLASH     | str  | ✅       | "DMY_NUMERIC_SLASH"      |
+| MDYNUMERICSLASH     | str  | ✅       | "MDY_NUMERIC_SLASH"      |
+| YMDNUMERICSLASH     | str  | ✅       | "YMD_NUMERIC_SLASH"      |
+| DMYNUMERICDASHSHORT | str  | ✅       | "DMY_NUMERIC_DASH_SHORT" |
+| DMYNUMERICDASH      | str  | ✅       | "DMY_NUMERIC_DASH"       |
+| YMDNUMERICDASH      | str  | ✅       | "YMD_NUMERIC_DASH"       |
+| MDYTEXTDASHSHORT    | str  | ✅       | "MDY_TEXT_DASH_SHORT"    |
+| MDYTEXTSPACESHORT   | str  | ✅       | "MDY_TEXT_SPACE_SHORT"   |
+| MDYTEXTSPACE        | str  | ✅       | "MDY_TEXT_SPACE"         |
