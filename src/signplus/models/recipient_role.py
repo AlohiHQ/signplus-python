@@ -6,15 +6,15 @@ class RecipientRole(Enum):
 
     :cvar SIGNER: "SIGNER"
     :vartype SIGNER: str
-    :cvar RECEIVES_COPY: "RECEIVES_COPY"
-    :vartype RECEIVES_COPY: str
-    :cvar IN_PERSON_SIGNER: "IN_PERSON_SIGNER"
-    :vartype IN_PERSON_SIGNER: str
+    :cvar RECEIVESCOPY: "RECEIVES_COPY"
+    :vartype RECEIVESCOPY: str
+    :cvar INPERSONSIGNER: "IN_PERSON_SIGNER"
+    :vartype INPERSONSIGNER: str
     """
 
     SIGNER = "SIGNER"
-    RECEIVES_COPY = "RECEIVES_COPY"
-    IN_PERSON_SIGNER = "IN_PERSON_SIGNER"
+    RECEIVESCOPY = "RECEIVES_COPY"
+    INPERSONSIGNER = "IN_PERSON_SIGNER"
 
     def list():
         """Lists all category values.
