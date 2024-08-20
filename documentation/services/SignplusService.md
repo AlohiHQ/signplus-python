@@ -77,7 +77,6 @@ sdk = Signplus(
 
 request_body = CreateEnvelopeRequest(
     name="name",
-    flow_type="REQUEST_SIGNATURE",
     legality_level="SES",
     expires_at=5,
     comment="comment",

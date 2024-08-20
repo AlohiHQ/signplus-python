@@ -4,23 +4,23 @@ from enum import Enum
 class EnvelopeOrderField(Enum):
     """An enumeration representing different categories.
 
-    :cvar CREATION_DATE: "CREATION_DATE"
-    :vartype CREATION_DATE: str
-    :cvar MODIFICATION_DATE: "MODIFICATION_DATE"
-    :vartype MODIFICATION_DATE: str
+    :cvar CREATIONDATE: "CREATION_DATE"
+    :vartype CREATIONDATE: str
+    :cvar MODIFICATIONDATE: "MODIFICATION_DATE"
+    :vartype MODIFICATIONDATE: str
     :cvar NAME: "NAME"
     :vartype NAME: str
     :cvar STATUS: "STATUS"
     :vartype STATUS: str
-    :cvar LAST_DOCUMENT_CHANGE: "LAST_DOCUMENT_CHANGE"
-    :vartype LAST_DOCUMENT_CHANGE: str
+    :cvar LASTDOCUMENTCHANGE: "LAST_DOCUMENT_CHANGE"
+    :vartype LASTDOCUMENTCHANGE: str
     """
 
-    CREATION_DATE = "CREATION_DATE"
-    MODIFICATION_DATE = "MODIFICATION_DATE"
+    CREATIONDATE = "CREATION_DATE"
+    MODIFICATIONDATE = "MODIFICATION_DATE"
     NAME = "NAME"
     STATUS = "STATUS"
-    LAST_DOCUMENT_CHANGE = "LAST_DOCUMENT_CHANGE"
+    LASTDOCUMENTCHANGE = "LAST_DOCUMENT_CHANGE"
 
     def list():
         """Lists all category values.
