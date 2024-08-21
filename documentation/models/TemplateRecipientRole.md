@@ -4,8 +4,8 @@ Role of the recipient (SIGNER signs the document, RECEIVES_COPY receives a copy 
 
 **Properties**
 
-| Name             | Type | Required | Description        |
-| :--------------- | :--- | :------- | :----------------- |
-| SIGNER           | str  | ✅       | "SIGNER"           |
-| RECEIVES_COPY    | str  | ✅       | "RECEIVES_COPY"    |
-| IN_PERSON_SIGNER | str  | ✅       | "IN_PERSON_SIGNER" |
+| Name           | Type | Required | Description        |
+| :------------- | :--- | :------- | :----------------- |
+| SIGNER         | str  | ✅       | "SIGNER"           |
+| RECEIVESCOPY   | str  | ✅       | "RECEIVES_COPY"    |
+| INPERSONSIGNER | str  | ✅       | "IN_PERSON_SIGNER" |

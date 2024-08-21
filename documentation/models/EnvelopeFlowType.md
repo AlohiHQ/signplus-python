@@ -4,7 +4,7 @@ Flow type of the envelope (REQUEST_SIGNATURE is a request for signature, SIGN_MY
 
 **Properties**
 
-| Name              | Type | Required | Description         |
-| :---------------- | :--- | :------- | :------------------ |
-| REQUEST_SIGNATURE | str  | ✅       | "REQUEST_SIGNATURE" |
-| SIGN_MYSELF       | str  | ✅       | "SIGN_MYSELF"       |
+| Name             | Type | Required | Description         |
+| :--------------- | :--- | :------- | :------------------ |
+| REQUESTSIGNATURE | str  | ✅       | "REQUEST_SIGNATURE" |
+| SIGNMYSELF       | str  | ✅       | "SIGN_MYSELF"       |

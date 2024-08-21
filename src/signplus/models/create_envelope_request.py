@@ -1,7 +1,6 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .envelope_flow_type import EnvelopeFlowType
 from .envelope_legality_level import EnvelopeLegalityLevel
 
 
@@ -11,8 +10,6 @@ class CreateEnvelopeRequest(BaseModel):
 
     :param name: Name of the envelope
     :type name: str
-    :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature, SIGN_MYSELF is a self-signing flow)
-    :type flow_type: EnvelopeFlowType
     :param legality_level: Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qualified Electronic Signature, QES_ZERTES is Qualified Electronic Signature with Zertes)
     :type legality_level: EnvelopeLegalityLevel
     :param expires_at: Unix timestamp of the expiration date, defaults to None
@@ -26,7 +23,6 @@ class CreateEnvelopeRequest(BaseModel):
     def __init__(
         self,
         name: str,
-        flow_type: EnvelopeFlowType,
         legality_level: EnvelopeLegalityLevel,
         expires_at: int = None,
         comment: str = None,
@@ -36,8 +32,6 @@ class CreateEnvelopeRequest(BaseModel):
 
         :param name: Name of the envelope
         :type name: str
-        :param flow_type: Flow type of the envelope (REQUEST_SIGNATURE is a request for signature, SIGN_MYSELF is a self-signing flow)
-        :type flow_type: EnvelopeFlowType
         :param legality_level: Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qualified Electronic Signature, QES_ZERTES is Qualified Electronic Signature with Zertes)
         :type legality_level: EnvelopeLegalityLevel
         :param expires_at: Unix timestamp of the expiration date, defaults to None
@@ -48,9 +42,6 @@ class CreateEnvelopeRequest(BaseModel):
         :type sandbox: bool, optional
         """
         self.name = name
-        self.flow_type = self._enum_matching(
-            flow_type, EnvelopeFlowType.list(), "flow_type"
-        )
         self.legality_level = self._enum_matching(
             legality_level, EnvelopeLegalityLevel.list(), "legality_level"
         )
