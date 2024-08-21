@@ -35,8 +35,8 @@ from .create_webhook_request import CreateWebhookRequest
 from .webhook import Webhook
 from .list_webhooks_request import ListWebhooksRequest
 from .list_webhooks_response import ListWebhooksResponse
-from .envelope_flow_type import EnvelopeFlowType
 from .envelope_legality_level import EnvelopeLegalityLevel
+from .envelope_flow_type import EnvelopeFlowType
 from .envelope_status import EnvelopeStatus
 from .signing_step import SigningStep
 from .recipient import Recipient
