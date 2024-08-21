@@ -78,7 +78,7 @@ sdk = Signplus(
 request_body = CreateEnvelopeRequest(
     name="name",
     legality_level="SES",
-    expires_at=8,
+    expires_at=5,
     comment="comment",
     sandbox=False
 )
@@ -121,7 +121,7 @@ sdk = Signplus(
 request_body = CreateEnvelopeFromTemplateRequest(
     name="name",
     comment="comment",
-    sandbox=False
+    sandbox=True
 )
 
 result = sdk.signplus.create_envelope_from_template(
@@ -177,11 +177,11 @@ request_body = ListEnvelopesRequest(
         "folder_ids"
     ],
     only_root_folder=True,
-    date_from=4,
-    date_to=7,
+    date_from=0,
+    date_to=0,
     uid="uid",
-    first=8,
-    last=9,
+    first=7,
+    last=6,
     after="after",
     before="before",
     order_field="CREATION_DATE",
@@ -731,7 +731,7 @@ sdk = Signplus(
 )
 
 request_body = SetEnvelopeExpirationRequest(
-    expires_at=6
+    expires_at=3
 )
 
 result = sdk.signplus.set_envelope_expiration_date(
@@ -887,11 +887,11 @@ sdk = Signplus(
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=5,
-    x=2.83,
-    y=1.27,
-    width=5.18,
-    height=4.34,
+    page=7,
+    x=7.25,
+    y=7.35,
+    width=6.25,
+    height=9.77,
     required=False,
     type_="TEXT",
     signature={
@@ -901,28 +901,28 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 0.75,
-        "color": 0.4,
+        "size": 0.7,
+        "color": 7.26,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         }
     },
     datetime_={
-        "size": 2.34,
+        "size": 7.51,
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         },
         "color": "color",
         "auto_fill": False,
         "timezone": "timezone",
-        "timestamp": 6,
+        "timestamp": 10,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
@@ -1052,7 +1052,7 @@ request_body = ListTemplatesRequest(
     after="after",
     before="before",
     order_field="TEMPLATE_ID",
-    ascending=True
+    ascending=False
 )
 
 result = sdk.signplus.list_templates(request_body=request_body)
@@ -1552,11 +1552,11 @@ sdk = Signplus(
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=5,
-    x=2.83,
-    y=1.27,
-    width=5.18,
-    height=4.34,
+    page=7,
+    x=7.25,
+    y=7.35,
+    width=6.25,
+    height=9.77,
     required=False,
     type_="TEXT",
     signature={
@@ -1566,28 +1566,28 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 0.75,
-        "color": 0.4,
+        "size": 0.7,
+        "color": 7.26,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         }
     },
     datetime_={
-        "size": 2.34,
+        "size": 7.51,
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         },
         "color": "color",
         "auto_fill": False,
         "timezone": "timezone",
-        "timestamp": 6,
+        "timestamp": 10,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={

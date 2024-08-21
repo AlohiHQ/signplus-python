@@ -19,7 +19,7 @@ fi
 
 pip install build
 python -m build --outdir dist .
-pip install dist/signplus_python-1.0.0-py3-none-any.whl --force-reinstall
+pip install dist/signplus_python-2.0.0-py3-none-any.whl --force-reinstall
 
 if [ "$USE_VENV" -eq 1 ]; then
     deactivate
