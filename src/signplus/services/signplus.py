@@ -1,48 +1,43 @@
 from typing import List
-from typing import Any
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
-from ..models.webhook import Webhook
 from ..models.utils.cast_models import cast_models
-from ..models.template import Template
-from ..models.set_template_comment_request import SetTemplateCommentRequest
-from ..models.set_envelope_legality_level_request import SetEnvelopeLegalityLevelRequest
-from ..models.set_envelope_expiration_request import SetEnvelopeExpirationRequest
-from ..models.set_envelope_dynamic_fields_request import SetEnvelopeDynamicFieldsRequest
-from ..models.set_envelope_comment_request import SetEnvelopeCommentRequest
-from ..models.rename_template_request import RenameTemplateRequest
-from ..models.rename_envelope_request import RenameEnvelopeRequest
-from ..models.list_webhooks_response import ListWebhooksResponse
-from ..models.list_webhooks_request import ListWebhooksRequest
-from ..models.list_templates_response import ListTemplatesResponse
-from ..models.list_templates_request import ListTemplatesRequest
-from ..models.list_template_documents_response import ListTemplateDocumentsResponse
-from ..models.list_template_document_annotations_response import (
-    ListTemplateDocumentAnnotationsResponse,
-)
-from ..models.list_template_annotations_response import ListTemplateAnnotationsResponse
-from ..models.list_envelopes_response import ListEnvelopesResponse
-from ..models.list_envelopes_request import ListEnvelopesRequest
-from ..models.list_envelope_documents_response import ListEnvelopeDocumentsResponse
-from ..models.list_envelope_document_annotations_response import (
-    ListEnvelopeDocumentAnnotationsResponse,
-)
-from ..models.envelope_notification import EnvelopeNotification
-from ..models.envelope import Envelope
-from ..models.document import Document
-from ..models.create_webhook_request import CreateWebhookRequest
-from ..models.create_template_request import CreateTemplateRequest
-from ..models.create_envelope_request import CreateEnvelopeRequest
-from ..models.create_envelope_from_template_request import (
+from ..models import (
+    AddAnnotationRequest,
+    AddEnvelopeDocumentRequest,
+    AddEnvelopeSigningStepsRequest,
+    AddTemplateDocumentRequest,
+    AddTemplateSigningStepsRequest,
+    Annotation,
     CreateEnvelopeFromTemplateRequest,
+    CreateEnvelopeRequest,
+    CreateTemplateRequest,
+    CreateWebhookRequest,
+    Document,
+    Envelope,
+    EnvelopeNotification,
+    ListEnvelopeDocumentAnnotationsResponse,
+    ListEnvelopeDocumentsResponse,
+    ListEnvelopesRequest,
+    ListEnvelopesResponse,
+    ListTemplateAnnotationsResponse,
+    ListTemplateDocumentAnnotationsResponse,
+    ListTemplateDocumentsResponse,
+    ListTemplatesRequest,
+    ListTemplatesResponse,
+    ListWebhooksRequest,
+    ListWebhooksResponse,
+    RenameEnvelopeRequest,
+    RenameTemplateRequest,
+    SetEnvelopeCommentRequest,
+    SetEnvelopeDynamicFieldsRequest,
+    SetEnvelopeExpirationRequest,
+    SetEnvelopeLegalityLevelRequest,
+    SetTemplateCommentRequest,
+    Template,
+    Webhook,
 )
-from ..models.annotation import Annotation
-from ..models.add_template_signing_steps_request import AddTemplateSigningStepsRequest
-from ..models.add_template_document_request import AddTemplateDocumentRequest
-from ..models.add_envelope_signing_steps_request import AddEnvelopeSigningStepsRequest
-from ..models.add_envelope_document_request import AddEnvelopeDocumentRequest
-from ..models.add_annotation_request import AddAnnotationRequest
 
 
 class SignplusService(BaseService):
@@ -56,7 +51,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope created successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -69,7 +64,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -85,7 +80,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope created successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -103,7 +98,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -117,7 +112,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: List of envelopes retrieved successfully
+        :return: The parsed response data.
         :rtype: ListEnvelopesResponse
         """
 
@@ -130,7 +125,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ListEnvelopesResponse._unmap(response)
 
     @cast_models
@@ -142,7 +137,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope details retrieved successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -157,11 +152,11 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
-    def delete_envelope(self, envelope_id: str) -> Any:
+    def delete_envelope(self, envelope_id: str) -> None:
         """Delete envelope
 
         :param envelope_id: envelope_id
@@ -182,8 +177,7 @@ class SignplusService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def get_envelope_document(self, envelope_id: str, document_id: str) -> Document:
@@ -196,7 +190,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Document details retrieved successfully
+        :return: The parsed response data.
         :rtype: Document
         """
 
@@ -214,7 +208,7 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Document._unmap(response)
 
     @cast_models
@@ -226,7 +220,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Documents of envelope retrieved successfully
+        :return: The parsed response data.
         :rtype: ListEnvelopeDocumentsResponse
         """
 
@@ -242,7 +236,7 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ListEnvelopeDocumentsResponse._unmap(response)
 
     @cast_models
@@ -258,7 +252,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Document added to envelope successfully
+        :return: The parsed response data.
         :rtype: Document
         """
 
@@ -276,7 +270,7 @@ class SignplusService(BaseService):
             .set_body(request_body, "multipart/form-data")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Document._unmap(response)
 
     @cast_models
@@ -292,7 +286,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Dynamic fields added successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -310,7 +304,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -326,7 +320,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Signing steps added successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -344,7 +338,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -356,7 +350,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope sent successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -372,7 +366,7 @@ class SignplusService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -384,7 +378,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope duplicated successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -400,7 +394,7 @@ class SignplusService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -412,7 +406,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope voided successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -428,7 +422,7 @@ class SignplusService(BaseService):
             .set_method("PUT")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -444,7 +438,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope renamed successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -462,7 +456,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -478,7 +472,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope comment changed successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -496,7 +490,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -512,7 +506,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope notification changed successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -530,7 +524,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -546,7 +540,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope expiration date changed successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -564,7 +558,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -580,7 +574,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope legality level changed successfully
+        :return: The parsed response data.
         :rtype: Envelope
         """
 
@@ -598,7 +592,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
 
     @cast_models
@@ -610,7 +604,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: List of annotations retrieved successfully
+        :return: The parsed response data.
         :rtype: List[Annotation]
         """
 
@@ -626,7 +620,7 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return [Annotation._unmap(item) for item in response]
 
     @cast_models
@@ -642,7 +636,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: List of document annotations retrieved successfully
+        :return: The parsed response data.
         :rtype: ListEnvelopeDocumentAnnotationsResponse
         """
 
@@ -660,7 +654,7 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ListEnvelopeDocumentAnnotationsResponse._unmap(response)
 
     @cast_models
@@ -676,7 +670,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Annotation added successfully
+        :return: The parsed response data.
         :rtype: Annotation
         """
 
@@ -694,11 +688,11 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Annotation._unmap(response)
 
     @cast_models
-    def delete_envelope_annotation(self, envelope_id: str, annotation_id: str) -> Any:
+    def delete_envelope_annotation(self, envelope_id: str, annotation_id: str) -> None:
         """Delete envelope annotation
 
         :param envelope_id: ID of the envelope
@@ -724,8 +718,7 @@ class SignplusService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def create_template(self, request_body: CreateTemplateRequest) -> Template:
@@ -736,7 +729,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Envelope created successfully
+        :return: The parsed response data.
         :rtype: Template
         """
 
@@ -749,7 +742,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Template._unmap(response)
 
     @cast_models
@@ -763,7 +756,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: List of templates retrieved successfully
+        :return: The parsed response data.
         :rtype: ListTemplatesResponse
         """
 
@@ -776,7 +769,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ListTemplatesResponse._unmap(response)
 
     @cast_models
@@ -788,7 +781,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Template details retrieved successfully
+        :return: The parsed response data.
         :rtype: Template
         """
 
@@ -803,11 +796,11 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Template._unmap(response)
 
     @cast_models
-    def delete_template(self, template_id: str) -> Any:
+    def delete_template(self, template_id: str) -> None:
         """Delete template
 
         :param template_id: template_id
@@ -828,8 +821,7 @@ class SignplusService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def duplicate_template(self, template_id: str) -> Template:
@@ -840,7 +832,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Template duplicated successfully
+        :return: The parsed response data.
         :rtype: Template
         """
 
@@ -856,7 +848,7 @@ class SignplusService(BaseService):
             .set_method("POST")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Template._unmap(response)
 
     @cast_models
@@ -872,7 +864,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Document added to envelope successfully
+        :return: The parsed response data.
         :rtype: Document
         """
 
@@ -890,7 +882,7 @@ class SignplusService(BaseService):
             .set_body(request_body, "multipart/form-data")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Document._unmap(response)
 
     @cast_models
@@ -904,7 +896,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Document details retrieved successfully
+        :return: The parsed response data.
         :rtype: Document
         """
 
@@ -922,7 +914,7 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Document._unmap(response)
 
     @cast_models
@@ -934,7 +926,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Documents of template retrieved successfully
+        :return: The parsed response data.
         :rtype: ListTemplateDocumentsResponse
         """
 
@@ -950,7 +942,7 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ListTemplateDocumentsResponse._unmap(response)
 
     @cast_models
@@ -966,7 +958,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Signing steps added successfully
+        :return: The parsed response data.
         :rtype: Template
         """
 
@@ -984,7 +976,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Template._unmap(response)
 
     @cast_models
@@ -1000,7 +992,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Template renamed successfully
+        :return: The parsed response data.
         :rtype: Template
         """
 
@@ -1018,7 +1010,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Template._unmap(response)
 
     @cast_models
@@ -1034,7 +1026,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Template comment changed successfully
+        :return: The parsed response data.
         :rtype: Template
         """
 
@@ -1052,7 +1044,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Template._unmap(response)
 
     @cast_models
@@ -1068,7 +1060,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Template notification changed successfully
+        :return: The parsed response data.
         :rtype: Template
         """
 
@@ -1086,7 +1078,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Template._unmap(response)
 
     @cast_models
@@ -1100,7 +1092,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: List of annotations retrieved successfully
+        :return: The parsed response data.
         :rtype: ListTemplateAnnotationsResponse
         """
 
@@ -1116,7 +1108,7 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ListTemplateAnnotationsResponse._unmap(response)
 
     @cast_models
@@ -1132,7 +1124,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: List of document annotations retrieved successfully
+        :return: The parsed response data.
         :rtype: ListTemplateDocumentAnnotationsResponse
         """
 
@@ -1150,7 +1142,7 @@ class SignplusService(BaseService):
             .set_method("GET")
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ListTemplateDocumentAnnotationsResponse._unmap(response)
 
     @cast_models
@@ -1166,7 +1158,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Annotation added successfully
+        :return: The parsed response data.
         :rtype: Annotation
         """
 
@@ -1184,11 +1176,11 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Annotation._unmap(response)
 
     @cast_models
-    def delete_template_annotation(self, template_id: str, annotation_id: str) -> Any:
+    def delete_template_annotation(self, template_id: str, annotation_id: str) -> None:
         """Delete template annotation
 
         :param template_id: ID of the template
@@ -1214,8 +1206,7 @@ class SignplusService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
 
     @cast_models
     def create_webhook(self, request_body: CreateWebhookRequest) -> Webhook:
@@ -1226,7 +1217,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Webhook event received successfully
+        :return: The parsed response data.
         :rtype: Webhook
         """
 
@@ -1239,7 +1230,7 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return Webhook._unmap(response)
 
     @cast_models
@@ -1253,7 +1244,7 @@ class SignplusService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: List of webhooks retrieved successfully
+        :return: The parsed response data.
         :rtype: ListWebhooksResponse
         """
 
@@ -1266,11 +1257,11 @@ class SignplusService(BaseService):
             .set_body(request_body)
         )
 
-        response = self.send_request(serialized_request)
+        response, _, _ = self.send_request(serialized_request)
         return ListWebhooksResponse._unmap(response)
 
     @cast_models
-    def delete_webhook(self, webhook_id: str) -> Any:
+    def delete_webhook(self, webhook_id: str) -> None:
         """Delete webhook
 
         :param webhook_id: webhook_id
@@ -1291,5 +1282,4 @@ class SignplusService(BaseService):
             .set_method("DELETE")
         )
 
-        response = self.send_request(serialized_request)
-        return response
+        self.send_request(serialized_request)
