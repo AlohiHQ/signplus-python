@@ -20,4 +20,12 @@ venv.bak/
 .devcontainer/
 
 dist/
+build/
 .vscode
+
+# Egg info
+*.egg-info/
+
+# OS generated files
+.DS_Store
+Thumbs.db

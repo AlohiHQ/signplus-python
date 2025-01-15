@@ -66,19 +66,18 @@ Create new envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import CreateEnvelopeRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = CreateEnvelopeRequest(
     name="name",
     legality_level="SES",
-    expires_at=8,
+    expires_at=5,
     comment="comment",
     sandbox=False
 )
@@ -109,19 +108,18 @@ Create new envelope from template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import CreateEnvelopeFromTemplateRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = CreateEnvelopeFromTemplateRequest(
     name="name",
     comment="comment",
-    sandbox=False
+    sandbox=True
 )
 
 result = sdk.signplus.create_envelope_from_template(
@@ -152,12 +150,11 @@ List envelopes
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import ListEnvelopesRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -176,17 +173,17 @@ request_body = ListEnvelopesRequest(
     folder_ids=[
         "folder_ids"
     ],
-    only_root_folder=True,
-    date_from=4,
-    date_to=7,
+    only_root_folder=False,
+    date_from=1,
+    date_to=4,
     uid="uid",
-    first=8,
-    last=9,
+    first=1,
+    last=5,
     after="after",
     before="before",
     order_field="CREATION_DATE",
     ascending=False,
-    include_trash=True
+    include_trash=False
 )
 
 result = sdk.signplus.list_envelopes(request_body=request_body)
@@ -214,11 +211,10 @@ Get envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -243,11 +239,10 @@ Delete envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -277,11 +272,10 @@ Get envelope document
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -313,11 +307,10 @@ Get envelope documents
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -347,12 +340,11 @@ Add envelope document
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import AddEnvelopeDocumentRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -389,12 +381,11 @@ Set envelope dynamic fields
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import SetEnvelopeDynamicFieldsRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -436,12 +427,11 @@ Add envelope signing steps
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import AddEnvelopeSigningStepsRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -493,11 +483,10 @@ Send envelope for signature
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -526,11 +515,10 @@ Duplicate envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -559,11 +547,10 @@ Void envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -593,12 +580,11 @@ Rename envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import RenameEnvelopeRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -635,12 +621,11 @@ Set envelope comment
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import SetEnvelopeCommentRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -677,19 +662,18 @@ Set envelope notification
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import EnvelopeNotification
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = EnvelopeNotification(
     subject="subject",
     message="message",
-    reminder_interval=1
+    reminder_interval=0
 )
 
 result = sdk.signplus.set_envelope_notification(
@@ -721,17 +705,16 @@ Set envelope expiration date
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import SetEnvelopeExpirationRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = SetEnvelopeExpirationRequest(
-    expires_at=6
+    expires_at=8
 )
 
 result = sdk.signplus.set_envelope_expiration_date(
@@ -763,12 +746,11 @@ Set envelope legality level
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import SetEnvelopeLegalityLevelRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -804,11 +786,10 @@ Get envelope annotations
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -838,11 +819,10 @@ Get envelope document annotations
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -875,23 +855,22 @@ Add envelope annotation
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import AddAnnotationRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=5,
-    x=2.83,
-    y=1.27,
-    width=5.18,
-    height=4.34,
+    page=6,
+    x=4.19,
+    y=8.41,
+    width=8.25,
+    height=9.18,
     required=False,
     type_="TEXT",
     signature={
@@ -901,28 +880,28 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 0.75,
-        "color": 0.4,
+        "size": 9.27,
+        "color": 3.32,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         }
     },
     datetime_={
-        "size": 2.34,
+        "size": 5.54,
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         },
         "color": "color",
         "auto_fill": False,
         "timezone": "timezone",
-        "timestamp": 6,
+        "timestamp": 8,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
@@ -956,11 +935,10 @@ Delete envelope annotation
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -992,12 +970,11 @@ Create new template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import CreateTemplateRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1030,12 +1007,11 @@ List templates
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import ListTemplatesRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1047,12 +1023,12 @@ request_body = ListTemplatesRequest(
     ids=[
         "ids"
     ],
-    first=2,
-    last=0,
+    first=8,
+    last=7,
     after="after",
     before="before",
     order_field="TEMPLATE_ID",
-    ascending=True
+    ascending=False
 )
 
 result = sdk.signplus.list_templates(request_body=request_body)
@@ -1080,11 +1056,10 @@ Get template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1109,11 +1084,10 @@ Delete template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1142,11 +1116,10 @@ Duplicate template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1176,12 +1149,11 @@ Add template document
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import AddTemplateDocumentRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1218,11 +1190,10 @@ Get template document
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1254,11 +1225,10 @@ Get template documents
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1288,12 +1258,11 @@ Add template signing steps
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import AddTemplateSigningStepsRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1342,12 +1311,11 @@ Rename template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import RenameTemplateRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1384,12 +1352,11 @@ Set template comment
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import SetTemplateCommentRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1426,19 +1393,18 @@ Set template notification
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import EnvelopeNotification
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = EnvelopeNotification(
     subject="subject",
     message="message",
-    reminder_interval=1
+    reminder_interval=0
 )
 
 result = sdk.signplus.set_template_notification(
@@ -1469,11 +1435,10 @@ Get template annotations
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1503,11 +1468,10 @@ Get document template annotations
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1540,23 +1504,22 @@ Add template annotation
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import AddAnnotationRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=5,
-    x=2.83,
-    y=1.27,
-    width=5.18,
-    height=4.34,
+    page=6,
+    x=4.19,
+    y=8.41,
+    width=8.25,
+    height=9.18,
     required=False,
     type_="TEXT",
     signature={
@@ -1566,28 +1529,28 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 0.75,
-        "color": 0.4,
+        "size": 9.27,
+        "color": 3.32,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         }
     },
     datetime_={
-        "size": 2.34,
+        "size": 5.54,
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         },
         "color": "color",
         "auto_fill": False,
         "timezone": "timezone",
-        "timestamp": 6,
+        "timestamp": 8,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
@@ -1621,11 +1584,10 @@ Delete template annotation
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1657,12 +1619,11 @@ Create webhook
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import CreateWebhookRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1696,12 +1657,11 @@ List webhooks
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 from signplus.models import ListWebhooksRequest
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
@@ -1731,11 +1691,10 @@ Delete webhook
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus, Environment
+from signplus import Signplus
 
 sdk = Signplus(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
