@@ -13,7 +13,7 @@ class ListWebhooksResponse(BaseModel):
     :type webhooks: List[Webhook], optional
     """
 
-    def __init__(self, webhooks: List[Webhook] = None):
+    def __init__(self, webhooks: List[Webhook] = None, **kwargs):
         """ListWebhooksResponse
 
         :param webhooks: webhooks, defaults to None
@@ -21,3 +21,4 @@ class ListWebhooksResponse(BaseModel):
         """
         if webhooks is not None:
             self.webhooks = self._define_list(webhooks, Webhook)
+        self._kwargs = kwargs

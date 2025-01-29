@@ -10,10 +10,11 @@ class AddTemplateDocumentRequest(BaseModel):
     :type file: bytes
     """
 
-    def __init__(self, file: bytes):
+    def __init__(self, file: bytes, **kwargs):
         """AddTemplateDocumentRequest
 
         :param file: File to upload in binary format
         :type file: bytes
         """
         self.file = file
+        self._kwargs = kwargs

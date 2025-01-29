@@ -14,7 +14,7 @@ class CreateEnvelopeFromTemplateRequest(BaseModel):
     :type sandbox: bool, optional
     """
 
-    def __init__(self, name: str, comment: str = None, sandbox: bool = None):
+    def __init__(self, name: str, comment: str = None, sandbox: bool = None, **kwargs):
         """CreateEnvelopeFromTemplateRequest
 
         :param name: Name of the envelope
@@ -29,3 +29,4 @@ class CreateEnvelopeFromTemplateRequest(BaseModel):
             self.comment = comment
         if sandbox is not None:
             self.sandbox = sandbox
+        self._kwargs = kwargs

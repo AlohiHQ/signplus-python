@@ -15,7 +15,11 @@ class EnvelopeNotification(BaseModel):
     """
 
     def __init__(
-        self, subject: str = None, message: str = None, reminder_interval: int = None
+        self,
+        subject: str = None,
+        message: str = None,
+        reminder_interval: int = None,
+        **kwargs
     ):
         """EnvelopeNotification
 
@@ -32,3 +36,4 @@ class EnvelopeNotification(BaseModel):
             self.message = message
         if reminder_interval is not None:
             self.reminder_interval = reminder_interval
+        self._kwargs = kwargs

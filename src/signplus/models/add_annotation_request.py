@@ -59,6 +59,7 @@ class AddAnnotationRequest(BaseModel):
         text: AnnotationText = None,
         datetime_: AnnotationDateTime = None,
         checkbox: AnnotationCheckbox = None,
+        **kwargs,
     ):
         """AddAnnotationRequest
 
@@ -112,3 +113,4 @@ class AddAnnotationRequest(BaseModel):
             self.datetime_ = self._define_object(datetime_, AnnotationDateTime)
         if checkbox is not None:
             self.checkbox = self._define_object(checkbox, AnnotationCheckbox)
+        self._kwargs = kwargs

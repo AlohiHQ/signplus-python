@@ -16,7 +16,9 @@ class Webhook(BaseModel):
     :type target: str, optional
     """
 
-    def __init__(self, id_: str = None, event: WebhookEvent = None, target: str = None):
+    def __init__(
+        self, id_: str = None, event: WebhookEvent = None, target: str = None, **kwargs
+    ):
         """Webhook
 
         :param id_: Unique identifier of the webhook, defaults to None
@@ -32,3 +34,4 @@ class Webhook(BaseModel):
             self.event = self._enum_matching(event, WebhookEvent.list(), "event")
         if target is not None:
             self.target = target
+        self._kwargs = kwargs

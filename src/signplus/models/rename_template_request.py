@@ -10,10 +10,11 @@ class RenameTemplateRequest(BaseModel):
     :type name: str
     """
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, **kwargs):
         """RenameTemplateRequest
 
         :param name: Name of the template
         :type name: str
         """
         self.name = name
+        self._kwargs = kwargs

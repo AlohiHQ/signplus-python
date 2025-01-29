@@ -27,6 +27,7 @@ class CreateEnvelopeRequest(BaseModel):
         expires_at: int = None,
         comment: str = None,
         sandbox: bool = None,
+        **kwargs,
     ):
         """CreateEnvelopeRequest
 
@@ -51,3 +52,4 @@ class CreateEnvelopeRequest(BaseModel):
             self.comment = comment
         if sandbox is not None:
             self.sandbox = sandbox
+        self._kwargs = kwargs

@@ -14,7 +14,9 @@ class RecipientVerification(BaseModel):
     :type value: str, optional
     """
 
-    def __init__(self, type_: RecipientVerificationType = None, value: str = None):
+    def __init__(
+        self, type_: RecipientVerificationType = None, value: str = None, **kwargs
+    ):
         """RecipientVerification
 
         :param type_: Type of signature verification (SMS sends a code via SMS, PASSCODE requires a code to be entered), defaults to None
@@ -28,3 +30,4 @@ class RecipientVerification(BaseModel):
             )
         if value is not None:
             self.value = value
+        self._kwargs = kwargs

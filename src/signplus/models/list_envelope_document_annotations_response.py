@@ -13,7 +13,7 @@ class ListEnvelopeDocumentAnnotationsResponse(BaseModel):
     :type annotations: List[Annotation], optional
     """
 
-    def __init__(self, annotations: List[Annotation] = None):
+    def __init__(self, annotations: List[Annotation] = None, **kwargs):
         """ListEnvelopeDocumentAnnotationsResponse
 
         :param annotations: annotations, defaults to None
@@ -21,3 +21,4 @@ class ListEnvelopeDocumentAnnotationsResponse(BaseModel):
         """
         if annotations is not None:
             self.annotations = self._define_list(annotations, Annotation)
+        self._kwargs = kwargs

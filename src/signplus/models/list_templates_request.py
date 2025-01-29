@@ -40,6 +40,7 @@ class ListTemplatesRequest(BaseModel):
         before: str = None,
         order_field: TemplateOrderField = None,
         ascending: bool = None,
+        **kwargs,
     ):
         """ListTemplatesRequest
 
@@ -82,3 +83,4 @@ class ListTemplatesRequest(BaseModel):
             )
         if ascending is not None:
             self.ascending = ascending
+        self._kwargs = kwargs

@@ -55,6 +55,7 @@ class Template(BaseModel):
         documents: List[Document] = None,
         notification: EnvelopeNotification = None,
         dynamic_fields: List[str] = None,
+        **kwargs,
     ):
         """Template
 
@@ -113,3 +114,4 @@ class Template(BaseModel):
             self.notification = self._define_object(notification, EnvelopeNotification)
         if dynamic_fields is not None:
             self.dynamic_fields = dynamic_fields
+        self._kwargs = kwargs

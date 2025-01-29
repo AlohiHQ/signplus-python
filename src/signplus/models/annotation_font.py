@@ -21,6 +21,7 @@ class AnnotationFont(BaseModel):
         family: AnnotationFontFamily = None,
         italic: bool = None,
         bold: bool = None,
+        **kwargs,
     ):
         """AnnotationFont
 
@@ -39,3 +40,4 @@ class AnnotationFont(BaseModel):
             self.italic = italic
         if bold is not None:
             self.bold = bold
+        self._kwargs = kwargs

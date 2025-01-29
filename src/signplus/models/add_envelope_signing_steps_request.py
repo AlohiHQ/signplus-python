@@ -13,7 +13,7 @@ class AddEnvelopeSigningStepsRequest(BaseModel):
     :type signing_steps: List[SigningStep], optional
     """
 
-    def __init__(self, signing_steps: List[SigningStep] = None):
+    def __init__(self, signing_steps: List[SigningStep] = None, **kwargs):
         """AddEnvelopeSigningStepsRequest
 
         :param signing_steps: List of signing steps, defaults to None
@@ -21,3 +21,4 @@ class AddEnvelopeSigningStepsRequest(BaseModel):
         """
         if signing_steps is not None:
             self.signing_steps = self._define_list(signing_steps, SigningStep)
+        self._kwargs = kwargs

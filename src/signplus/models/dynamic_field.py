@@ -12,7 +12,7 @@ class DynamicField(BaseModel):
     :type value: str, optional
     """
 
-    def __init__(self, name: str = None, value: str = None):
+    def __init__(self, name: str = None, value: str = None, **kwargs):
         """DynamicField
 
         :param name: Name of the dynamic field, defaults to None
@@ -24,3 +24,4 @@ class DynamicField(BaseModel):
             self.name = name
         if value is not None:
             self.value = value
+        self._kwargs = kwargs
