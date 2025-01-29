@@ -10,10 +10,11 @@ class CreateTemplateRequest(BaseModel):
     :type name: str
     """
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, **kwargs):
         """CreateTemplateRequest
 
         :param name: name
         :type name: str
         """
         self.name = name
+        self._kwargs = kwargs

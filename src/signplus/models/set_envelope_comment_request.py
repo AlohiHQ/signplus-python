@@ -10,10 +10,11 @@ class SetEnvelopeCommentRequest(BaseModel):
     :type comment: str
     """
 
-    def __init__(self, comment: str):
+    def __init__(self, comment: str, **kwargs):
         """SetEnvelopeCommentRequest
 
         :param comment: Comment for the envelope
         :type comment: str
         """
         self.comment = comment
+        self._kwargs = kwargs

@@ -13,10 +13,11 @@ class AddTemplateSigningStepsRequest(BaseModel):
     :type signing_steps: List[TemplateSigningStep]
     """
 
-    def __init__(self, signing_steps: List[TemplateSigningStep]):
+    def __init__(self, signing_steps: List[TemplateSigningStep], **kwargs):
         """AddTemplateSigningStepsRequest
 
         :param signing_steps: List of signing steps
         :type signing_steps: List[TemplateSigningStep]
         """
         self.signing_steps = self._define_list(signing_steps, TemplateSigningStep)
+        self._kwargs = kwargs

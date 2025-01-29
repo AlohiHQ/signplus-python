@@ -12,7 +12,7 @@ class SetEnvelopeLegalityLevelRequest(BaseModel):
     :type legality_level: EnvelopeLegalityLevel, optional
     """
 
-    def __init__(self, legality_level: EnvelopeLegalityLevel = None):
+    def __init__(self, legality_level: EnvelopeLegalityLevel = None, **kwargs):
         """SetEnvelopeLegalityLevelRequest
 
         :param legality_level: Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qualified Electronic Signature, QES_ZERTES is Qualified Electronic Signature with Zertes), defaults to None
@@ -22,3 +22,4 @@ class SetEnvelopeLegalityLevelRequest(BaseModel):
             self.legality_level = self._enum_matching(
                 legality_level, EnvelopeLegalityLevel.list(), "legality_level"
             )
+        self._kwargs = kwargs

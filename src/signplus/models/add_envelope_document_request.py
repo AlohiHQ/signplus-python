@@ -10,7 +10,7 @@ class AddEnvelopeDocumentRequest(BaseModel):
     :type file: bytes, optional
     """
 
-    def __init__(self, file: bytes = None):
+    def __init__(self, file: bytes = None, **kwargs):
         """AddEnvelopeDocumentRequest
 
         :param file: File to upload in binary format, defaults to None
@@ -18,3 +18,4 @@ class AddEnvelopeDocumentRequest(BaseModel):
         """
         if file is not None:
             self.file = file
+        self._kwargs = kwargs

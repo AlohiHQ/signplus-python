@@ -13,7 +13,7 @@ class ListEnvelopeDocumentsResponse(BaseModel):
     :type documents: List[Document], optional
     """
 
-    def __init__(self, documents: List[Document] = None):
+    def __init__(self, documents: List[Document] = None, **kwargs):
         """ListEnvelopeDocumentsResponse
 
         :param documents: documents, defaults to None
@@ -21,3 +21,4 @@ class ListEnvelopeDocumentsResponse(BaseModel):
         """
         if documents is not None:
             self.documents = self._define_list(documents, Document)
+        self._kwargs = kwargs

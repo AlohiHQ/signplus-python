@@ -63,6 +63,7 @@ class Envelope(BaseModel):
         signing_steps: List[SigningStep] = None,
         documents: List[Document] = None,
         notification: EnvelopeNotification = None,
+        **kwargs,
     ):
         """Envelope
 
@@ -131,3 +132,4 @@ class Envelope(BaseModel):
             self.documents = self._define_list(documents, Document)
         if notification is not None:
             self.notification = self._define_object(notification, EnvelopeNotification)
+        self._kwargs = kwargs

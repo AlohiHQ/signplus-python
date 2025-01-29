@@ -13,7 +13,7 @@ class TemplateSigningStep(BaseModel):
     :type recipients: List[TemplateRecipient], optional
     """
 
-    def __init__(self, recipients: List[TemplateRecipient] = None):
+    def __init__(self, recipients: List[TemplateRecipient] = None, **kwargs):
         """TemplateSigningStep
 
         :param recipients: List of recipients, defaults to None
@@ -21,3 +21,4 @@ class TemplateSigningStep(BaseModel):
         """
         if recipients is not None:
             self.recipients = self._define_list(recipients, TemplateRecipient)
+        self._kwargs = kwargs

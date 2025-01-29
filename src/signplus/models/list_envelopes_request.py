@@ -65,6 +65,7 @@ class ListEnvelopesRequest(BaseModel):
         order_field: EnvelopeOrderField = None,
         ascending: bool = None,
         include_trash: bool = None,
+        **kwargs,
     ):
         """ListEnvelopesRequest
 
@@ -139,3 +140,4 @@ class ListEnvelopesRequest(BaseModel):
             self.ascending = ascending
         if include_trash is not None:
             self.include_trash = include_trash
+        self._kwargs = kwargs

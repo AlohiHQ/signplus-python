@@ -28,6 +28,7 @@ class Document(BaseModel):
         filename: str = None,
         page_count: int = None,
         pages: List[Page] = None,
+        **kwargs,
     ):
         """Document
 
@@ -52,3 +53,4 @@ class Document(BaseModel):
             self.page_count = page_count
         if pages is not None:
             self.pages = self._define_list(pages, Page)
+        self._kwargs = kwargs

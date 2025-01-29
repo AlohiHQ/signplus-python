@@ -10,7 +10,7 @@ class AnnotationInitials(BaseModel):
     :type id_: str, optional
     """
 
-    def __init__(self, id_: str = None):
+    def __init__(self, id_: str = None, **kwargs):
         """Initials annotation (null if annotation is not initials)
 
         :param id_: Unique identifier of the annotation initials, defaults to None
@@ -18,3 +18,4 @@ class AnnotationInitials(BaseModel):
         """
         if id_ is not None:
             self.id_ = id_
+        self._kwargs = kwargs

@@ -14,7 +14,9 @@ class AnnotationCheckbox(BaseModel):
     :type style: AnnotationCheckboxStyle, optional
     """
 
-    def __init__(self, checked: bool = None, style: AnnotationCheckboxStyle = None):
+    def __init__(
+        self, checked: bool = None, style: AnnotationCheckboxStyle = None, **kwargs
+    ):
         """Checkbox annotation (null if annotation is not a checkbox)
 
         :param checked: Whether the checkbox is checked, defaults to None
@@ -28,3 +30,4 @@ class AnnotationCheckbox(BaseModel):
             self.style = self._enum_matching(
                 style, AnnotationCheckboxStyle.list(), "style"
             )
+        self._kwargs = kwargs

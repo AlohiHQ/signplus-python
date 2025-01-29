@@ -27,6 +27,7 @@ class TemplateRecipient(BaseModel):
         name: str = None,
         email: str = None,
         role: TemplateRecipientRole = None,
+        **kwargs,
     ):
         """TemplateRecipient
 
@@ -51,3 +52,4 @@ class TemplateRecipient(BaseModel):
             self.email = email
         if role is not None:
             self.role = self._enum_matching(role, TemplateRecipientRole.list(), "role")
+        self._kwargs = kwargs

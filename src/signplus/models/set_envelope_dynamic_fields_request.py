@@ -13,10 +13,11 @@ class SetEnvelopeDynamicFieldsRequest(BaseModel):
     :type dynamic_fields: List[DynamicField]
     """
 
-    def __init__(self, dynamic_fields: List[DynamicField]):
+    def __init__(self, dynamic_fields: List[DynamicField], **kwargs):
         """SetEnvelopeDynamicFieldsRequest
 
         :param dynamic_fields: List of dynamic fields
         :type dynamic_fields: List[DynamicField]
         """
         self.dynamic_fields = self._define_list(dynamic_fields, DynamicField)
+        self._kwargs = kwargs

@@ -22,6 +22,7 @@ class ListEnvelopesResponse(BaseModel):
         has_next_page: bool = None,
         has_previous_page: bool = None,
         envelopes: List[Envelope] = None,
+        **kwargs,
     ):
         """ListEnvelopesResponse
 
@@ -38,3 +39,4 @@ class ListEnvelopesResponse(BaseModel):
             self.has_previous_page = has_previous_page
         if envelopes is not None:
             self.envelopes = self._define_list(envelopes, Envelope)
+        self._kwargs = kwargs

@@ -30,6 +30,7 @@ class AnnotationText(BaseModel):
         tooltip: str = None,
         dynamic_field_name: str = None,
         font: AnnotationFont = None,
+        **kwargs,
     ):
         """Text annotation (null if annotation is not a text)
 
@@ -58,3 +59,4 @@ class AnnotationText(BaseModel):
             self.dynamic_field_name = dynamic_field_name
         if font is not None:
             self.font = self._define_object(font, AnnotationFont)
+        self._kwargs = kwargs

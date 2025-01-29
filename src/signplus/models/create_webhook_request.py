@@ -14,7 +14,7 @@ class CreateWebhookRequest(BaseModel):
     :type target: str
     """
 
-    def __init__(self, event: WebhookEvent, target: str):
+    def __init__(self, event: WebhookEvent, target: str, **kwargs):
         """CreateWebhookRequest
 
         :param event: Event of the webhook
@@ -24,3 +24,4 @@ class CreateWebhookRequest(BaseModel):
         """
         self.event = self._enum_matching(event, WebhookEvent.list(), "event")
         self.target = target
+        self._kwargs = kwargs

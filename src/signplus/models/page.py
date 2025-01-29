@@ -12,7 +12,7 @@ class Page(BaseModel):
     :type height: int, optional
     """
 
-    def __init__(self, width: int = None, height: int = None):
+    def __init__(self, width: int = None, height: int = None, **kwargs):
         """Page
 
         :param width: Width of the page in pixels, defaults to None
@@ -24,3 +24,4 @@ class Page(BaseModel):
             self.width = width
         if height is not None:
             self.height = height
+        self._kwargs = kwargs

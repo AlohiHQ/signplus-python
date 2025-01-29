@@ -34,6 +34,7 @@ class AnnotationDateTime(BaseModel):
         timezone: str = None,
         timestamp: int = None,
         format: AnnotationDateTimeFormat = None,
+        **kwargs,
     ):
         """Date annotation (null if annotation is not a date)
 
@@ -68,3 +69,4 @@ class AnnotationDateTime(BaseModel):
             self.format = self._enum_matching(
                 format, AnnotationDateTimeFormat.list(), "format"
             )
+        self._kwargs = kwargs

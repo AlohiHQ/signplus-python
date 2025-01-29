@@ -22,6 +22,7 @@ class ListTemplatesResponse(BaseModel):
         has_next_page: bool = None,
         has_previous_page: bool = None,
         templates: List[Template] = None,
+        **kwargs,
     ):
         """ListTemplatesResponse
 
@@ -38,3 +39,4 @@ class ListTemplatesResponse(BaseModel):
             self.has_previous_page = has_previous_page
         if templates is not None:
             self.templates = self._define_list(templates, Template)
+        self._kwargs = kwargs

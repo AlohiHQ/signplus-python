@@ -31,6 +31,7 @@ class Recipient(BaseModel):
         id_: str = None,
         uid: str = None,
         verification: RecipientVerification = None,
+        **kwargs,
     ):
         """Recipient
 
@@ -56,3 +57,4 @@ class Recipient(BaseModel):
         self.role = self._enum_matching(role, RecipientRole.list(), "role")
         if verification is not None:
             self.verification = self._define_object(verification, RecipientVerification)
+        self._kwargs = kwargs
