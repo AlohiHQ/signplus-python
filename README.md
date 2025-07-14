@@ -1,4 +1,4 @@
-# Signplus Python SDK 1.2.0
+# Signplus Python SDK 1.3.0
 
 Welcome to the Signplus SDK documentation. This guide will help you get started with integrating and using the Signplus SDK in your project.
 
@@ -6,8 +6,8 @@ Welcome to the Signplus SDK documentation. This guide will help you get started 
 
 ## Versions
 
-- API version: `2.2.0`
-- SDK version: `1.2.0`
+- API version: `2.3.1`
+- SDK version: `1.3.0`
 
 ## About the API
 
@@ -22,6 +22,7 @@ Integrate legally-binding electronic signature to your workflow
   - [Access Token Authentication](#access-token-authentication)
 - [Setting a Custom Timeout](#setting-a-custom-timeout)
 - [Sample Usage](#sample-usage)
+- [Async Usage](#async-usage)
 - [Services](#services)
 - [Models](#models)
 - [License](#license)
@@ -93,6 +94,27 @@ print(result)
 
 ```
 
+# Async Usage
+
+The SDK includes an Async Client for making asynchronous API requests. This is useful for applications that need non-blocking operations, like web servers or apps with a graphical user interface.
+
+```py
+import asyncio
+from signplus import SignplusAsync
+
+sdk = SignplusAsync(
+    access_token="YOUR_ACCESS_TOKEN",
+    timeout=10000
+)
+
+
+async def main():
+  result = await sdk.signplus.get_envelope(envelope_id="envelope_id")
+  print(result)
+
+asyncio.run(main())
+```
+
 ## Services
 
 The SDK provides various services to interact with the API.
@@ -155,7 +177,7 @@ The SDK includes several models that represent the data structures used in API r
 | [Recipient](documentation/models/Recipient.md)                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | [RecipientRole](documentation/models/RecipientRole.md)                                                     | Role of the recipient (SIGNER signs the document, RECEIVES_COPY receives a copy of the document, IN_PERSON_SIGNER signs the document in person, SENDER sends the document)                                                                                                                                                                                                                                                                                                                |
 | [RecipientVerification](documentation/models/RecipientVerification.md)                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| [RecipientVerificationType](documentation/models/RecipientVerificationType.md)                             | Type of signature verification (SMS sends a code via SMS, PASSCODE requires a code to be entered)                                                                                                                                                                                                                                                                                                                                                                                         |
+| [RecipientVerificationType](documentation/models/RecipientVerificationType.md)                             | Type of verification the recipient must complete before accessing the envelope. - `PASSCODE`: requires a code to be entered. - `SMS`: sends a code via SMS. - `ID_VERIFICATION`: prompts the recipient to complete an automated ID and selfie check.                                                                                                                                                                                                                                      |
 | [Page](documentation/models/Page.md)                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | [EnvelopeOrderField](documentation/models/EnvelopeOrderField.md)                                           | Field to order envelopes by                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | [DynamicField](documentation/models/DynamicField.md)                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |

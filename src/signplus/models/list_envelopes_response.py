@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .envelope import Envelope
 
 
@@ -19,9 +20,9 @@ class ListEnvelopesResponse(BaseModel):
 
     def __init__(
         self,
-        has_next_page: bool = None,
-        has_previous_page: bool = None,
-        envelopes: List[Envelope] = None,
+        has_next_page: bool = SENTINEL,
+        has_previous_page: bool = SENTINEL,
+        envelopes: List[Envelope] = SENTINEL,
         **kwargs,
     ):
         """ListEnvelopesResponse
@@ -33,10 +34,10 @@ class ListEnvelopesResponse(BaseModel):
         :param envelopes: envelopes, defaults to None
         :type envelopes: List[Envelope], optional
         """
-        if has_next_page is not None:
+        if has_next_page is not SENTINEL:
             self.has_next_page = has_next_page
-        if has_previous_page is not None:
+        if has_previous_page is not SENTINEL:
             self.has_previous_page = has_previous_page
-        if envelopes is not None:
+        if envelopes is not SENTINEL:
             self.envelopes = self._define_list(envelopes, Envelope)
         self._kwargs = kwargs

@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .webhook_event import WebhookEvent
 
 
@@ -17,7 +18,11 @@ class Webhook(BaseModel):
     """
 
     def __init__(
-        self, id_: str = None, event: WebhookEvent = None, target: str = None, **kwargs
+        self,
+        id_: str = SENTINEL,
+        event: WebhookEvent = SENTINEL,
+        target: str = SENTINEL,
+        **kwargs,
     ):
         """Webhook
 
@@ -28,10 +33,10 @@ class Webhook(BaseModel):
         :param target: Target URL of the webhook, defaults to None
         :type target: str, optional
         """
-        if id_ is not None:
+        if id_ is not SENTINEL:
             self.id_ = id_
-        if event is not None:
+        if event is not SENTINEL:
             self.event = self._enum_matching(event, WebhookEvent.list(), "event")
-        if target is not None:
+        if target is not SENTINEL:
             self.target = target
         self._kwargs = kwargs

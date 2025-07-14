@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .annotation_checkbox_style import AnnotationCheckboxStyle
 
 
@@ -15,7 +16,10 @@ class AnnotationCheckbox(BaseModel):
     """
 
     def __init__(
-        self, checked: bool = None, style: AnnotationCheckboxStyle = None, **kwargs
+        self,
+        checked: bool = SENTINEL,
+        style: AnnotationCheckboxStyle = SENTINEL,
+        **kwargs,
     ):
         """Checkbox annotation (null if annotation is not a checkbox)
 
@@ -24,9 +28,9 @@ class AnnotationCheckbox(BaseModel):
         :param style: Style of the checkbox, defaults to None
         :type style: AnnotationCheckboxStyle, optional
         """
-        if checked is not None:
+        if checked is not SENTINEL:
             self.checked = checked
-        if style is not None:
+        if style is not SENTINEL:
             self.style = self._enum_matching(
                 style, AnnotationCheckboxStyle.list(), "style"
             )

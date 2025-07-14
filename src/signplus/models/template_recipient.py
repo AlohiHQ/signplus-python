@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .template_recipient_role import TemplateRecipientRole
 
 
@@ -22,11 +23,11 @@ class TemplateRecipient(BaseModel):
 
     def __init__(
         self,
-        id_: str = None,
-        uid: str = None,
-        name: str = None,
-        email: str = None,
-        role: TemplateRecipientRole = None,
+        id_: str = SENTINEL,
+        uid: str = SENTINEL,
+        name: str = SENTINEL,
+        email: str = SENTINEL,
+        role: TemplateRecipientRole = SENTINEL,
         **kwargs,
     ):
         """TemplateRecipient
@@ -42,14 +43,14 @@ class TemplateRecipient(BaseModel):
         :param role: Role of the recipient (SIGNER signs the document, RECEIVES_COPY receives a copy of the document, IN_PERSON_SIGNER signs the document in person, SENDER sends the document), defaults to None
         :type role: TemplateRecipientRole, optional
         """
-        if id_ is not None:
+        if id_ is not SENTINEL:
             self.id_ = id_
-        if uid is not None:
+        if uid is not SENTINEL:
             self.uid = uid
-        if name is not None:
+        if name is not SENTINEL:
             self.name = name
-        if email is not None:
+        if email is not SENTINEL:
             self.email = email
-        if role is not None:
+        if role is not SENTINEL:
             self.role = self._enum_matching(role, TemplateRecipientRole.list(), "role")
         self._kwargs = kwargs

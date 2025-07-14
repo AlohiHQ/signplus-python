@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .envelope_legality_level import EnvelopeLegalityLevel
 
 
@@ -24,9 +25,9 @@ class CreateEnvelopeRequest(BaseModel):
         self,
         name: str,
         legality_level: EnvelopeLegalityLevel,
-        expires_at: int = None,
-        comment: str = None,
-        sandbox: bool = None,
+        expires_at: int = SENTINEL,
+        comment: str = SENTINEL,
+        sandbox: bool = SENTINEL,
         **kwargs,
     ):
         """CreateEnvelopeRequest
@@ -42,14 +43,20 @@ class CreateEnvelopeRequest(BaseModel):
         :param sandbox: Whether the envelope is created in sandbox mode, defaults to None
         :type sandbox: bool, optional
         """
-        self.name = name
+        self.name = self._define_str(
+            "name",
+            name,
+            pattern="^[a-zA-Z0-9][a-zA-Z0-9 ]*[a-zA-Z0-9]$",
+            min_length=2,
+            max_length=256,
+        )
         self.legality_level = self._enum_matching(
             legality_level, EnvelopeLegalityLevel.list(), "legality_level"
         )
-        if expires_at is not None:
+        if expires_at is not SENTINEL:
             self.expires_at = expires_at
-        if comment is not None:
+        if comment is not SENTINEL:
             self.comment = comment
-        if sandbox is not None:
+        if sandbox is not SENTINEL:
             self.sandbox = sandbox
         self._kwargs = kwargs

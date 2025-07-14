@@ -1,5 +1,6 @@
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 @JsonMap({})
@@ -12,7 +13,7 @@ class Page(BaseModel):
     :type height: int, optional
     """
 
-    def __init__(self, width: int = None, height: int = None, **kwargs):
+    def __init__(self, width: int = SENTINEL, height: int = SENTINEL, **kwargs):
         """Page
 
         :param width: Width of the page in pixels, defaults to None
@@ -20,8 +21,8 @@ class Page(BaseModel):
         :param height: Height of the page in pixels, defaults to None
         :type height: int, optional
         """
-        if width is not None:
+        if width is not SENTINEL:
             self.width = width
-        if height is not None:
+        if height is not SENTINEL:
             self.height = height
         self._kwargs = kwargs

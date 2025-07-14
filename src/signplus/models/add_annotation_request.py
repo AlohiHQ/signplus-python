@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .annotation_type import AnnotationType
 from .annotation_signature import AnnotationSignature
 from .annotation_initials import AnnotationInitials
@@ -52,13 +53,13 @@ class AddAnnotationRequest(BaseModel):
         width: float,
         height: float,
         type_: AnnotationType,
-        recipient_id: str = None,
-        required: bool = None,
-        signature: AnnotationSignature = None,
-        initials: AnnotationInitials = None,
-        text: AnnotationText = None,
-        datetime_: AnnotationDateTime = None,
-        checkbox: AnnotationCheckbox = None,
+        recipient_id: str = SENTINEL,
+        required: bool = SENTINEL,
+        signature: AnnotationSignature = SENTINEL,
+        initials: AnnotationInitials = SENTINEL,
+        text: AnnotationText = SENTINEL,
+        datetime_: AnnotationDateTime = SENTINEL,
+        checkbox: AnnotationCheckbox = SENTINEL,
         **kwargs,
     ):
         """AddAnnotationRequest
@@ -92,7 +93,7 @@ class AddAnnotationRequest(BaseModel):
         :param checkbox: Checkbox annotation (null if annotation is not a checkbox), defaults to None
         :type checkbox: AnnotationCheckbox, optional
         """
-        if recipient_id is not None:
+        if recipient_id is not SENTINEL:
             self.recipient_id = recipient_id
         self.document_id = document_id
         self.page = page
@@ -100,17 +101,17 @@ class AddAnnotationRequest(BaseModel):
         self.y = y
         self.width = width
         self.height = height
-        if required is not None:
+        if required is not SENTINEL:
             self.required = required
         self.type_ = self._enum_matching(type_, AnnotationType.list(), "type_")
-        if signature is not None:
+        if signature is not SENTINEL:
             self.signature = self._define_object(signature, AnnotationSignature)
-        if initials is not None:
+        if initials is not SENTINEL:
             self.initials = self._define_object(initials, AnnotationInitials)
-        if text is not None:
+        if text is not SENTINEL:
             self.text = self._define_object(text, AnnotationText)
-        if datetime_ is not None:
+        if datetime_ is not SENTINEL:
             self.datetime_ = self._define_object(datetime_, AnnotationDateTime)
-        if checkbox is not None:
+        if checkbox is not SENTINEL:
             self.checkbox = self._define_object(checkbox, AnnotationCheckbox)
         self._kwargs = kwargs

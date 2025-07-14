@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .annotation_font_family import AnnotationFontFamily
 
 
@@ -18,9 +19,9 @@ class AnnotationFont(BaseModel):
 
     def __init__(
         self,
-        family: AnnotationFontFamily = None,
-        italic: bool = None,
-        bold: bool = None,
+        family: AnnotationFontFamily = SENTINEL,
+        italic: bool = SENTINEL,
+        bold: bool = SENTINEL,
         **kwargs,
     ):
         """AnnotationFont
@@ -32,12 +33,12 @@ class AnnotationFont(BaseModel):
         :param bold: Whether the text is bold, defaults to None
         :type bold: bool, optional
         """
-        if family is not None:
+        if family is not SENTINEL:
             self.family = self._enum_matching(
                 family, AnnotationFontFamily.list(), "family"
             )
-        if italic is not None:
+        if italic is not SENTINEL:
             self.italic = italic
-        if bold is not None:
+        if bold is not SENTINEL:
             self.bold = bold
         self._kwargs = kwargs

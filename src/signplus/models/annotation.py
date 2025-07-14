@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .annotation_type import AnnotationType
 from .annotation_signature import AnnotationSignature
 from .annotation_initials import AnnotationInitials
@@ -47,21 +48,21 @@ class Annotation(BaseModel):
 
     def __init__(
         self,
-        id_: str = None,
-        recipient_id: str = None,
-        document_id: str = None,
-        page: int = None,
-        x: float = None,
-        y: float = None,
-        width: float = None,
-        height: float = None,
-        required: bool = None,
-        type_: AnnotationType = None,
-        signature: AnnotationSignature = None,
-        initials: AnnotationInitials = None,
-        text: AnnotationText = None,
-        datetime_: AnnotationDateTime = None,
-        checkbox: AnnotationCheckbox = None,
+        id_: str = SENTINEL,
+        recipient_id: str = SENTINEL,
+        document_id: str = SENTINEL,
+        page: int = SENTINEL,
+        x: float = SENTINEL,
+        y: float = SENTINEL,
+        width: float = SENTINEL,
+        height: float = SENTINEL,
+        required: bool = SENTINEL,
+        type_: AnnotationType = SENTINEL,
+        signature: AnnotationSignature = SENTINEL,
+        initials: AnnotationInitials = SENTINEL,
+        text: AnnotationText = SENTINEL,
+        datetime_: AnnotationDateTime = SENTINEL,
+        checkbox: AnnotationCheckbox = SENTINEL,
         **kwargs,
     ):
         """Annotation
@@ -97,34 +98,34 @@ class Annotation(BaseModel):
         :param checkbox: Checkbox annotation (null if annotation is not a checkbox), defaults to None
         :type checkbox: AnnotationCheckbox, optional
         """
-        if id_ is not None:
+        if id_ is not SENTINEL:
             self.id_ = id_
-        if recipient_id is not None:
+        if recipient_id is not SENTINEL:
             self.recipient_id = recipient_id
-        if document_id is not None:
+        if document_id is not SENTINEL:
             self.document_id = document_id
-        if page is not None:
+        if page is not SENTINEL:
             self.page = page
-        if x is not None:
+        if x is not SENTINEL:
             self.x = x
-        if y is not None:
+        if y is not SENTINEL:
             self.y = y
-        if width is not None:
+        if width is not SENTINEL:
             self.width = width
-        if height is not None:
+        if height is not SENTINEL:
             self.height = height
-        if required is not None:
+        if required is not SENTINEL:
             self.required = required
-        if type_ is not None:
+        if type_ is not SENTINEL:
             self.type_ = self._enum_matching(type_, AnnotationType.list(), "type_")
-        if signature is not None:
+        if signature is not SENTINEL:
             self.signature = self._define_object(signature, AnnotationSignature)
-        if initials is not None:
+        if initials is not SENTINEL:
             self.initials = self._define_object(initials, AnnotationInitials)
-        if text is not None:
+        if text is not SENTINEL:
             self.text = self._define_object(text, AnnotationText)
-        if datetime_ is not None:
+        if datetime_ is not SENTINEL:
             self.datetime_ = self._define_object(datetime_, AnnotationDateTime)
-        if checkbox is not None:
+        if checkbox is not SENTINEL:
             self.checkbox = self._define_object(checkbox, AnnotationCheckbox)
         self._kwargs = kwargs

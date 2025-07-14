@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .template_order_field import TemplateOrderField
 
 
@@ -31,15 +32,15 @@ class ListTemplatesRequest(BaseModel):
 
     def __init__(
         self,
-        name: str = None,
-        tags: List[str] = None,
-        ids: List[str] = None,
-        first: int = None,
-        last: int = None,
-        after: str = None,
-        before: str = None,
-        order_field: TemplateOrderField = None,
-        ascending: bool = None,
+        name: str = SENTINEL,
+        tags: List[str] = SENTINEL,
+        ids: List[str] = SENTINEL,
+        first: int = SENTINEL,
+        last: int = SENTINEL,
+        after: str = SENTINEL,
+        before: str = SENTINEL,
+        order_field: TemplateOrderField = SENTINEL,
+        ascending: bool = SENTINEL,
         **kwargs,
     ):
         """ListTemplatesRequest
@@ -63,24 +64,24 @@ class ListTemplatesRequest(BaseModel):
         :param ascending: Whether to order templates in ascending order, defaults to None
         :type ascending: bool, optional
         """
-        if name is not None:
+        if name is not SENTINEL:
             self.name = name
-        if tags is not None:
+        if tags is not SENTINEL:
             self.tags = tags
-        if ids is not None:
+        if ids is not SENTINEL:
             self.ids = ids
-        if first is not None:
+        if first is not SENTINEL:
             self.first = first
-        if last is not None:
+        if last is not SENTINEL:
             self.last = last
-        if after is not None:
+        if after is not SENTINEL:
             self.after = after
-        if before is not None:
+        if before is not SENTINEL:
             self.before = before
-        if order_field is not None:
+        if order_field is not SENTINEL:
             self.order_field = self._enum_matching(
                 order_field, TemplateOrderField.list(), "order_field"
             )
-        if ascending is not None:
+        if ascending is not SENTINEL:
             self.ascending = ascending
         self._kwargs = kwargs
