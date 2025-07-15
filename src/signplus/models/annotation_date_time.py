@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .annotation_font import AnnotationFont
 from .annotation_date_time_format import AnnotationDateTimeFormat
 
@@ -27,13 +28,13 @@ class AnnotationDateTime(BaseModel):
 
     def __init__(
         self,
-        size: float = None,
-        font: AnnotationFont = None,
-        color: str = None,
-        auto_fill: bool = None,
-        timezone: str = None,
-        timestamp: int = None,
-        format: AnnotationDateTimeFormat = None,
+        size: float = SENTINEL,
+        font: AnnotationFont = SENTINEL,
+        color: str = SENTINEL,
+        auto_fill: bool = SENTINEL,
+        timezone: str = SENTINEL,
+        timestamp: int = SENTINEL,
+        format: AnnotationDateTimeFormat = SENTINEL,
         **kwargs,
     ):
         """Date annotation (null if annotation is not a date)
@@ -53,19 +54,19 @@ class AnnotationDateTime(BaseModel):
         :param format: Format of the date time (DMY_NUMERIC_SLASH is day/month/year with slashes, MDY_NUMERIC_SLASH is month/day/year with slashes, YMD_NUMERIC_SLASH is year/month/day with slashes, DMY_NUMERIC_DASH_SHORT is day/month/year with dashes, DMY_NUMERIC_DASH is day/month/year with dashes, YMD_NUMERIC_DASH is year/month/day with dashes, MDY_TEXT_DASH_SHORT is month/day/year with dashes, MDY_TEXT_SPACE_SHORT is month/day/year with spaces, MDY_TEXT_SPACE is month/day/year with spaces), defaults to None
         :type format: AnnotationDateTimeFormat, optional
         """
-        if size is not None:
+        if size is not SENTINEL:
             self.size = size
-        if font is not None:
+        if font is not SENTINEL:
             self.font = self._define_object(font, AnnotationFont)
-        if color is not None:
+        if color is not SENTINEL:
             self.color = color
-        if auto_fill is not None:
+        if auto_fill is not SENTINEL:
             self.auto_fill = auto_fill
-        if timezone is not None:
+        if timezone is not SENTINEL:
             self.timezone = timezone
-        if timestamp is not None:
+        if timestamp is not SENTINEL:
             self.timestamp = timestamp
-        if format is not None:
+        if format is not SENTINEL:
             self.format = self._enum_matching(
                 format, AnnotationDateTimeFormat.list(), "format"
             )

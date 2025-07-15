@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .annotation_font import AnnotationFont
 
 
@@ -24,12 +25,12 @@ class AnnotationText(BaseModel):
 
     def __init__(
         self,
-        size: float = None,
-        color: float = None,
-        value: str = None,
-        tooltip: str = None,
-        dynamic_field_name: str = None,
-        font: AnnotationFont = None,
+        size: float = SENTINEL,
+        color: float = SENTINEL,
+        value: str = SENTINEL,
+        tooltip: str = SENTINEL,
+        dynamic_field_name: str = SENTINEL,
+        font: AnnotationFont = SENTINEL,
         **kwargs,
     ):
         """Text annotation (null if annotation is not a text)
@@ -47,16 +48,16 @@ class AnnotationText(BaseModel):
         :param font: font, defaults to None
         :type font: AnnotationFont, optional
         """
-        if size is not None:
+        if size is not SENTINEL:
             self.size = size
-        if color is not None:
+        if color is not SENTINEL:
             self.color = color
-        if value is not None:
+        if value is not SENTINEL:
             self.value = value
-        if tooltip is not None:
+        if tooltip is not SENTINEL:
             self.tooltip = tooltip
-        if dynamic_field_name is not None:
+        if dynamic_field_name is not SENTINEL:
             self.dynamic_field_name = dynamic_field_name
-        if font is not None:
+        if font is not SENTINEL:
             self.font = self._define_object(font, AnnotationFont)
         self._kwargs = kwargs

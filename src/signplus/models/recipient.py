@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .recipient_role import RecipientRole
 from .recipient_verification import RecipientVerification
 
@@ -28,9 +29,9 @@ class Recipient(BaseModel):
         name: str,
         email: str,
         role: RecipientRole,
-        id_: str = None,
-        uid: str = None,
-        verification: RecipientVerification = None,
+        id_: str = SENTINEL,
+        uid: str = SENTINEL,
+        verification: RecipientVerification = SENTINEL,
         **kwargs,
     ):
         """Recipient
@@ -48,13 +49,13 @@ class Recipient(BaseModel):
         :param verification: verification, defaults to None
         :type verification: RecipientVerification, optional
         """
-        if id_ is not None:
+        if id_ is not SENTINEL:
             self.id_ = id_
-        if uid is not None:
+        if uid is not SENTINEL:
             self.uid = uid
         self.name = name
         self.email = email
         self.role = self._enum_matching(role, RecipientRole.list(), "role")
-        if verification is not None:
+        if verification is not SENTINEL:
             self.verification = self._define_object(verification, RecipientVerification)
         self._kwargs = kwargs

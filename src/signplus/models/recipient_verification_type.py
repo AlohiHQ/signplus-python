@@ -8,10 +8,13 @@ class RecipientVerificationType(Enum):
     :vartype SMS: str
     :cvar PASSCODE: "PASSCODE"
     :vartype PASSCODE: str
+    :cvar IDVERIFICATION: "ID_VERIFICATION"
+    :vartype IDVERIFICATION: str
     """
 
     SMS = "SMS"
     PASSCODE = "PASSCODE"
+    IDVERIFICATION = "ID_VERIFICATION"
 
     def list():
         """Lists all category values.

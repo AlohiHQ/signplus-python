@@ -7,7 +7,7 @@ class Signplus:
     def __init__(
         self,
         access_token: str = None,
-        base_url: Union[Environment, str] = Environment.DEFAULT,
+        base_url: Union[Environment, str, None] = None,
         timeout: int = 60000,
     ):
         """

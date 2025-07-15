@@ -1,17 +1,18 @@
 {
-  "liblabVersion": "2.12.0",
-  "date": "2025-01-29T10:28:54.697Z",
+  "liblabVersion": "2.25.35",
+  "date": "2025-07-14T14:19:42.171Z",
   "config": {
-    "apiId": 1713,
+    "apiId": 2479,
     "sdkName": "signplus",
-    "sdkVersion": "1.2.0",
+    "sdkVersion": "1.3.0",
     "languages": ["python"],
     "auth": ["bearer"],
+    "docs": [],
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "rawConfig": {
       "sdkName": "signplus",
-      "apiVersion": "2.2.0",
+      "apiVersion": "2.3.1",
       "apiName": "signplus-api",
       "specFilePath": "openapi.yaml",
       "languages": ["csharp", "go", "python", "typescript", "java", "php"],
@@ -43,7 +44,7 @@
           "pypiPackageName": "signplus-python",
           "githubRepoName": "signplus-python",
           "ignoreFiles": [],
-          "sdkVersion": "1.2.0",
+          "sdkVersion": "1.3.0",
           "liblabVersion": "2",
           "additionalConstructorParameters": []
         },
@@ -51,7 +52,7 @@
           "githubRepoName": "signplus-java",
           "groupId": "com.alohi",
           "artifactId": "signplus",
-          "sdkVersion": "2.2.0",
+          "sdkVersion": "2.3.0",
           "liblabVersion": "2",
           "developers": [
             {
@@ -71,7 +72,7 @@
           "npmOrg": "alohi",
           "githubRepoName": "signplus-typescript",
           "ignoreFiles": [],
-          "sdkVersion": "2.2.0",
+          "sdkVersion": "2.3.0",
           "liblabVersion": "2",
           "additionalConstructorParameters": []
         },
@@ -79,7 +80,7 @@
           "goModuleName": "github.com/alohihq/signplus-go",
           "githubRepoName": "signplus-go",
           "ignoreFiles": [],
-          "sdkVersion": "1.2.0",
+          "sdkVersion": "1.3.0",
           "liblabVersion": "2",
           "additionalConstructorParameters": []
         },
@@ -87,7 +88,7 @@
           "packageName": "alohi/signplus",
           "githubRepoName": "signplus-php",
           "ignoreFiles": [],
-          "sdkVersion": "2.2.0",
+          "sdkVersion": "2.3.0",
           "liblabVersion": "2",
           "additionalConstructorParameters": []
         },
@@ -95,7 +96,7 @@
           "packageId": "Alohi.Signplus",
           "githubRepoName": "signplus-sharp",
           "ignoreFiles": [],
-          "sdkVersion": "1.2.0",
+          "sdkVersion": "1.3.0",
           "liblabVersion": "2"
         }
       },
@@ -103,28 +104,38 @@
         "githubOrg": "alohihq"
       }
     },
-    "apiVersion": "2.2.0",
+    "liblabConfigVersion": "1.0.0",
+    "apiVersion": "2.3.1",
     "apiName": "signplus-api",
     "specFilePath": "openapi.yaml",
+    "createDocs": false,
     "languageOptions": {
       "csharp": {
-        "packageId": "Alohi.Signplus",
         "githubRepoName": "signplus-sharp",
         "ignoreFiles": [],
         "liblabVersion": "2",
-        "sdkVersion": "1.2.0"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "1.3.0",
+        "packageId": "Alohi.Signplus"
       },
       "go": {
-        "goModuleName": "github.com/alohihq/signplus-go",
-        "additionalConstructorParameters": [],
         "githubRepoName": "signplus-go",
         "ignoreFiles": [],
         "liblabVersion": "2",
-        "sdkVersion": "1.2.0"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "1.3.0",
+        "goModuleName": "github.com/alohihq/signplus-go",
+        "additionalConstructorParameters": []
       },
       "java": {
+        "githubRepoName": "signplus-java",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "2.3.0",
         "groupId": "com.alohi",
         "artifactId": "signplus",
+        "includeKotlinSnippets": false,
         "developers": [
           {
             "name": "Alohi SA",
@@ -133,44 +144,51 @@
             "organizationUrl": "https://www.alohi.com"
           }
         ],
-        "additionalConstructorParameters": [],
-        "githubRepoName": "signplus-java",
-        "liblabVersion": "2",
-        "sdkVersion": "2.2.0"
+        "additionalConstructorParameters": []
       },
       "python": {
-        "alwaysInitializeOptionals": false,
-        "additionalConstructorParameters": [],
-        "pypiPackageName": "signplus-python",
         "githubRepoName": "signplus-python",
         "ignoreFiles": [],
         "liblabVersion": "2",
-        "sdkVersion": "1.2.0"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "1.3.0",
+        "alwaysInitializeOptionals": false,
+        "additionalConstructorParameters": [],
+        "pypiPackageName": "signplus-python"
       },
       "php": {
-        "packageName": "alohi/signplus",
-        "additionalConstructorParameters": [],
         "githubRepoName": "signplus-php",
         "ignoreFiles": [],
         "liblabVersion": "2",
-        "sdkVersion": "2.2.0"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "2.3.0",
+        "additionalConstructorParameters": [],
+        "packageName": "alohi/signplus"
       },
       "typescript": {
-        "bundle": false,
-        "exportClassDefault": false,
-        "httpClient": "axios",
-        "npmName": "signplus-typescript",
-        "npmOrg": "alohi",
-        "additionalConstructorParameters": [],
         "githubRepoName": "signplus-typescript",
         "ignoreFiles": [],
         "liblabVersion": "2",
-        "sdkVersion": "2.2.0",
-        "generateEnumAs": "enum"
+        "renameIllegalModelProperties": true,
+        "sdkVersion": "2.3.0",
+        "additionalConstructorParameters": [],
+        "bundle": false,
+        "denoteCommon": false,
+        "exportClassDefault": false,
+        "generateEnumAs": "enum",
+        "httpClient": "axios",
+        "npmName": "signplus-typescript",
+        "npmOrg": "alohi"
       }
     },
+    "validationsToIgnore": [],
     "publishing": {
-      "githubOrg": "alohihq"
+      "githubOrg": "alohihq",
+      "platform": "github"
+    },
+    "analytics": {
+      "streaming": false,
+      "pagination": false
     },
     "authentication": {
       "access": {
@@ -180,8 +198,6 @@
     "devContainer": false,
     "generateEnv": true,
     "includeOptionalSnippetParameters": true,
-    "inferServiceNames": false,
-    "injectedModels": [],
     "license": {
       "type": "MIT",
       "name": "MIT",
@@ -189,6 +205,7 @@
       "path": "MIT.ejs"
     },
     "responseHeaders": false,
+    "buildAllModels": false,
     "retry": {
       "enabled": true,
       "maxAttempts": 3,
@@ -201,11 +218,12 @@
     },
     "multiTenant": true,
     "includeWatermark": false,
+    "githubRepoName": "signplus-python",
+    "ignoreFiles": [],
+    "renameIllegalModelProperties": true,
     "alwaysInitializeOptionals": false,
     "additionalConstructorParameters": [],
     "pypiPackageName": "signplus-python",
-    "githubRepoName": "signplus-python",
-    "ignoreFiles": [],
     "language": "python",
     "deliveryMethod": "zip",
     "hooks": {
@@ -215,10 +233,11 @@
     "usesFormData": false,
     "environmentVariables": [],
     "fileOutput": "/tmp",
+    "inferServiceNames": false,
     "httpLibrary": {
       "name": "axios",
       "packages": {
-        "axios": "^1.7.9"
+        "axios": "^1.9.0"
       },
       "languages": ["typescript"]
     },
@@ -227,7 +246,8 @@
       "rawQueries": [],
       "queriesData": []
     },
-    "ai": false
+    "ai": false,
+    "specType": "openapi"
   },
   "files": [
     "src/signplus/models/utils/base_model.py",
@@ -244,8 +264,11 @@
     "src/signplus/net/request_chain/__init__.py",
     "src/signplus/net/request_chain/handlers/__init__.py",
     "src/signplus/models/utils/__init__.py",
+    "src/signplus/services/async_/__init__.py",
+    "src/signplus/services/async_/utils/__init__.py",
     "src/signplus/net/transport/request.py",
     "src/signplus/net/transport/response.py",
+    "src/signplus/net/transport/api_error.py",
     "src/signplus/net/transport/request_error.py",
     "src/signplus/sdk.py",
     "src/signplus/net/transport/serializer.py",
@@ -269,10 +292,8 @@
     "src/signplus/net/request_chain/handlers/hook_handler.py",
     "src/signplus/net/request_chain/handlers/retry_handler.py",
     "examples/sample.py",
-    ".env.example",
-    "/examples/.env.example",
     "src/signplus/services/utils/default_headers.py",
-    "./LICENSE",
+    "LICENSE",
     "documentation/models/CreateEnvelopeRequest.md",
     "documentation/models/Envelope.md",
     "documentation/models/CreateEnvelopeFromTemplateRequest.md",
@@ -334,6 +355,11 @@
     "documentation/models/WebhookEvent.md",
     "src/signplus/models/utils/one_of_base_model.py",
     "src/signplus/services/async_/utils/to_async.py",
+    "src/signplus/services/async_/signplus.py",
+    "src/signplus/sdk_async.py",
+    "src/signplus/models/utils/sentinel.py",
+    ".env.example",
+    "examples/.env.example",
     "src/signplus/models/envelope_legality_level.py",
     "src/signplus/models/envelope_flow_type.py",
     "src/signplus/models/envelope_status.py",

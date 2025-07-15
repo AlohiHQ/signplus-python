@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .envelope_flow_type import EnvelopeFlowType
 from .envelope_legality_level import EnvelopeLegalityLevel
 from .envelope_status import EnvelopeStatus
@@ -48,21 +49,21 @@ class Envelope(BaseModel):
 
     def __init__(
         self,
-        id_: str = None,
-        name: str = None,
-        comment: str = None,
-        pages: int = None,
-        flow_type: EnvelopeFlowType = None,
-        legality_level: EnvelopeLegalityLevel = None,
-        status: EnvelopeStatus = None,
-        created_at: int = None,
-        updated_at: int = None,
-        expires_at: int = None,
-        num_recipients: int = None,
-        is_duplicable: bool = None,
-        signing_steps: List[SigningStep] = None,
-        documents: List[Document] = None,
-        notification: EnvelopeNotification = None,
+        id_: str = SENTINEL,
+        name: str = SENTINEL,
+        comment: str = SENTINEL,
+        pages: int = SENTINEL,
+        flow_type: EnvelopeFlowType = SENTINEL,
+        legality_level: EnvelopeLegalityLevel = SENTINEL,
+        status: EnvelopeStatus = SENTINEL,
+        created_at: int = SENTINEL,
+        updated_at: int = SENTINEL,
+        expires_at: int = SENTINEL,
+        num_recipients: int = SENTINEL,
+        is_duplicable: bool = SENTINEL,
+        signing_steps: List[SigningStep] = SENTINEL,
+        documents: List[Document] = SENTINEL,
+        notification: EnvelopeNotification = SENTINEL,
         **kwargs,
     ):
         """Envelope
@@ -98,38 +99,38 @@ class Envelope(BaseModel):
         :param notification: notification, defaults to None
         :type notification: EnvelopeNotification, optional
         """
-        if id_ is not None:
+        if id_ is not SENTINEL:
             self.id_ = id_
-        if name is not None:
+        if name is not SENTINEL:
             self.name = name
-        if comment is not None:
+        if comment is not SENTINEL:
             self.comment = comment
-        if pages is not None:
+        if pages is not SENTINEL:
             self.pages = pages
-        if flow_type is not None:
+        if flow_type is not SENTINEL:
             self.flow_type = self._enum_matching(
                 flow_type, EnvelopeFlowType.list(), "flow_type"
             )
-        if legality_level is not None:
+        if legality_level is not SENTINEL:
             self.legality_level = self._enum_matching(
                 legality_level, EnvelopeLegalityLevel.list(), "legality_level"
             )
-        if status is not None:
+        if status is not SENTINEL:
             self.status = self._enum_matching(status, EnvelopeStatus.list(), "status")
-        if created_at is not None:
+        if created_at is not SENTINEL:
             self.created_at = created_at
-        if updated_at is not None:
+        if updated_at is not SENTINEL:
             self.updated_at = updated_at
-        if expires_at is not None:
+        if expires_at is not SENTINEL:
             self.expires_at = expires_at
-        if num_recipients is not None:
+        if num_recipients is not SENTINEL:
             self.num_recipients = num_recipients
-        if is_duplicable is not None:
+        if is_duplicable is not SENTINEL:
             self.is_duplicable = is_duplicable
-        if signing_steps is not None:
+        if signing_steps is not SENTINEL:
             self.signing_steps = self._define_list(signing_steps, SigningStep)
-        if documents is not None:
+        if documents is not SENTINEL:
             self.documents = self._define_list(documents, Document)
-        if notification is not None:
+        if notification is not SENTINEL:
             self.notification = self._define_object(notification, EnvelopeNotification)
         self._kwargs = kwargs

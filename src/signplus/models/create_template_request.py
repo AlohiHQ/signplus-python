@@ -16,5 +16,11 @@ class CreateTemplateRequest(BaseModel):
         :param name: name
         :type name: str
         """
-        self.name = name
+        self.name = self._define_str(
+            "name",
+            name,
+            pattern="^[a-zA-Z0-9][a-zA-Z0-9 ]*[a-zA-Z0-9]$",
+            min_length=2,
+            max_length=256,
+        )
         self._kwargs = kwargs

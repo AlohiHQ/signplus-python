@@ -9,3 +9,4 @@ Role of the recipient (SIGNER signs the document, RECEIVES_COPY receives a copy 
 | SIGNER         | str  | ✅       | "SIGNER"           |
 | RECEIVESCOPY   | str  | ✅       | "RECEIVES_COPY"    |
 | INPERSONSIGNER | str  | ✅       | "IN_PERSON_SIGNER" |
+| SENDER         | str  | ✅       | "SENDER"           |

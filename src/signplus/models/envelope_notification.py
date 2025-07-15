@@ -1,5 +1,6 @@
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 
 
 @JsonMap({})
@@ -16,9 +17,9 @@ class EnvelopeNotification(BaseModel):
 
     def __init__(
         self,
-        subject: str = None,
-        message: str = None,
-        reminder_interval: int = None,
+        subject: str = SENTINEL,
+        message: str = SENTINEL,
+        reminder_interval: int = SENTINEL,
         **kwargs
     ):
         """EnvelopeNotification
@@ -30,10 +31,10 @@ class EnvelopeNotification(BaseModel):
         :param reminder_interval: Interval in days to send reminder, defaults to None
         :type reminder_interval: int, optional
         """
-        if subject is not None:
+        if subject is not SENTINEL:
             self.subject = subject
-        if message is not None:
+        if message is not SENTINEL:
             self.message = message
-        if reminder_interval is not None:
+        if reminder_interval is not SENTINEL:
             self.reminder_interval = reminder_interval
         self._kwargs = kwargs

@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .envelope_legality_level import EnvelopeLegalityLevel
 from .template_signing_step import TemplateSigningStep
 from .document import Document
@@ -42,19 +43,19 @@ class Template(BaseModel):
 
     def __init__(
         self,
-        id_: str = None,
-        name: str = None,
-        comment: str = None,
-        pages: int = None,
-        legality_level: EnvelopeLegalityLevel = None,
-        created_at: int = None,
-        updated_at: int = None,
-        expiration_delay: int = None,
-        num_recipients: int = None,
-        signing_steps: List[TemplateSigningStep] = None,
-        documents: List[Document] = None,
-        notification: EnvelopeNotification = None,
-        dynamic_fields: List[str] = None,
+        id_: str = SENTINEL,
+        name: str = SENTINEL,
+        comment: str = SENTINEL,
+        pages: int = SENTINEL,
+        legality_level: EnvelopeLegalityLevel = SENTINEL,
+        created_at: int = SENTINEL,
+        updated_at: int = SENTINEL,
+        expiration_delay: int = SENTINEL,
+        num_recipients: int = SENTINEL,
+        signing_steps: List[TemplateSigningStep] = SENTINEL,
+        documents: List[Document] = SENTINEL,
+        notification: EnvelopeNotification = SENTINEL,
+        dynamic_fields: List[str] = SENTINEL,
         **kwargs,
     ):
         """Template
@@ -86,32 +87,32 @@ class Template(BaseModel):
         :param dynamic_fields: List of dynamic fields, defaults to None
         :type dynamic_fields: List[str], optional
         """
-        if id_ is not None:
+        if id_ is not SENTINEL:
             self.id_ = id_
-        if name is not None:
+        if name is not SENTINEL:
             self.name = name
-        if comment is not None:
+        if comment is not SENTINEL:
             self.comment = comment
-        if pages is not None:
+        if pages is not SENTINEL:
             self.pages = pages
-        if legality_level is not None:
+        if legality_level is not SENTINEL:
             self.legality_level = self._enum_matching(
                 legality_level, EnvelopeLegalityLevel.list(), "legality_level"
             )
-        if created_at is not None:
+        if created_at is not SENTINEL:
             self.created_at = created_at
-        if updated_at is not None:
+        if updated_at is not SENTINEL:
             self.updated_at = updated_at
-        if expiration_delay is not None:
+        if expiration_delay is not SENTINEL:
             self.expiration_delay = expiration_delay
-        if num_recipients is not None:
+        if num_recipients is not SENTINEL:
             self.num_recipients = num_recipients
-        if signing_steps is not None:
+        if signing_steps is not SENTINEL:
             self.signing_steps = self._define_list(signing_steps, TemplateSigningStep)
-        if documents is not None:
+        if documents is not SENTINEL:
             self.documents = self._define_list(documents, Document)
-        if notification is not None:
+        if notification is not SENTINEL:
             self.notification = self._define_object(notification, EnvelopeNotification)
-        if dynamic_fields is not None:
+        if dynamic_fields is not SENTINEL:
             self.dynamic_fields = dynamic_fields
         self._kwargs = kwargs

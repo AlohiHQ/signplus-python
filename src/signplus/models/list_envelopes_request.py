@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .envelope_status import EnvelopeStatus
 from .envelope_order_field import EnvelopeOrderField
 
@@ -48,23 +49,23 @@ class ListEnvelopesRequest(BaseModel):
 
     def __init__(
         self,
-        name: str = None,
-        tags: List[str] = None,
-        comment: str = None,
-        ids: List[str] = None,
-        statuses: List[EnvelopeStatus] = None,
-        folder_ids: List[str] = None,
-        only_root_folder: bool = None,
-        date_from: int = None,
-        date_to: int = None,
-        uid: str = None,
-        first: int = None,
-        last: int = None,
-        after: str = None,
-        before: str = None,
-        order_field: EnvelopeOrderField = None,
-        ascending: bool = None,
-        include_trash: bool = None,
+        name: str = SENTINEL,
+        tags: List[str] = SENTINEL,
+        comment: str = SENTINEL,
+        ids: List[str] = SENTINEL,
+        statuses: List[EnvelopeStatus] = SENTINEL,
+        folder_ids: List[str] = SENTINEL,
+        only_root_folder: bool = SENTINEL,
+        date_from: int = SENTINEL,
+        date_to: int = SENTINEL,
+        uid: str = SENTINEL,
+        first: int = SENTINEL,
+        last: int = SENTINEL,
+        after: str = SENTINEL,
+        before: str = SENTINEL,
+        order_field: EnvelopeOrderField = SENTINEL,
+        ascending: bool = SENTINEL,
+        include_trash: bool = SENTINEL,
         **kwargs,
     ):
         """ListEnvelopesRequest
@@ -104,40 +105,40 @@ class ListEnvelopesRequest(BaseModel):
         :param include_trash: Whether to include envelopes in the trash, defaults to None
         :type include_trash: bool, optional
         """
-        if name is not None:
+        if name is not SENTINEL:
             self.name = name
-        if tags is not None:
+        if tags is not SENTINEL:
             self.tags = tags
-        if comment is not None:
+        if comment is not SENTINEL:
             self.comment = comment
-        if ids is not None:
+        if ids is not SENTINEL:
             self.ids = ids
-        if statuses is not None:
+        if statuses is not SENTINEL:
             self.statuses = self._define_list(statuses, EnvelopeStatus)
-        if folder_ids is not None:
+        if folder_ids is not SENTINEL:
             self.folder_ids = folder_ids
-        if only_root_folder is not None:
+        if only_root_folder is not SENTINEL:
             self.only_root_folder = only_root_folder
-        if date_from is not None:
+        if date_from is not SENTINEL:
             self.date_from = date_from
-        if date_to is not None:
+        if date_to is not SENTINEL:
             self.date_to = date_to
-        if uid is not None:
+        if uid is not SENTINEL:
             self.uid = uid
-        if first is not None:
+        if first is not SENTINEL:
             self.first = first
-        if last is not None:
+        if last is not SENTINEL:
             self.last = last
-        if after is not None:
+        if after is not SENTINEL:
             self.after = after
-        if before is not None:
+        if before is not SENTINEL:
             self.before = before
-        if order_field is not None:
+        if order_field is not SENTINEL:
             self.order_field = self._enum_matching(
                 order_field, EnvelopeOrderField.list(), "order_field"
             )
-        if ascending is not None:
+        if ascending is not SENTINEL:
             self.ascending = ascending
-        if include_trash is not None:
+        if include_trash is not SENTINEL:
             self.include_trash = include_trash
         self._kwargs = kwargs

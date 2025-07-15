@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .utils.sentinel import SENTINEL
 from .page import Page
 
 
@@ -23,11 +24,11 @@ class Document(BaseModel):
 
     def __init__(
         self,
-        id_: str = None,
-        name: str = None,
-        filename: str = None,
-        page_count: int = None,
-        pages: List[Page] = None,
+        id_: str = SENTINEL,
+        name: str = SENTINEL,
+        filename: str = SENTINEL,
+        page_count: int = SENTINEL,
+        pages: List[Page] = SENTINEL,
         **kwargs,
     ):
         """Document
@@ -43,14 +44,14 @@ class Document(BaseModel):
         :param pages: List of pages in the document, defaults to None
         :type pages: List[Page], optional
         """
-        if id_ is not None:
+        if id_ is not SENTINEL:
             self.id_ = id_
-        if name is not None:
+        if name is not SENTINEL:
             self.name = name
-        if filename is not None:
+        if filename is not SENTINEL:
             self.filename = filename
-        if page_count is not None:
+        if page_count is not SENTINEL:
             self.page_count = page_count
-        if pages is not None:
+        if pages is not SENTINEL:
             self.pages = self._define_list(pages, Page)
         self._kwargs = kwargs

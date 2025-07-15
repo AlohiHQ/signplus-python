@@ -2,49 +2,51 @@
 
 A list of all methods in the `SignplusService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                                                 | Description                       |
-| :---------------------------------------------------------------------- | :-------------------------------- |
-| [create_envelope](#create_envelope)                                     | Create new envelope               |
-| [create_envelope_from_template](#create_envelope_from_template)         | Create new envelope from template |
-| [list_envelopes](#list_envelopes)                                       | List envelopes                    |
-| [get_envelope](#get_envelope)                                           | Get envelope                      |
-| [delete_envelope](#delete_envelope)                                     | Delete envelope                   |
-| [get_envelope_document](#get_envelope_document)                         | Get envelope document             |
-| [get_envelope_documents](#get_envelope_documents)                       | Get envelope documents            |
-| [add_envelope_document](#add_envelope_document)                         | Add envelope document             |
-| [set_envelope_dynamic_fields](#set_envelope_dynamic_fields)             | Set envelope dynamic fields       |
-| [add_envelope_signing_steps](#add_envelope_signing_steps)               | Add envelope signing steps        |
-| [send_envelope](#send_envelope)                                         | Send envelope for signature       |
-| [duplicate_envelope](#duplicate_envelope)                               | Duplicate envelope                |
-| [void_envelope](#void_envelope)                                         | Void envelope                     |
-| [rename_envelope](#rename_envelope)                                     | Rename envelope                   |
-| [set_envelope_comment](#set_envelope_comment)                           | Set envelope comment              |
-| [set_envelope_notification](#set_envelope_notification)                 | Set envelope notification         |
-| [set_envelope_expiration_date](#set_envelope_expiration_date)           | Set envelope expiration date      |
-| [set_envelope_legality_level](#set_envelope_legality_level)             | Set envelope legality level       |
-| [get_envelope_annotations](#get_envelope_annotations)                   | Get envelope annotations          |
-| [get_envelope_document_annotations](#get_envelope_document_annotations) | Get envelope document annotations |
-| [add_envelope_annotation](#add_envelope_annotation)                     | Add envelope annotation           |
-| [delete_envelope_annotation](#delete_envelope_annotation)               | Delete envelope annotation        |
-| [create_template](#create_template)                                     | Create new template               |
-| [list_templates](#list_templates)                                       | List templates                    |
-| [get_template](#get_template)                                           | Get template                      |
-| [delete_template](#delete_template)                                     | Delete template                   |
-| [duplicate_template](#duplicate_template)                               | Duplicate template                |
-| [add_template_document](#add_template_document)                         | Add template document             |
-| [get_template_document](#get_template_document)                         | Get template document             |
-| [get_template_documents](#get_template_documents)                       | Get template documents            |
-| [add_template_signing_steps](#add_template_signing_steps)               | Add template signing steps        |
-| [rename_template](#rename_template)                                     | Rename template                   |
-| [set_template_comment](#set_template_comment)                           | Set template comment              |
-| [set_template_notification](#set_template_notification)                 | Set template notification         |
-| [get_template_annotations](#get_template_annotations)                   | Get template annotations          |
-| [get_document_template_annotations](#get_document_template_annotations) | Get document template annotations |
-| [add_template_annotation](#add_template_annotation)                     | Add template annotation           |
-| [delete_template_annotation](#delete_template_annotation)               | Delete template annotation        |
-| [create_webhook](#create_webhook)                                       | Create webhook                    |
-| [list_webhooks](#list_webhooks)                                         | List webhooks                     |
-| [delete_webhook](#delete_webhook)                                       | Delete webhook                    |
+| Methods                                                                   | Description                                        |
+| :------------------------------------------------------------------------ | :------------------------------------------------- |
+| [create_envelope](#create_envelope)                                       | Create new envelope                                |
+| [create_envelope_from_template](#create_envelope_from_template)           | Create new envelope from template                  |
+| [list_envelopes](#list_envelopes)                                         | List envelopes                                     |
+| [get_envelope](#get_envelope)                                             | Get envelope                                       |
+| [delete_envelope](#delete_envelope)                                       | Delete envelope                                    |
+| [download_envelope_signed_documents](#download_envelope_signed_documents) | Download signed documents for an envelope          |
+| [download_envelope_certificate](#download_envelope_certificate)           | Download certificate of completion for an envelope |
+| [get_envelope_document](#get_envelope_document)                           | Get envelope document                              |
+| [get_envelope_documents](#get_envelope_documents)                         | Get envelope documents                             |
+| [add_envelope_document](#add_envelope_document)                           | Add envelope document                              |
+| [set_envelope_dynamic_fields](#set_envelope_dynamic_fields)               | Set envelope dynamic fields                        |
+| [add_envelope_signing_steps](#add_envelope_signing_steps)                 | Add envelope signing steps                         |
+| [send_envelope](#send_envelope)                                           | Send envelope for signature                        |
+| [duplicate_envelope](#duplicate_envelope)                                 | Duplicate envelope                                 |
+| [void_envelope](#void_envelope)                                           | Void envelope                                      |
+| [rename_envelope](#rename_envelope)                                       | Rename envelope                                    |
+| [set_envelope_comment](#set_envelope_comment)                             | Set envelope comment                               |
+| [set_envelope_notification](#set_envelope_notification)                   | Set envelope notification                          |
+| [set_envelope_expiration_date](#set_envelope_expiration_date)             | Set envelope expiration date                       |
+| [set_envelope_legality_level](#set_envelope_legality_level)               | Set envelope legality level                        |
+| [get_envelope_annotations](#get_envelope_annotations)                     | Get envelope annotations                           |
+| [get_envelope_document_annotations](#get_envelope_document_annotations)   | Get envelope document annotations                  |
+| [add_envelope_annotation](#add_envelope_annotation)                       | Add envelope annotation                            |
+| [delete_envelope_annotation](#delete_envelope_annotation)                 | Delete envelope annotation                         |
+| [create_template](#create_template)                                       | Create new template                                |
+| [list_templates](#list_templates)                                         | List templates                                     |
+| [get_template](#get_template)                                             | Get template                                       |
+| [delete_template](#delete_template)                                       | Delete template                                    |
+| [duplicate_template](#duplicate_template)                                 | Duplicate template                                 |
+| [add_template_document](#add_template_document)                           | Add template document                              |
+| [get_template_document](#get_template_document)                           | Get template document                              |
+| [get_template_documents](#get_template_documents)                         | Get template documents                             |
+| [add_template_signing_steps](#add_template_signing_steps)                 | Add template signing steps                         |
+| [rename_template](#rename_template)                                       | Rename template                                    |
+| [set_template_comment](#set_template_comment)                             | Set template comment                               |
+| [set_template_notification](#set_template_notification)                   | Set template notification                          |
+| [get_template_annotations](#get_template_annotations)                     | Get template annotations                           |
+| [get_document_template_annotations](#get_document_template_annotations)   | Get document template annotations                  |
+| [add_template_annotation](#add_template_annotation)                       | Add template annotation                            |
+| [delete_template_annotation](#delete_template_annotation)                 | Delete template annotation                         |
+| [create_webhook](#create_webhook)                                         | Create webhook                                     |
+| [list_webhooks](#list_webhooks)                                           | List webhooks                                      |
+| [delete_webhook](#delete_webhook)                                         | Delete webhook                                     |
 
 ## create_envelope
 
@@ -79,7 +81,7 @@ request_body = CreateEnvelopeRequest(
     legality_level="SES",
     expires_at=10,
     comment="comment",
-    sandbox=True
+    sandbox=False
 )
 
 result = sdk.signplus.create_envelope(request_body=request_body)
@@ -174,16 +176,16 @@ request_body = ListEnvelopesRequest(
         "folder_ids"
     ],
     only_root_folder=True,
-    date_from=1,
-    date_to=3,
+    date_from=3,
+    date_to=10,
     uid="uid",
-    first=6,
-    last=8,
+    first=4,
+    last=6,
     after="after",
     before="before",
     order_field="CREATION_DATE",
-    ascending=True,
-    include_trash=True
+    ascending=False,
+    include_trash=False
 )
 
 result = sdk.signplus.list_envelopes(request_body=request_body)
@@ -247,6 +249,74 @@ sdk = Signplus(
 )
 
 result = sdk.signplus.delete_envelope(envelope_id="envelope_id")
+
+print(result)
+```
+
+## download_envelope_signed_documents
+
+Download signed documents for an envelope
+
+- HTTP Method: `GET`
+- Endpoint: `/envelope/{envelope_id}/signed_documents`
+
+**Parameters**
+
+| Name                      | Type | Required | Description                                                             |
+| :------------------------ | :--- | :------- | :---------------------------------------------------------------------- |
+| envelope_id               | str  | ✅       | ID of the envelope                                                      |
+| certificate_of_completion | bool | ❌       | Whether to include the certificate of completion in the downloaded file |
+
+**Return Type**
+
+`any`
+
+**Example Usage Code Snippet**
+
+```python
+from signplus import Signplus
+
+sdk = Signplus(
+    access_token="YOUR_ACCESS_TOKEN",
+    timeout=10000
+)
+
+result = sdk.signplus.download_envelope_signed_documents(
+    envelope_id="envelope_id",
+    certificate_of_completion=True
+)
+
+print(result)
+```
+
+## download_envelope_certificate
+
+Download certificate of completion for an envelope
+
+- HTTP Method: `GET`
+- Endpoint: `/envelope/{envelope_id}/certificate`
+
+**Parameters**
+
+| Name        | Type | Required | Description        |
+| :---------- | :--- | :------- | :----------------- |
+| envelope_id | str  | ✅       | ID of the envelope |
+
+**Return Type**
+
+`any`
+
+**Example Usage Code Snippet**
+
+```python
+from signplus import Signplus
+
+sdk = Signplus(
+    access_token="YOUR_ACCESS_TOKEN",
+    timeout=10000
+)
+
+result = sdk.signplus.download_envelope_certificate(envelope_id="envelope_id")
 
 print(result)
 ```
@@ -673,7 +743,7 @@ sdk = Signplus(
 request_body = EnvelopeNotification(
     subject="subject",
     message="message",
-    reminder_interval=9
+    reminder_interval=4
 )
 
 result = sdk.signplus.set_envelope_notification(
@@ -714,7 +784,7 @@ sdk = Signplus(
 )
 
 request_body = SetEnvelopeExpirationRequest(
-    expires_at=6
+    expires_at=5
 )
 
 result = sdk.signplus.set_envelope_expiration_date(
@@ -866,12 +936,12 @@ sdk = Signplus(
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=3,
-    x=1.92,
-    y=1.94,
-    width=4.18,
-    height=0.39,
-    required=True,
+    page=10,
+    x=1.01,
+    y=5.72,
+    width=0.07,
+    height=0.94,
+    required=False,
     type_="TEXT",
     signature={
         "id_": "id"
@@ -880,32 +950,32 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 3.33,
-        "color": 9.42,
+        "size": 8.54,
+        "color": 2.58,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         }
     },
     datetime_={
-        "size": 8.42,
+        "size": 7.66,
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         },
         "color": "color",
         "auto_fill": False,
         "timezone": "timezone",
-        "timestamp": 7,
+        "timestamp": 0,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
-        "checked": True,
+        "checked": False,
         "style": "CIRCLE_CHECK"
     }
 )
@@ -1023,12 +1093,12 @@ request_body = ListTemplatesRequest(
     ids=[
         "ids"
     ],
-    first=3,
-    last=1,
+    first=10,
+    last=5,
     after="after",
     before="before",
     order_field="TEMPLATE_ID",
-    ascending=True
+    ascending=False
 )
 
 result = sdk.signplus.list_templates(request_body=request_body)
@@ -1404,7 +1474,7 @@ sdk = Signplus(
 request_body = EnvelopeNotification(
     subject="subject",
     message="message",
-    reminder_interval=9
+    reminder_interval=4
 )
 
 result = sdk.signplus.set_template_notification(
@@ -1515,12 +1585,12 @@ sdk = Signplus(
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=3,
-    x=1.92,
-    y=1.94,
-    width=4.18,
-    height=0.39,
-    required=True,
+    page=10,
+    x=1.01,
+    y=5.72,
+    width=0.07,
+    height=0.94,
+    required=False,
     type_="TEXT",
     signature={
         "id_": "id"
@@ -1529,32 +1599,32 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 3.33,
-        "color": 9.42,
+        "size": 8.54,
+        "color": 2.58,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         }
     },
     datetime_={
-        "size": 8.42,
+        "size": 7.66,
         "font": {
             "family": "UNKNOWN",
             "italic": True,
-            "bold": True
+            "bold": False
         },
         "color": "color",
         "auto_fill": False,
         "timezone": "timezone",
-        "timestamp": 7,
+        "timestamp": 0,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
-        "checked": True,
+        "checked": False,
         "style": "CIRCLE_CHECK"
     }
 )
