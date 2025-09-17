@@ -18,6 +18,7 @@ from ..models import (
     CreateWebhookRequest,
     Document,
     Envelope,
+    EnvelopeAttachments,
     EnvelopeNotification,
     ListEnvelopeDocumentAnnotationsResponse,
     ListEnvelopeDocumentsResponse,
@@ -32,6 +33,8 @@ from ..models import (
     ListWebhooksResponse,
     RenameEnvelopeRequest,
     RenameTemplateRequest,
+    SetEnvelopeAttachmentsPlaceholdersRequest,
+    SetEnvelopeAttachmentsSettingsRequest,
     SetEnvelopeCommentRequest,
     SetEnvelopeDynamicFieldsRequest,
     SetEnvelopeExpirationRequest,
@@ -412,6 +415,106 @@ class SignplusService(BaseService):
 
         response, _, _ = self.send_request(serialized_request)
         return Envelope._unmap(response)
+
+    @cast_models
+    def set_envelope_attachments_settings(
+        self, request_body: SetEnvelopeAttachmentsSettingsRequest, envelope_id: str
+    ) -> EnvelopeAttachments:
+        """Set envelope attachment settings
+
+        :param request_body: The request body.
+        :type request_body: SetEnvelopeAttachmentsSettingsRequest
+        :param envelope_id: envelope_id
+        :type envelope_id: str
+        ...
+        :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
+        ...
+        :return: The parsed response data.
+        :rtype: EnvelopeAttachments
+        """
+
+        Validator(SetEnvelopeAttachmentsSettingsRequest).validate(request_body)
+        Validator(str).validate(envelope_id)
+
+        serialized_request = (
+            Serializer(
+                f"{self.base_url or Environment.DEFAULT.url}/envelope/{{envelope_id}}/attachments/settings",
+                [self.get_access_token()],
+            )
+            .add_path("envelope_id", envelope_id)
+            .serialize()
+            .set_method("PUT")
+            .set_body(request_body)
+        )
+
+        response, _, _ = self.send_request(serialized_request)
+        return EnvelopeAttachments._unmap(response)
+
+    @cast_models
+    def set_envelope_attachments_placeholders(
+        self, request_body: SetEnvelopeAttachmentsPlaceholdersRequest, envelope_id: str
+    ) -> EnvelopeAttachments:
+        """Placeholders to be set, completely replacing the existing ones.
+
+        :param request_body: The request body.
+        :type request_body: SetEnvelopeAttachmentsPlaceholdersRequest
+        :param envelope_id: envelope_id
+        :type envelope_id: str
+        ...
+        :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
+        ...
+        :return: The parsed response data.
+        :rtype: EnvelopeAttachments
+        """
+
+        Validator(SetEnvelopeAttachmentsPlaceholdersRequest).validate(request_body)
+        Validator(str).validate(envelope_id)
+
+        serialized_request = (
+            Serializer(
+                f"{self.base_url or Environment.DEFAULT.url}/envelope/{{envelope_id}}/attachments/placeholders",
+                [self.get_access_token()],
+            )
+            .add_path("envelope_id", envelope_id)
+            .serialize()
+            .set_method("PUT")
+            .set_body(request_body)
+        )
+
+        response, _, _ = self.send_request(serialized_request)
+        return EnvelopeAttachments._unmap(response)
+
+    @cast_models
+    def get_attachment_file(self, envelope_id: str, file_id: str) -> bytes:
+        """Get envelope attachment file
+
+        :param envelope_id: envelope_id
+        :type envelope_id: str
+        :param file_id: file_id
+        :type file_id: str
+        ...
+        :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
+        ...
+        :return: The parsed response data.
+        :rtype: bytes
+        """
+
+        Validator(str).validate(envelope_id)
+        Validator(str).validate(file_id)
+
+        serialized_request = (
+            Serializer(
+                f"{self.base_url or Environment.DEFAULT.url}/envelope/{{envelope_id}}/attachments/{{file_id}}",
+                [self.get_access_token()],
+            )
+            .add_path("envelope_id", envelope_id)
+            .add_path("file_id", file_id)
+            .serialize()
+            .set_method("GET")
+        )
+
+        response, _, _ = self.send_request(serialized_request)
+        return response
 
     @cast_models
     def send_envelope(self, envelope_id: str) -> Envelope:
@@ -1287,6 +1390,74 @@ class SignplusService(BaseService):
         )
 
         self.send_request(serialized_request)
+
+    @cast_models
+    def set_template_attachments_settings(
+        self, request_body: SetEnvelopeAttachmentsSettingsRequest, template_id: str
+    ) -> EnvelopeAttachments:
+        """Set template attachment settings
+
+        :param request_body: The request body.
+        :type request_body: SetEnvelopeAttachmentsSettingsRequest
+        :param template_id: template_id
+        :type template_id: str
+        ...
+        :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
+        ...
+        :return: The parsed response data.
+        :rtype: EnvelopeAttachments
+        """
+
+        Validator(SetEnvelopeAttachmentsSettingsRequest).validate(request_body)
+        Validator(str).validate(template_id)
+
+        serialized_request = (
+            Serializer(
+                f"{self.base_url or Environment.DEFAULT.url}/template/{{template_id}}/attachments/settings",
+                [self.get_access_token()],
+            )
+            .add_path("template_id", template_id)
+            .serialize()
+            .set_method("PUT")
+            .set_body(request_body)
+        )
+
+        response, _, _ = self.send_request(serialized_request)
+        return EnvelopeAttachments._unmap(response)
+
+    @cast_models
+    def set_template_attachments_placeholders(
+        self, request_body: SetEnvelopeAttachmentsPlaceholdersRequest, template_id: str
+    ) -> EnvelopeAttachments:
+        """Placeholders to be set, completely replacing the existing ones.
+
+        :param request_body: The request body.
+        :type request_body: SetEnvelopeAttachmentsPlaceholdersRequest
+        :param template_id: template_id
+        :type template_id: str
+        ...
+        :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
+        ...
+        :return: The parsed response data.
+        :rtype: EnvelopeAttachments
+        """
+
+        Validator(SetEnvelopeAttachmentsPlaceholdersRequest).validate(request_body)
+        Validator(str).validate(template_id)
+
+        serialized_request = (
+            Serializer(
+                f"{self.base_url or Environment.DEFAULT.url}/template/{{template_id}}/attachments/placeholders",
+                [self.get_access_token()],
+            )
+            .add_path("template_id", template_id)
+            .serialize()
+            .set_method("PUT")
+            .set_body(request_body)
+        )
+
+        response, _, _ = self.send_request(serialized_request)
+        return EnvelopeAttachments._unmap(response)
 
     @cast_models
     def create_webhook(self, request_body: CreateWebhookRequest) -> Webhook:
