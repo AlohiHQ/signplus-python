@@ -8,6 +8,13 @@ from .list_envelope_documents_response import ListEnvelopeDocumentsResponse
 from .add_envelope_document_request import AddEnvelopeDocumentRequest
 from .set_envelope_dynamic_fields_request import SetEnvelopeDynamicFieldsRequest
 from .add_envelope_signing_steps_request import AddEnvelopeSigningStepsRequest
+from .set_envelope_attachments_settings_request import (
+    SetEnvelopeAttachmentsSettingsRequest,
+)
+from .envelope_attachments import EnvelopeAttachments
+from .set_envelope_attachments_placeholders_request import (
+    SetEnvelopeAttachmentsPlaceholdersRequest,
+)
 from .rename_envelope_request import RenameEnvelopeRequest
 from .set_envelope_comment_request import SetEnvelopeCommentRequest
 from .envelope_notification import EnvelopeNotification
@@ -44,8 +51,13 @@ from .recipient_role import RecipientRole
 from .recipient_verification import RecipientVerification
 from .recipient_verification_type import RecipientVerificationType
 from .page import Page
+from .attachment_settings import AttachmentSettings
+from .attachment_placeholders_per_recipient import AttachmentPlaceholdersPerRecipient
+from .attachment_placeholder import AttachmentPlaceholder
+from .attachment_placeholder_file import AttachmentPlaceholderFile
 from .envelope_order_field import EnvelopeOrderField
 from .dynamic_field import DynamicField
+from .attachment_placeholder_request import AttachmentPlaceholderRequest
 from .annotation_type import AnnotationType
 from .annotation_signature import AnnotationSignature
 from .annotation_initials import AnnotationInitials

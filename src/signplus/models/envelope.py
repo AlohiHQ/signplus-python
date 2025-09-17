@@ -9,6 +9,7 @@ from .envelope_status import EnvelopeStatus
 from .signing_step import SigningStep
 from .document import Document
 from .envelope_notification import EnvelopeNotification
+from .envelope_attachments import EnvelopeAttachments
 
 
 @JsonMap({"id_": "id"})
@@ -45,6 +46,8 @@ class Envelope(BaseModel):
     :type documents: List[Document], optional
     :param notification: notification, defaults to None
     :type notification: EnvelopeNotification, optional
+    :param attachments: attachments, defaults to None
+    :type attachments: EnvelopeAttachments, optional
     """
 
     def __init__(
@@ -64,6 +67,7 @@ class Envelope(BaseModel):
         signing_steps: List[SigningStep] = SENTINEL,
         documents: List[Document] = SENTINEL,
         notification: EnvelopeNotification = SENTINEL,
+        attachments: EnvelopeAttachments = SENTINEL,
         **kwargs,
     ):
         """Envelope
@@ -98,6 +102,8 @@ class Envelope(BaseModel):
         :type documents: List[Document], optional
         :param notification: notification, defaults to None
         :type notification: EnvelopeNotification, optional
+        :param attachments: attachments, defaults to None
+        :type attachments: EnvelopeAttachments, optional
         """
         if id_ is not SENTINEL:
             self.id_ = id_
@@ -133,4 +139,6 @@ class Envelope(BaseModel):
             self.documents = self._define_list(documents, Document)
         if notification is not SENTINEL:
             self.notification = self._define_object(notification, EnvelopeNotification)
+        if attachments is not SENTINEL:
+            self.attachments = self._define_object(attachments, EnvelopeAttachments)
         self._kwargs = kwargs

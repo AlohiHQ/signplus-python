@@ -7,6 +7,7 @@ from .envelope_legality_level import EnvelopeLegalityLevel
 from .template_signing_step import TemplateSigningStep
 from .document import Document
 from .envelope_notification import EnvelopeNotification
+from .envelope_attachments import EnvelopeAttachments
 
 
 @JsonMap({"id_": "id"})
@@ -39,6 +40,8 @@ class Template(BaseModel):
     :type notification: EnvelopeNotification, optional
     :param dynamic_fields: List of dynamic fields, defaults to None
     :type dynamic_fields: List[str], optional
+    :param attachments: attachments, defaults to None
+    :type attachments: EnvelopeAttachments, optional
     """
 
     def __init__(
@@ -56,6 +59,7 @@ class Template(BaseModel):
         documents: List[Document] = SENTINEL,
         notification: EnvelopeNotification = SENTINEL,
         dynamic_fields: List[str] = SENTINEL,
+        attachments: EnvelopeAttachments = SENTINEL,
         **kwargs,
     ):
         """Template
@@ -86,6 +90,8 @@ class Template(BaseModel):
         :type notification: EnvelopeNotification, optional
         :param dynamic_fields: List of dynamic fields, defaults to None
         :type dynamic_fields: List[str], optional
+        :param attachments: attachments, defaults to None
+        :type attachments: EnvelopeAttachments, optional
         """
         if id_ is not SENTINEL:
             self.id_ = id_
@@ -115,4 +121,6 @@ class Template(BaseModel):
             self.notification = self._define_object(notification, EnvelopeNotification)
         if dynamic_fields is not SENTINEL:
             self.dynamic_fields = dynamic_fields
+        if attachments is not SENTINEL:
+            self.attachments = self._define_object(attachments, EnvelopeAttachments)
         self._kwargs = kwargs

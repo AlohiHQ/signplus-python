@@ -13,6 +13,9 @@ from ...models import (
     AddEnvelopeDocumentRequest,
     SetEnvelopeDynamicFieldsRequest,
     AddEnvelopeSigningStepsRequest,
+    EnvelopeAttachments,
+    SetEnvelopeAttachmentsSettingsRequest,
+    SetEnvelopeAttachmentsPlaceholdersRequest,
     RenameEnvelopeRequest,
     SetEnvelopeCommentRequest,
     EnvelopeNotification,
@@ -101,6 +104,23 @@ class SignplusServiceAsync(SignplusService):
         self, request_body: AddEnvelopeSigningStepsRequest, envelope_id: str
     ) -> Awaitable[Envelope]:
         return to_async(super().add_envelope_signing_steps)(request_body, envelope_id)
+
+    def set_envelope_attachments_settings(
+        self, request_body: SetEnvelopeAttachmentsSettingsRequest, envelope_id: str
+    ) -> Awaitable[EnvelopeAttachments]:
+        return to_async(super().set_envelope_attachments_settings)(
+            request_body, envelope_id
+        )
+
+    def set_envelope_attachments_placeholders(
+        self, request_body: SetEnvelopeAttachmentsPlaceholdersRequest, envelope_id: str
+    ) -> Awaitable[EnvelopeAttachments]:
+        return to_async(super().set_envelope_attachments_placeholders)(
+            request_body, envelope_id
+        )
+
+    def get_attachment_file(self, envelope_id: str, file_id: str) -> Awaitable[bytes]:
+        return to_async(super().get_attachment_file)(envelope_id, file_id)
 
     def send_envelope(self, envelope_id: str) -> Awaitable[Envelope]:
         return to_async(super().send_envelope)(envelope_id)
@@ -231,6 +251,20 @@ class SignplusServiceAsync(SignplusService):
         self, template_id: str, annotation_id: str
     ) -> Awaitable[None]:
         return to_async(super().delete_template_annotation)(template_id, annotation_id)
+
+    def set_template_attachments_settings(
+        self, request_body: SetEnvelopeAttachmentsSettingsRequest, template_id: str
+    ) -> Awaitable[EnvelopeAttachments]:
+        return to_async(super().set_template_attachments_settings)(
+            request_body, template_id
+        )
+
+    def set_template_attachments_placeholders(
+        self, request_body: SetEnvelopeAttachmentsPlaceholdersRequest, template_id: str
+    ) -> Awaitable[EnvelopeAttachments]:
+        return to_async(super().set_template_attachments_placeholders)(
+            request_body, template_id
+        )
 
     def create_webhook(self, request_body: CreateWebhookRequest) -> Awaitable[Webhook]:
         return to_async(super().create_webhook)(request_body)

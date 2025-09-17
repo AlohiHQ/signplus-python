@@ -17,3 +17,4 @@
 | documents        | List[Document]            | ❌       |                                                                                                                                                                         |
 | notification     | EnvelopeNotification      | ❌       |                                                                                                                                                                         |
 | dynamic_fields   | List[str]                 | ❌       | List of dynamic fields                                                                                                                                                  |
+| attachments      | EnvelopeAttachments       | ❌       |                                                                                                                                                                         |
