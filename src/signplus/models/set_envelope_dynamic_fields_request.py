@@ -1,23 +1,17 @@
 from __future__ import annotations
 from typing import List
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Union
 from .utils.base_model import BaseModel
-from .dynamic_field import DynamicField
+from .dynamic_fields import DynamicFields
 
 
-@JsonMap({})
 class SetEnvelopeDynamicFieldsRequest(BaseModel):
     """SetEnvelopeDynamicFieldsRequest
 
-    :param dynamic_fields: List of dynamic fields
-    :type dynamic_fields: List[DynamicField]
+    :param dynamic_fields: dynamic_fields, defaults to None
+    :type dynamic_fields: List[DynamicFields], optional
     """
 
-    def __init__(self, dynamic_fields: List[DynamicField], **kwargs):
-        """SetEnvelopeDynamicFieldsRequest
-
-        :param dynamic_fields: List of dynamic fields
-        :type dynamic_fields: List[DynamicField]
-        """
-        self.dynamic_fields = self._define_list(dynamic_fields, DynamicField)
-        self._kwargs = kwargs
+    dynamic_fields: Optional[List[DynamicFields]] = Field(default=None)

@@ -1,75 +1,139 @@
-from .create_envelope_request import CreateEnvelopeRequest
-from .envelope import Envelope
 from .create_envelope_from_template_request import CreateEnvelopeFromTemplateRequest
-from .list_envelopes_request import ListEnvelopesRequest
-from .list_envelopes_response import ListEnvelopesResponse
-from .document import Document
-from .list_envelope_documents_response import ListEnvelopeDocumentsResponse
 from .add_envelope_document_request import AddEnvelopeDocumentRequest
 from .set_envelope_dynamic_fields_request import SetEnvelopeDynamicFieldsRequest
 from .add_envelope_signing_steps_request import AddEnvelopeSigningStepsRequest
 from .set_envelope_attachments_settings_request import (
     SetEnvelopeAttachmentsSettingsRequest,
 )
-from .envelope_attachments import EnvelopeAttachments
 from .set_envelope_attachments_placeholders_request import (
     SetEnvelopeAttachmentsPlaceholdersRequest,
 )
 from .rename_envelope_request import RenameEnvelopeRequest
 from .set_envelope_comment_request import SetEnvelopeCommentRequest
-from .envelope_notification import EnvelopeNotification
-from .set_envelope_expiration_request import SetEnvelopeExpirationRequest
+from .set_envelope_notification_request import SetEnvelopeNotificationRequest
+from .set_envelope_expiration_date_request import SetEnvelopeExpirationDateRequest
 from .set_envelope_legality_level_request import SetEnvelopeLegalityLevelRequest
-from .annotation import Annotation
-from .list_envelope_document_annotations_response import (
-    ListEnvelopeDocumentAnnotationsResponse,
-)
-from .add_annotation_request import AddAnnotationRequest
-from .create_template_request import CreateTemplateRequest
-from .template import Template
-from .list_templates_request import ListTemplatesRequest
-from .list_templates_response import ListTemplatesResponse
+from .add_envelope_annotation_request import AddEnvelopeAnnotationRequest
+from .create_envelope_request import CreateEnvelopeRequest
+from .list_envelopes_request import ListEnvelopesRequest
 from .add_template_document_request import AddTemplateDocumentRequest
-from .list_template_documents_response import ListTemplateDocumentsResponse
 from .add_template_signing_steps_request import AddTemplateSigningStepsRequest
 from .rename_template_request import RenameTemplateRequest
 from .set_template_comment_request import SetTemplateCommentRequest
-from .list_template_annotations_response import ListTemplateAnnotationsResponse
-from .list_template_document_annotations_response import (
-    ListTemplateDocumentAnnotationsResponse,
+from .set_template_notification_request import SetTemplateNotificationRequest
+from .add_template_annotation_request import AddTemplateAnnotationRequest
+from .set_template_attachments_settings_request import (
+    SetTemplateAttachmentsSettingsRequest,
 )
+from .set_template_attachments_placeholders_request import (
+    SetTemplateAttachmentsPlaceholdersRequest,
+)
+from .create_template_request import CreateTemplateRequest
+from .list_templates_request import ListTemplatesRequest
 from .create_webhook_request import CreateWebhookRequest
-from .webhook import Webhook
 from .list_webhooks_request import ListWebhooksRequest
-from .list_webhooks_response import ListWebhooksResponse
-from .envelope_legality_level import EnvelopeLegalityLevel
-from .envelope_flow_type import EnvelopeFlowType
-from .envelope_status import EnvelopeStatus
-from .signing_step import SigningStep
-from .recipient import Recipient
-from .recipient_role import RecipientRole
-from .recipient_verification import RecipientVerification
-from .recipient_verification_type import RecipientVerificationType
-from .page import Page
-from .attachment_settings import AttachmentSettings
-from .attachment_placeholders_per_recipient import AttachmentPlaceholdersPerRecipient
-from .attachment_placeholder import AttachmentPlaceholder
-from .attachment_placeholder_file import AttachmentPlaceholderFile
-from .envelope_order_field import EnvelopeOrderField
-from .dynamic_field import DynamicField
-from .attachment_placeholder_request import AttachmentPlaceholderRequest
-from .annotation_type import AnnotationType
-from .annotation_signature import AnnotationSignature
-from .annotation_initials import AnnotationInitials
-from .annotation_text import AnnotationText
-from .annotation_date_time import AnnotationDateTime
-from .annotation_checkbox import AnnotationCheckbox
-from .annotation_font import AnnotationFont
-from .annotation_font_family import AnnotationFontFamily
-from .annotation_date_time_format import AnnotationDateTimeFormat
-from .annotation_checkbox_style import AnnotationCheckboxStyle
-from .template_signing_step import TemplateSigningStep
-from .template_recipient import TemplateRecipient
-from .template_recipient_role import TemplateRecipientRole
-from .template_order_field import TemplateOrderField
-from .webhook_event import WebhookEvent
+from .dynamic_fields import DynamicFields
+from .add_envelope_signing_steps_request_signing_steps import (
+    AddEnvelopeSigningStepsRequestSigningSteps,
+)
+from .signing_steps_recipients_1 import SigningStepsRecipients1
+from .verification import Verification
+from .set_envelope_attachments_settings_request_settings import (
+    SetEnvelopeAttachmentsSettingsRequestSettings,
+)
+from .set_envelope_attachments_placeholders_request_placeholders import (
+    SetEnvelopeAttachmentsPlaceholdersRequestPlaceholders,
+)
+from .add_envelope_annotation_request_signature import (
+    AddEnvelopeAnnotationRequestSignature,
+)
+from .add_envelope_annotation_request_initials import (
+    AddEnvelopeAnnotationRequestInitials,
+)
+from .add_envelope_annotation_request_text import AddEnvelopeAnnotationRequestText
+from .add_envelope_annotation_request_datetime import (
+    AddEnvelopeAnnotationRequestDatetime,
+)
+from .add_envelope_annotation_request_checkbox import (
+    AddEnvelopeAnnotationRequestCheckbox,
+)
+from .text_font_1 import TextFont1
+from .datetime_font_1 import DatetimeFont1
+from .add_template_signing_steps_request_signing_steps import (
+    AddTemplateSigningStepsRequestSigningSteps,
+)
+from .signing_steps_recipients_2 import SigningStepsRecipients2
+from .add_template_annotation_request_signature import (
+    AddTemplateAnnotationRequestSignature,
+)
+from .add_template_annotation_request_initials import (
+    AddTemplateAnnotationRequestInitials,
+)
+from .add_template_annotation_request_text import AddTemplateAnnotationRequestText
+from .add_template_annotation_request_datetime import (
+    AddTemplateAnnotationRequestDatetime,
+)
+from .add_template_annotation_request_checkbox import (
+    AddTemplateAnnotationRequestCheckbox,
+)
+from .text_font_2 import TextFont2
+from .datetime_font_2 import DatetimeFont2
+from .set_template_attachments_settings_request_settings import (
+    SetTemplateAttachmentsSettingsRequestSettings,
+)
+from .set_template_attachments_placeholders_request_placeholders import (
+    SetTemplateAttachmentsPlaceholdersRequestPlaceholders,
+)
+
+# Rebuild models to resolve circular forward references
+# This ensures Pydantic can properly validate models that reference each other
+CreateEnvelopeFromTemplateRequest.model_rebuild()
+AddEnvelopeDocumentRequest.model_rebuild()
+SetEnvelopeDynamicFieldsRequest.model_rebuild()
+AddEnvelopeSigningStepsRequest.model_rebuild()
+SetEnvelopeAttachmentsSettingsRequest.model_rebuild()
+SetEnvelopeAttachmentsPlaceholdersRequest.model_rebuild()
+RenameEnvelopeRequest.model_rebuild()
+SetEnvelopeCommentRequest.model_rebuild()
+SetEnvelopeNotificationRequest.model_rebuild()
+SetEnvelopeExpirationDateRequest.model_rebuild()
+SetEnvelopeLegalityLevelRequest.model_rebuild()
+AddEnvelopeAnnotationRequest.model_rebuild()
+CreateEnvelopeRequest.model_rebuild()
+ListEnvelopesRequest.model_rebuild()
+AddTemplateDocumentRequest.model_rebuild()
+AddTemplateSigningStepsRequest.model_rebuild()
+RenameTemplateRequest.model_rebuild()
+SetTemplateCommentRequest.model_rebuild()
+SetTemplateNotificationRequest.model_rebuild()
+AddTemplateAnnotationRequest.model_rebuild()
+SetTemplateAttachmentsSettingsRequest.model_rebuild()
+SetTemplateAttachmentsPlaceholdersRequest.model_rebuild()
+CreateTemplateRequest.model_rebuild()
+ListTemplatesRequest.model_rebuild()
+CreateWebhookRequest.model_rebuild()
+ListWebhooksRequest.model_rebuild()
+DynamicFields.model_rebuild()
+AddEnvelopeSigningStepsRequestSigningSteps.model_rebuild()
+SigningStepsRecipients1.model_rebuild()
+Verification.model_rebuild()
+SetEnvelopeAttachmentsSettingsRequestSettings.model_rebuild()
+SetEnvelopeAttachmentsPlaceholdersRequestPlaceholders.model_rebuild()
+AddEnvelopeAnnotationRequestSignature.model_rebuild()
+AddEnvelopeAnnotationRequestInitials.model_rebuild()
+AddEnvelopeAnnotationRequestText.model_rebuild()
+AddEnvelopeAnnotationRequestDatetime.model_rebuild()
+AddEnvelopeAnnotationRequestCheckbox.model_rebuild()
+TextFont1.model_rebuild()
+DatetimeFont1.model_rebuild()
+AddTemplateSigningStepsRequestSigningSteps.model_rebuild()
+SigningStepsRecipients2.model_rebuild()
+AddTemplateAnnotationRequestSignature.model_rebuild()
+AddTemplateAnnotationRequestInitials.model_rebuild()
+AddTemplateAnnotationRequestText.model_rebuild()
+AddTemplateAnnotationRequestDatetime.model_rebuild()
+AddTemplateAnnotationRequestCheckbox.model_rebuild()
+TextFont2.model_rebuild()
+DatetimeFont2.model_rebuild()
+SetTemplateAttachmentsSettingsRequestSettings.model_rebuild()
+SetTemplateAttachmentsPlaceholdersRequestPlaceholders.model_rebuild()

@@ -1,22 +1,20 @@
 from __future__ import annotations
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Union
 from .utils.base_model import BaseModel
-from .attachment_settings import AttachmentSettings
+from .set_envelope_attachments_settings_request_settings import (
+    SetEnvelopeAttachmentsSettingsRequestSettings,
+)
 
 
-@JsonMap({})
 class SetEnvelopeAttachmentsSettingsRequest(BaseModel):
     """SetEnvelopeAttachmentsSettingsRequest
 
-    :param settings: settings
-    :type settings: AttachmentSettings
+    :param settings: settings, defaults to None
+    :type settings: SetEnvelopeAttachmentsSettingsRequestSettings, optional
     """
 
-    def __init__(self, settings: AttachmentSettings, **kwargs):
-        """SetEnvelopeAttachmentsSettingsRequest
-
-        :param settings: settings
-        :type settings: AttachmentSettings
-        """
-        self.settings = self._define_object(settings, AttachmentSettings)
-        self._kwargs = kwargs
+    settings: Optional[SetEnvelopeAttachmentsSettingsRequestSettings] = Field(
+        default=None
+    )

@@ -1,26 +1,14 @@
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Union
 from .utils.base_model import BaseModel
 
 
-@JsonMap({})
 class CreateTemplateRequest(BaseModel):
     """CreateTemplateRequest
 
-    :param name: name
-    :type name: str
+    :param name: name, defaults to None
+    :type name: str, optional
     """
 
-    def __init__(self, name: str, **kwargs):
-        """CreateTemplateRequest
-
-        :param name: name
-        :type name: str
-        """
-        self.name = self._define_str(
-            "name",
-            name,
-            pattern="^[a-zA-Z0-9][a-zA-Z0-9 ]*[a-zA-Z0-9]$",
-            min_length=2,
-            max_length=256,
-        )
-        self._kwargs = kwargs
+    name: Optional[str] = Field(default=None)
