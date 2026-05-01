@@ -1,20 +1,14 @@
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Union
 from .utils.base_model import BaseModel
 
 
-@JsonMap({})
 class SetTemplateCommentRequest(BaseModel):
     """SetTemplateCommentRequest
 
-    :param comment: Comment for the template
-    :type comment: str
+    :param comment: comment, defaults to None
+    :type comment: str, optional
     """
 
-    def __init__(self, comment: str, **kwargs):
-        """SetTemplateCommentRequest
-
-        :param comment: Comment for the template
-        :type comment: str
-        """
-        self.comment = comment
-        self._kwargs = kwargs
+    comment: Optional[str] = Field(default=None)

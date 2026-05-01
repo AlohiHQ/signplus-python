@@ -1,27 +1,17 @@
-from __future__ import annotations
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Union
 from .utils.base_model import BaseModel
-from .webhook_event import WebhookEvent
 
 
-@JsonMap({})
 class CreateWebhookRequest(BaseModel):
     """CreateWebhookRequest
 
-    :param event: Event of the webhook
-    :type event: WebhookEvent
-    :param target: URL of the webhook target
-    :type target: str
+    :param event: event, defaults to None
+    :type event: str, optional
+    :param target: target, defaults to None
+    :type target: str, optional
     """
 
-    def __init__(self, event: WebhookEvent, target: str, **kwargs):
-        """CreateWebhookRequest
-
-        :param event: Event of the webhook
-        :type event: WebhookEvent
-        :param target: URL of the webhook target
-        :type target: str
-        """
-        self.event = self._enum_matching(event, WebhookEvent.list(), "event")
-        self.target = target
-        self._kwargs = kwargs
+    event: Optional[str] = Field(default=None)
+    target: Optional[str] = Field(default=None)
