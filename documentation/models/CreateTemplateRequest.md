@@ -4,4 +4,4 @@
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| name | str  | ✅       |             |
+| name | str  | ❌       |             |

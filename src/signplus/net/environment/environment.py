@@ -10,6 +10,7 @@ class Environment(Enum):
     """The environments available for the SDK"""
 
     DEFAULT = "https://restapi.sign.plus/v2"
+    RESTAPI = "https://restapi.sign.plus/v2"
 
     def __new__(cls, url):
         parsed_url = urlparse(url)
