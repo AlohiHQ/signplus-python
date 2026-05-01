@@ -1,23 +1,21 @@
 from __future__ import annotations
 from typing import List
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Union
 from .utils.base_model import BaseModel
-from .template_signing_step import TemplateSigningStep
+from .add_template_signing_steps_request_signing_steps import (
+    AddTemplateSigningStepsRequestSigningSteps,
+)
 
 
-@JsonMap({})
 class AddTemplateSigningStepsRequest(BaseModel):
     """AddTemplateSigningStepsRequest
 
-    :param signing_steps: List of signing steps
-    :type signing_steps: List[TemplateSigningStep]
+    :param signing_steps: signing_steps, defaults to None
+    :type signing_steps: List[AddTemplateSigningStepsRequestSigningSteps], optional
     """
 
-    def __init__(self, signing_steps: List[TemplateSigningStep], **kwargs):
-        """AddTemplateSigningStepsRequest
-
-        :param signing_steps: List of signing steps
-        :type signing_steps: List[TemplateSigningStep]
-        """
-        self.signing_steps = self._define_list(signing_steps, TemplateSigningStep)
-        self._kwargs = kwargs
+    signing_steps: Optional[List[AddTemplateSigningStepsRequestSigningSteps]] = Field(
+        default=None
+    )

@@ -2,14 +2,14 @@
 
 **Properties**
 
-| Name        | Type               | Required | Description                                   |
-| :---------- | :----------------- | :------- | :-------------------------------------------- |
-| name        | str                | ❌       | Name of the template                          |
-| tags        | List[str]          | ❌       | List of tag templates                         |
-| ids         | List[str]          | ❌       | List of templates IDs                         |
-| first       | int                | ❌       |                                               |
-| last        | int                | ❌       |                                               |
-| after       | str                | ❌       |                                               |
-| before      | str                | ❌       |                                               |
-| order_field | TemplateOrderField | ❌       | Field to order templates by                   |
-| ascending   | bool               | ❌       | Whether to order templates in ascending order |
+| Name        | Type      | Required | Description |
+| :---------- | :-------- | :------- | :---------- |
+| name        | str       | ❌       |             |
+| tags        | List[str] | ❌       |             |
+| ids         | List[str] | ❌       |             |
+| first       | str       | ❌       |             |
+| last        | str       | ❌       |             |
+| after       | str       | ❌       |             |
+| before      | str       | ❌       |             |
+| order_field | str       | ❌       |             |
+| ascending   | str       | ❌       |             |

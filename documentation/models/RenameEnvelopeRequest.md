@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name | Type | Required | Description          |
-| :--- | :--- | :------- | :------------------- |
-| name | str  | ❌       | Name of the envelope |
+| Name | Type | Required | Description |
+| :--- | :--- | :------- | :---------- |
+| name | str  | ❌       |             |
