@@ -1,19 +1,14 @@
-# Signplus Python SDK 3.0.0<a id="signplus-python-sdk-300"></a>
+# SignplusDeveloperApiV2SpecSdk Python SDK 1.0.0<a id="signplusdeveloperapiv2specsdk-python-sdk-100"></a>
 
-Welcome to the Signplus SDK documentation. This guide will help you get started with integrating and using the Signplus SDK in your project.
+Welcome to the SignplusDeveloperApiV2SpecSdk SDK documentation. This guide will help you get started with integrating and using the SignplusDeveloperApiV2SpecSdk SDK in your project.
 
 ## Versions<a id="versions"></a>
 
-- API version: `2.5.0`
-- SDK version: `3.0.0`
+- SDK version: `1.0.0`
 
 ## About the API<a id="about-the-api"></a>
 
 Integrate legally-binding electronic signature to your workflow
-
-Contact Support:
-Name: Sign.Plus
-Email: support@alohi.com
 
 ## Table of Contents<a id="table-of-contents"></a>
 
@@ -26,7 +21,6 @@ Email: support@alohi.com
 - [Sample Usage](#sample-usage)
 - [Services](#services)
 - [Models](#models)
-- [License](#license)
 
 # Setup & Configuration<a id="setup--configuration"></a>
 
@@ -39,20 +33,20 @@ This SDK is compatible with the following versions: `Python >= 3.7`
 To get started with the SDK, we recommend installing using `pip`:
 
 ```bash
-pip install signplus-python
+pip install signplus_developer_api_v2_spec_sdk
 ```
 
 If you are using Python 3, you can use `pip3` instead:
 
 ```bash
-pip3 install signplus-python
+pip3 install signplus_developer_api_v2_spec_sdk
 ```
 
 ## Authentication<a id="authentication"></a>
 
 ### Access Token Authentication<a id="access-token-authentication"></a>
 
-The Signplus API uses an Access Token for authentication.
+The SignplusDeveloperApiV2SpecSdk API uses an Access Token for authentication.
 
 This token must be provided to authenticate your requests to the API.
 
@@ -61,7 +55,7 @@ This token must be provided to authenticate your requests to the API.
 When you initialize the SDK, you can set the access token as follows:
 
 ```py
-Signplus(
+SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -78,9 +72,9 @@ sdk.set_access_token("YOUR_ACCESS_TOKEN")
 You can set a custom timeout for the SDK's HTTP requests as follows:
 
 ```py
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(timeout=10000)
+sdk = SignplusDeveloperApiV2SpecSdk(timeout=10000)
 ```
 
 # Sample Usage<a id="sample-usage"></a>
@@ -88,15 +82,14 @@ sdk = Signplus(timeout=10000)
 Below is a comprehensive example demonstrating how to authenticate and call a simple endpoint:
 
 ```py
-from signplus import Signplus, Environment
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
-result = sdk.envelope_id.delete_envelope(envelope_id="envelope_id")
+result = sdk.signplus.get_envelope(envelope_id="envelope_id")
 
 print(result)
 
@@ -108,20 +101,16 @@ The SDK includes an Async Client for making asynchronous API requests. This is u
 
 ```py
 import asyncio
-from signplus import SignplusAsync, Environment
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdkAsync
 
-sdk = SignplusAsync(
+sdk = SignplusDeveloperApiV2SpecSdkAsync(
     access_token="YOUR_ACCESS_TOKEN",
-    base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
 
 async def main():
-  result = await sdk.envelope_id.get_envelope(
-    envelope_id="envelope_id",
-    accept="application/json"
-)
+  result = await sdk.signplus.get_envelope(envelope_id="envelope_id")
   print(result)
 
 asyncio.run(main())
@@ -134,54 +123,9 @@ The SDK provides various services to interact with the API.
 <details> 
 <summary>Below is a list of all available services:</summary>
 
-| Name                                          |
-| :-------------------------------------------- |
-| template_id                                   |
-| signed_documents                              |
-| certificate                                   |
-| document_id                                   |
-| document                                      |
-| documents                                     |
-| dynamic_fields                                |
-| signing_steps                                 |
-| settings                                      |
-| placeholders                                  |
-| file_id                                       |
-| send                                          |
-| duplicate                                     |
-| void                                          |
-| rename                                        |
-| set_comment                                   |
-| set_notification                              |
-| set_expiration_date                           |
-| set_legality_level                            |
-| envelope_envelope_id_annotations_document_id  |
-| annotations                                   |
-| annotation_id                                 |
-| annotation                                    |
-| envelope_id                                   |
-| envelope                                      |
-| envelopes                                     |
-| template_template_id_duplicate                |
-| template_template_id_document_document_id     |
-| template_template_id_document                 |
-| template_template_id_documents                |
-| template_template_id_signing_steps            |
-| template_template_id_rename                   |
-| template_template_id_set_comment              |
-| template_template_id_set_notification         |
-| template_template_id_annotations_document_id  |
-| template_template_id_annotations              |
-| template_template_id_annotation_annotation_id |
-| template_template_id_annotation               |
-| template_template_id_attachments_settings     |
-| template_template_id_attachments_placeholders |
-| template_template_id                          |
-| template                                      |
-| templates                                     |
-| webhook_id                                    |
-| webhook                                       |
-| webhooks                                      |
+| Name     |
+| :------- |
+| signplus |
 
 </details>
 
@@ -192,63 +136,74 @@ The SDK includes several models that represent the data structures used in API r
 <details> 
 <summary>Below is a list of all available models:</summary>
 
-| Name                                                  | Description |
-| :---------------------------------------------------- | :---------- |
-| CreateEnvelopeFromTemplateRequest                     |             |
-| AddEnvelopeDocumentRequest                            |             |
-| SetEnvelopeDynamicFieldsRequest                       |             |
-| AddEnvelopeSigningStepsRequest                        |             |
-| SetEnvelopeAttachmentsSettingsRequest                 |             |
-| SetEnvelopeAttachmentsPlaceholdersRequest             |             |
-| RenameEnvelopeRequest                                 |             |
-| SetEnvelopeCommentRequest                             |             |
-| SetEnvelopeNotificationRequest                        |             |
-| SetEnvelopeExpirationDateRequest                      |             |
-| SetEnvelopeLegalityLevelRequest                       |             |
-| AddEnvelopeAnnotationRequest                          |             |
-| CreateEnvelopeRequest                                 |             |
-| ListEnvelopesRequest                                  |             |
-| AddTemplateDocumentRequest                            |             |
-| AddTemplateSigningStepsRequest                        |             |
-| RenameTemplateRequest                                 |             |
-| SetTemplateCommentRequest                             |             |
-| SetTemplateNotificationRequest                        |             |
-| AddTemplateAnnotationRequest                          |             |
-| SetTemplateAttachmentsSettingsRequest                 |             |
-| SetTemplateAttachmentsPlaceholdersRequest             |             |
-| CreateTemplateRequest                                 |             |
-| ListTemplatesRequest                                  |             |
-| CreateWebhookRequest                                  |             |
-| ListWebhooksRequest                                   |             |
-| DynamicFields                                         |             |
-| AddEnvelopeSigningStepsRequestSigningSteps            |             |
-| SigningStepsRecipients1                               |             |
-| Verification                                          |             |
-| SetEnvelopeAttachmentsSettingsRequestSettings         |             |
-| SetEnvelopeAttachmentsPlaceholdersRequestPlaceholders |             |
-| AddEnvelopeAnnotationRequestSignature                 |             |
-| AddEnvelopeAnnotationRequestInitials                  |             |
-| AddEnvelopeAnnotationRequestText                      |             |
-| AddEnvelopeAnnotationRequestDatetime                  |             |
-| AddEnvelopeAnnotationRequestCheckbox                  |             |
-| TextFont1                                             |             |
-| DatetimeFont1                                         |             |
-| AddTemplateSigningStepsRequestSigningSteps            |             |
-| SigningStepsRecipients2                               |             |
-| AddTemplateAnnotationRequestSignature                 |             |
-| AddTemplateAnnotationRequestInitials                  |             |
-| AddTemplateAnnotationRequestText                      |             |
-| AddTemplateAnnotationRequestDatetime                  |             |
-| AddTemplateAnnotationRequestCheckbox                  |             |
-| TextFont2                                             |             |
-| DatetimeFont2                                         |             |
-| SetTemplateAttachmentsSettingsRequestSettings         |             |
-| SetTemplateAttachmentsPlaceholdersRequestPlaceholders |             |
+| Name                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| :---------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CreateEnvelopeRequest                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Envelope                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| CreateEnvelopeFromTemplateRequest         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListEnvelopesRequest                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListEnvelopesResponse                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Document                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListEnvelopeDocumentsResponse             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AddEnvelopeDocumentRequest                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| SetEnvelopeDynamicFieldsRequest           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AddEnvelopeSigningStepsRequest            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| SetEnvelopeAttachmentsSettingsRequest     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| EnvelopeAttachments                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| SetEnvelopeAttachmentsPlaceholdersRequest |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| RenameEnvelopeRequest                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| SetEnvelopeCommentRequest                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| EnvelopeNotification                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| SetEnvelopeExpirationRequest              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| SetEnvelopeLegalityLevelRequest           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Annotation                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListEnvelopeDocumentAnnotationsResponse   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AddAnnotationRequest                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| CreateTemplateRequest                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Template                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListTemplatesRequest                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListTemplatesResponse                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AddTemplateDocumentRequest                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListTemplateDocumentsResponse             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AddTemplateSigningStepsRequest            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| RenameTemplateRequest                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| SetTemplateCommentRequest                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListTemplateAnnotationsResponse           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListTemplateDocumentAnnotationsResponse   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| CreateWebhookRequest                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Webhook                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListWebhooksRequest                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ListWebhooksResponse                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| EnvelopeLegalityLevel                     | Legal level of the envelope (SES is Simple Electronic Signature, QES_EIDAS is Qualified Electronic Signature, QES_ZERTES is Qualified Electronic Signature with Zertes)                                                                                                                                                                                                                                                                                                                   |
+| EnvelopeFlowType                          | Flow type of the envelope (REQUEST_SIGNATURE is a request for signature, SIGN_MYSELF is a self-signing flow)                                                                                                                                                                                                                                                                                                                                                                              |
+| EnvelopeStatus                            | Status of the envelope                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| SigningStep                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Recipient                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| RecipientRole                             | Role of the recipient (SIGNER signs the document, RECEIVES_COPY receives a copy of the document, IN_PERSON_SIGNER signs the document in person, SENDER sends the document)                                                                                                                                                                                                                                                                                                                |
+| RecipientVerification                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| RecipientVerificationType                 | Type of verification the recipient must complete before accessing the envelope. - `PASSCODE`: requires a code to be entered. - `SMS`: sends a code via SMS. - `ID_VERIFICATION`: prompts the recipient to complete an automated ID and selfie check.                                                                                                                                                                                                                                      |
+| Page                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AttachmentSettings                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AttachmentPlaceholdersPerRecipient        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AttachmentPlaceholder                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AttachmentPlaceholderFile                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| EnvelopeOrderField                        | Field to order envelopes by                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| DynamicField                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AttachmentPlaceholderRequest              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AnnotationType                            | Type of the annotation                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| AnnotationSignature                       | Signature annotation (null if annotation is not a signature)                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| AnnotationInitials                        | Initials annotation (null if annotation is not initials)                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| AnnotationText                            | Text annotation (null if annotation is not a text)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| AnnotationDateTime                        | Date annotation (null if annotation is not a date)                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| AnnotationCheckbox                        | Checkbox annotation (null if annotation is not a checkbox)                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| AnnotationFont                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| AnnotationFontFamily                      | Font family of the text                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| AnnotationDateTimeFormat                  | Format of the date time (DMY_NUMERIC_SLASH is day/month/year with slashes, MDY_NUMERIC_SLASH is month/day/year with slashes, YMD_NUMERIC_SLASH is year/month/day with slashes, DMY_NUMERIC_DASH_SHORT is day/month/year with dashes, DMY_NUMERIC_DASH is day/month/year with dashes, YMD_NUMERIC_DASH is year/month/day with dashes, MDY_TEXT_DASH_SHORT is month/day/year with dashes, MDY_TEXT_SPACE_SHORT is month/day/year with spaces, MDY_TEXT_SPACE is month/day/year with spaces) |
+| AnnotationCheckboxStyle                   | Style of the checkbox                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| TemplateSigningStep                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| TemplateRecipient                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| TemplateRecipientRole                     | Role of the recipient (SIGNER signs the document, RECEIVES_COPY receives a copy of the document, IN_PERSON_SIGNER signs the document in person, SENDER sends the document)                                                                                                                                                                                                                                                                                                                |
+| TemplateOrderField                        | Field to order templates by                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| WebhookEvent                              | Event of the webhook                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 </details>
-
-## License<a id="license"></a>
-
-This SDK is licensed under the MIT License.
-
-See the [LICENSE](LICENSE) file for more details.

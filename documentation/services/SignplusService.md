@@ -73,10 +73,10 @@ Create new envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import CreateEnvelopeRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import CreateEnvelopeRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -84,7 +84,7 @@ sdk = Signplus(
 request_body = CreateEnvelopeRequest(
     name="name",
     legality_level="SES",
-    expires_at=8,
+    expires_at=10,
     comment="comment",
     sandbox=False
 )
@@ -115,10 +115,10 @@ Create new envelope from template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import CreateEnvelopeFromTemplateRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import CreateEnvelopeFromTemplateRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -157,10 +157,10 @@ List envelopes
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import ListEnvelopesRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import ListEnvelopesRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -182,15 +182,15 @@ request_body = ListEnvelopesRequest(
     ],
     only_root_folder=True,
     date_from=5,
-    date_to=9,
+    date_to=10,
     uid="uid",
-    first=9,
-    last=7,
+    first=3,
+    last=5,
     after="after",
     before="before",
     order_field="CREATION_DATE",
     ascending=True,
-    include_trash=True
+    include_trash=False
 )
 
 result = sdk.signplus.list_envelopes(request_body=request_body)
@@ -218,9 +218,9 @@ Get envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -246,9 +246,9 @@ Delete envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -279,9 +279,9 @@ Download signed documents for an envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -314,9 +314,9 @@ Download certificate of completion for an envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -347,9 +347,9 @@ Get envelope document
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -382,9 +382,9 @@ Get envelope documents
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -415,10 +415,10 @@ Add envelope document
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import AddEnvelopeDocumentRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import AddEnvelopeDocumentRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -456,10 +456,10 @@ Set envelope dynamic fields
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetEnvelopeDynamicFieldsRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetEnvelopeDynamicFieldsRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -502,10 +502,10 @@ Add envelope signing steps
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import AddEnvelopeSigningStepsRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import AddEnvelopeSigningStepsRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -559,17 +559,17 @@ Set envelope attachment settings
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetEnvelopeAttachmentsSettingsRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetEnvelopeAttachmentsSettingsRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
 
 request_body = SetEnvelopeAttachmentsSettingsRequest(
     settings={
-        "visible_to_recipients": False
+        "visible_to_recipients": True
     }
 )
 
@@ -602,10 +602,10 @@ Placeholders to be set, completely replacing the existing ones.
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetEnvelopeAttachmentsPlaceholdersRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetEnvelopeAttachmentsPlaceholdersRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -618,7 +618,7 @@ request_body = SetEnvelopeAttachmentsPlaceholdersRequest(
             "name": "name",
             "hint": "hint",
             "required": False,
-            "multiple": True
+            "multiple": False
         }
     ]
 )
@@ -652,9 +652,9 @@ Get envelope attachment file
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -688,9 +688,9 @@ Send envelope for signature
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -720,9 +720,9 @@ Duplicate envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -752,9 +752,9 @@ Void envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -785,10 +785,10 @@ Rename envelope
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import RenameEnvelopeRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import RenameEnvelopeRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -826,10 +826,10 @@ Set envelope comment
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetEnvelopeCommentRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetEnvelopeCommentRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -867,10 +867,10 @@ Set envelope notification
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import EnvelopeNotification
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import EnvelopeNotification
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -878,7 +878,7 @@ sdk = Signplus(
 request_body = EnvelopeNotification(
     subject="subject",
     message="message",
-    reminder_interval=1
+    reminder_interval=5
 )
 
 result = sdk.signplus.set_envelope_notification(
@@ -910,16 +910,16 @@ Set envelope expiration date
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetEnvelopeExpirationRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetEnvelopeExpirationRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
 
 request_body = SetEnvelopeExpirationRequest(
-    expires_at=0
+    expires_at=5
 )
 
 result = sdk.signplus.set_envelope_expiration_date(
@@ -951,10 +951,10 @@ Set envelope legality level
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetEnvelopeLegalityLevelRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetEnvelopeLegalityLevelRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -991,9 +991,9 @@ Get envelope annotations
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1024,9 +1024,9 @@ Get envelope document annotations
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1060,10 +1060,10 @@ Add envelope annotation
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import AddAnnotationRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import AddAnnotationRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1071,12 +1071,12 @@ sdk = Signplus(
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=2,
-    x=1.99,
-    y=8.2,
-    width=4.89,
-    height=9.43,
-    required=False,
+    page=4,
+    x=5.28,
+    y=5.25,
+    width=6.06,
+    height=9.59,
+    required=True,
     type_="TEXT",
     signature={
         "id_": "id"
@@ -1085,28 +1085,28 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 5.96,
-        "color": 8.73,
+        "size": 4.76,
+        "color": 3.36,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
-            "italic": True,
-            "bold": True
+            "italic": False,
+            "bold": False
         }
     },
     datetime_={
-        "size": 0.26,
+        "size": 2.81,
         "font": {
             "family": "UNKNOWN",
-            "italic": True,
-            "bold": True
+            "italic": False,
+            "bold": False
         },
         "color": "color",
         "auto_fill": True,
         "timezone": "timezone",
-        "timestamp": 1,
+        "timestamp": 10,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
@@ -1140,9 +1140,9 @@ Delete envelope annotation
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1175,10 +1175,10 @@ Create new template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import CreateTemplateRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import CreateTemplateRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1212,10 +1212,10 @@ List templates
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import ListTemplatesRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import ListTemplatesRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1228,8 +1228,8 @@ request_body = ListTemplatesRequest(
     ids=[
         "ids"
     ],
-    first=1,
-    last=6,
+    first=9,
+    last=1,
     after="after",
     before="before",
     order_field="TEMPLATE_ID",
@@ -1261,9 +1261,9 @@ Get template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1289,9 +1289,9 @@ Delete template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1321,9 +1321,9 @@ Duplicate template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1354,10 +1354,10 @@ Add template document
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import AddTemplateDocumentRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import AddTemplateDocumentRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1395,9 +1395,9 @@ Get template document
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1430,9 +1430,9 @@ Get template documents
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1463,10 +1463,10 @@ Add template signing steps
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import AddTemplateSigningStepsRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import AddTemplateSigningStepsRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1516,10 +1516,10 @@ Rename template
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import RenameTemplateRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import RenameTemplateRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1557,10 +1557,10 @@ Set template comment
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetTemplateCommentRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetTemplateCommentRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1598,10 +1598,10 @@ Set template notification
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import EnvelopeNotification
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import EnvelopeNotification
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1609,7 +1609,7 @@ sdk = Signplus(
 request_body = EnvelopeNotification(
     subject="subject",
     message="message",
-    reminder_interval=1
+    reminder_interval=5
 )
 
 result = sdk.signplus.set_template_notification(
@@ -1640,9 +1640,9 @@ Get template annotations
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1673,9 +1673,9 @@ Get document template annotations
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1709,10 +1709,10 @@ Add template annotation
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import AddAnnotationRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import AddAnnotationRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1720,12 +1720,12 @@ sdk = Signplus(
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=2,
-    x=1.99,
-    y=8.2,
-    width=4.89,
-    height=9.43,
-    required=False,
+    page=4,
+    x=5.28,
+    y=5.25,
+    width=6.06,
+    height=9.59,
+    required=True,
     type_="TEXT",
     signature={
         "id_": "id"
@@ -1734,28 +1734,28 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 5.96,
-        "color": 8.73,
+        "size": 4.76,
+        "color": 3.36,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
-            "italic": True,
-            "bold": True
+            "italic": False,
+            "bold": False
         }
     },
     datetime_={
-        "size": 0.26,
+        "size": 2.81,
         "font": {
             "family": "UNKNOWN",
-            "italic": True,
-            "bold": True
+            "italic": False,
+            "bold": False
         },
         "color": "color",
         "auto_fill": True,
         "timezone": "timezone",
-        "timestamp": 1,
+        "timestamp": 10,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
@@ -1789,9 +1789,9 @@ Delete template annotation
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1825,17 +1825,17 @@ Set template attachment settings
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetEnvelopeAttachmentsSettingsRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetEnvelopeAttachmentsSettingsRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
 
 request_body = SetEnvelopeAttachmentsSettingsRequest(
     settings={
-        "visible_to_recipients": False
+        "visible_to_recipients": True
     }
 )
 
@@ -1868,10 +1868,10 @@ Placeholders to be set, completely replacing the existing ones.
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import SetEnvelopeAttachmentsPlaceholdersRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import SetEnvelopeAttachmentsPlaceholdersRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1884,7 +1884,7 @@ request_body = SetEnvelopeAttachmentsPlaceholdersRequest(
             "name": "name",
             "hint": "hint",
             "required": False,
-            "multiple": True
+            "multiple": False
         }
     ]
 )
@@ -1917,10 +1917,10 @@ Create webhook
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import CreateWebhookRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import CreateWebhookRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1955,10 +1955,10 @@ List webhooks
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
-from signplus.models import ListWebhooksRequest
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
+from signplus_developer_api_v2_spec_sdk.models import ListWebhooksRequest
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )
@@ -1989,9 +1989,9 @@ Delete webhook
 **Example Usage Code Snippet**
 
 ```python
-from signplus import Signplus
+from signplus_developer_api_v2_spec_sdk import SignplusDeveloperApiV2SpecSdk
 
-sdk = Signplus(
+sdk = SignplusDeveloperApiV2SpecSdk(
     access_token="YOUR_ACCESS_TOKEN",
     timeout=10000
 )

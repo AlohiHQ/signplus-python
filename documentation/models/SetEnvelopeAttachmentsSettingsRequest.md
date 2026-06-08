@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name     | Type                                                                                              | Required | Description |
-| :------- | :------------------------------------------------------------------------------------------------ | :------- | :---------- |
-| settings | [SetEnvelopeAttachmentsSettingsRequestSettings](SetEnvelopeAttachmentsSettingsRequestSettings.md) | ❌       |             |
+| Name     | Type                                        | Required | Description |
+| :------- | :------------------------------------------ | :------- | :---------- |
+| settings | [AttachmentSettings](AttachmentSettings.md) | ✅       |             |

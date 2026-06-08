@@ -3,21 +3,12 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "signplus-python"
-version = "3.0.0"
-license = { text = "MIT" }
-description = """Integrate legally-binding electronic signature to your workflow\n\nContact Support:\n Name: Sign.Plus\n Email: support@alohi.com"""
+name = "signplus_developer_api_v2_spec_sdk"
+version = "1.0.0"
+description = """Integrate legally-binding electronic signature to your workflow"""
 readme = "PyPI_README.md"
 requires-python = ">=3.9"
-classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "License :: OSI Approved :: MIT License",
-    "Topic :: Software Development"
-]
 dependencies = [
     "requests>=2.31.0",
     "pydantic>=2.0.0,<3.0.0"
 ]
-
-[project.urls]
-Repository = "https://github.com/alohihq/signplus-python"

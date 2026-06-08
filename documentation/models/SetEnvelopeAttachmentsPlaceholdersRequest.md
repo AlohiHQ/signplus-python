@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name         | Type                                                                                                                    | Required | Description |
-| :----------- | :---------------------------------------------------------------------------------------------------------------------- | :------- | :---------- |
-| placeholders | List[[SetEnvelopeAttachmentsPlaceholdersRequestPlaceholders](SetEnvelopeAttachmentsPlaceholdersRequestPlaceholders.md)] | ❌       |             |
+| Name         | Type                                                                  | Required | Description |
+| :----------- | :-------------------------------------------------------------------- | :------- | :---------- |
+| placeholders | List[[AttachmentPlaceholderRequest](AttachmentPlaceholderRequest.md)] | ✅       |             |

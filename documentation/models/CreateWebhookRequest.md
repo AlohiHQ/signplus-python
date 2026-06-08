@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type | Required | Description |
-| :----- | :--- | :------- | :---------- |
-| event  | str  | ❌       |             |
-| target | str  | ❌       |             |
+| Name   | Type                            | Required | Description               |
+| :----- | :------------------------------ | :------- | :------------------------ |
+| event  | [WebhookEvent](WebhookEvent.md) | ✅       | Event of the webhook      |
+| target | str                             | ✅       | URL of the webhook target |
