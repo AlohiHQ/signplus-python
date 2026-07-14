@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class WebhookEvent(Enum):
+class WebhookEvent(str, Enum):
     """An enumeration representing different categories.
 
     :cvar ENVELOPEEXPIRED: "ENVELOPE_EXPIRED"
@@ -22,10 +24,11 @@ class WebhookEvent(Enum):
     ENVELOPECOMPLETED = "ENVELOPE_COMPLETED"
     ENVELOPEAUDITTRAIL = "ENVELOPE_AUDIT_TRAIL"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(map(lambda x: x.value, WebhookEvent._member_map_.values()))

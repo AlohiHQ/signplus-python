@@ -1,9 +1,8 @@
-from ...models.utils.base_model import BaseModel
 from .response import Response
 from typing import Optional
 
 
-class ApiError(BaseModel, Exception):
+class ApiError(Exception):
     """
     Class representing an API Error.
 
@@ -26,3 +25,12 @@ class ApiError(BaseModel, Exception):
         self.message = message
         self.status = status
         self.response = response
+        super().__init__(message)
+
+    def __str__(self) -> str:
+        parts = []
+        if self.status is not None:
+            parts.append(f"status={self.status}")
+        if self.message:
+            parts.append(self.message)
+        return ": ".join(parts)

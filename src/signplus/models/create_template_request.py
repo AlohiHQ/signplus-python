@@ -1,8 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
 
 
-@JsonMap({})
 class CreateTemplateRequest(BaseModel):
     """CreateTemplateRequest
 
@@ -10,17 +12,6 @@ class CreateTemplateRequest(BaseModel):
     :type name: str
     """
 
-    def __init__(self, name: str, **kwargs):
-        """CreateTemplateRequest
-
-        :param name: name
-        :type name: str
-        """
-        self.name = self._define_str(
-            "name",
-            name,
-            pattern="^[a-zA-Z0-9][a-zA-Z0-9 ]*[a-zA-Z0-9]$",
-            min_length=2,
-            max_length=256,
-        )
-        self._kwargs = kwargs
+    name: str = Field(
+        pattern=r"^[a-zA-Z0-9][a-zA-Z0-9 ]*[a-zA-Z0-9]$", min_length=2, max_length=256
+    )

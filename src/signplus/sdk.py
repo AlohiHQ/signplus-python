@@ -4,6 +4,12 @@ from .net.environment import Environment
 
 
 class Signplus:
+    """
+    Main SDK client class for Signplus.
+    Provides centralized configuration and access to all service endpoints.
+    Supports authentication, environment management, and global timeout settings.
+    """
+
     def __init__(
         self,
         access_token: str = None,
@@ -14,9 +20,10 @@ class Signplus:
         Initializes Signplus the SDK class.
         """
 
-        self._base_url = (
+        _resolved_url = (
             base_url.value if isinstance(base_url, Environment) else base_url
         )
+        self._base_url = _resolved_url.rstrip("/") if _resolved_url else _resolved_url
         self.signplus = SignplusService(base_url=self._base_url)
         self.set_access_token(access_token)
         self.set_timeout(timeout)
@@ -28,9 +35,10 @@ class Signplus:
         :param Union[Environment, str] base_url: The base URL to be set.
         :return: The SDK instance.
         """
-        self._base_url = (
+        _resolved_url = (
             base_url.value if isinstance(base_url, Environment) else base_url
         )
+        self._base_url = _resolved_url.rstrip("/") if _resolved_url else _resolved_url
 
         self.signplus.set_base_url(self._base_url)
 

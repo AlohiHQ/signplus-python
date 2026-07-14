@@ -1,9 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
-from .utils.sentinel import SENTINEL
 
 
-@JsonMap({})
 class Page(BaseModel):
     """Page
 
@@ -13,16 +14,9 @@ class Page(BaseModel):
     :type height: int, optional
     """
 
-    def __init__(self, width: int = SENTINEL, height: int = SENTINEL, **kwargs):
-        """Page
-
-        :param width: Width of the page in pixels, defaults to None
-        :type width: int, optional
-        :param height: Height of the page in pixels, defaults to None
-        :type height: int, optional
-        """
-        if width is not SENTINEL:
-            self.width = width
-        if height is not SENTINEL:
-            self.height = height
-        self._kwargs = kwargs
+    width: Optional[int] = Field(
+        default=None, description="Width of the page in pixels"
+    )
+    height: Optional[int] = Field(
+        default=None, description="Height of the page in pixels"
+    )

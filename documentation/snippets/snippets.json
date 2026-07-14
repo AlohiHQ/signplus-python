@@ -1,0 +1,282 @@
+{
+  "endpoints": {
+    "/envelope": {
+      "post": "from signplus import Signplus\nfrom signplus.models import CreateEnvelopeRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = CreateEnvelopeRequest(\n    name=\"name\",\n    legality_level=\"SES\",\n    expires_at=8,\n    comment=\"comment\",\n    sandbox=False\n)\n\nresult = sdk.signplus.create_envelope(request_body=request_body)\n\nprint(result)\n"
+    },
+    "/envelope/from_template/{template_id}": {
+      "post": "from signplus import Signplus\nfrom signplus.models import CreateEnvelopeFromTemplateRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = CreateEnvelopeFromTemplateRequest(\n    name=\"name\",\n    comment=\"comment\",\n    sandbox=True\n)\n\nresult = sdk.signplus.create_envelope_from_template(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelopes": {
+      "post": "from signplus import Signplus\nfrom signplus.models import ListEnvelopesRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = ListEnvelopesRequest(\n    name=\"name\",\n    tags=[\n        \"tags\"\n    ],\n    comment=\"comment\",\n    ids=[\n        \"ids\"\n    ],\n    statuses=[\n        \"DRAFT\"\n    ],\n    folder_ids=[\n        \"folder_ids\"\n    ],\n    only_root_folder=False,\n    date_from=0,\n    date_to=1,\n    uid=\"uid\",\n    first=6,\n    last=6,\n    after=\"after\",\n    before=\"before\",\n    order_field=\"CREATION_DATE\",\n    ascending=False,\n    include_trash=True\n)\n\nresult = sdk.signplus.list_envelopes(request_body=request_body)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_envelope(envelope_id=\"envelope_id\")\n\nprint(result)\n",
+      "delete": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.delete_envelope(envelope_id=\"envelope_id\")\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/signed_documents": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.download_envelope_signed_documents(\n    envelope_id=\"envelope_id\",\n    certificate_of_completion=True\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/certificate": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.download_envelope_certificate(envelope_id=\"envelope_id\")\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/document/{document_id}": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_envelope_document(\n    envelope_id=\"envelope_id\",\n    document_id=\"document_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/documents": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_envelope_documents(envelope_id=\"envelope_id\")\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/document": {
+      "post": "from signplus import Signplus\nfrom signplus.models import AddEnvelopeDocumentRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = AddEnvelopeDocumentRequest(\n    file=\"file\"\n)\n\nresult = sdk.signplus.add_envelope_document(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/dynamic_fields": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetEnvelopeDynamicFieldsRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetEnvelopeDynamicFieldsRequest(\n    dynamic_fields=[\n        {\n            \"name\": \"name\",\n            \"value\": \"value\"\n        }\n    ]\n)\n\nresult = sdk.signplus.set_envelope_dynamic_fields(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/signing_steps": {
+      "post": "from signplus import Signplus\nfrom signplus.models import AddEnvelopeSigningStepsRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = AddEnvelopeSigningStepsRequest(\n    signing_steps=[\n        {\n            \"recipients\": [\n                {\n                    \"id_\": \"id\",\n                    \"uid\": \"uid\",\n                    \"name\": \"name\",\n                    \"email\": \"email\",\n                    \"role\": \"SIGNER\",\n                    \"verification\": {\n                        \"type_\": \"SMS\",\n                        \"value\": \"value\"\n                    }\n                }\n            ]\n        }\n    ]\n)\n\nresult = sdk.signplus.add_envelope_signing_steps(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/attachments/settings": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetEnvelopeAttachmentsSettingsRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetEnvelopeAttachmentsSettingsRequest(\n    settings={\n        \"visible_to_recipients\": True\n    }\n)\n\nresult = sdk.signplus.set_envelope_attachments_settings(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/attachments/placeholders": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetEnvelopeAttachmentsPlaceholdersRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetEnvelopeAttachmentsPlaceholdersRequest(\n    placeholders=[\n        {\n            \"recipient_id\": \"recipient_id\",\n            \"id_\": \"id\",\n            \"name\": \"name\",\n            \"hint\": \"hint\",\n            \"required\": True,\n            \"multiple\": True\n        }\n    ]\n)\n\nresult = sdk.signplus.set_envelope_attachments_placeholders(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/attachments/{file_id}": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_attachment_file(\n    envelope_id=\"envelope_id\",\n    file_id=\"file_id\"\n)\n\nwith open(\"output-file.ext\", \"wb\") as f:\n    f.write(result if isinstance(result, (bytes, bytearray)) else str(result).encode())\n"
+    },
+    "/envelope/{envelope_id}/send": {
+      "post": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.send_envelope(envelope_id=\"envelope_id\")\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/duplicate": {
+      "post": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.duplicate_envelope(envelope_id=\"envelope_id\")\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/void": {
+      "put": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.void_envelope(envelope_id=\"envelope_id\")\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/rename": {
+      "put": "from signplus import Signplus\nfrom signplus.models import RenameEnvelopeRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = RenameEnvelopeRequest(\n    name=\"name\"\n)\n\nresult = sdk.signplus.rename_envelope(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/set_comment": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetEnvelopeCommentRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetEnvelopeCommentRequest(\n    comment=\"comment\"\n)\n\nresult = sdk.signplus.set_envelope_comment(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/set_notification": {
+      "put": "from signplus import Signplus\nfrom signplus.models import EnvelopeNotification\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = EnvelopeNotification(\n    subject=\"subject\",\n    message=\"message\",\n    reminder_interval=4\n)\n\nresult = sdk.signplus.set_envelope_notification(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/set_expiration_date": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetEnvelopeExpirationRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetEnvelopeExpirationRequest(\n    expires_at=8\n)\n\nresult = sdk.signplus.set_envelope_expiration_date(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/set_legality_level": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetEnvelopeLegalityLevelRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetEnvelopeLegalityLevelRequest(\n    legality_level=\"SES\"\n)\n\nresult = sdk.signplus.set_envelope_legality_level(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/annotations": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_envelope_annotations(envelope_id=\"envelope_id\")\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/annotations/{document_id}": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_envelope_document_annotations(\n    envelope_id=\"envelope_id\",\n    document_id=\"document_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/annotation": {
+      "post": "from signplus import Signplus\nfrom signplus.models import AddAnnotationRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = AddAnnotationRequest(\n    recipient_id=\"recipient_id\",\n    document_id=\"document_id\",\n    page=7,\n    x=0.75,\n    y=7.6,\n    width=6.94,\n    height=2.06,\n    required=False,\n    type_=\"TEXT\",\n    signature={\n        \"id_\": \"id\"\n    },\n    initials={\n        \"id_\": \"id\"\n    },\n    text={\n        \"size\": 9.98,\n        \"color\": 3.73,\n        \"value\": \"value\",\n        \"tooltip\": \"tooltip\",\n        \"dynamic_field_name\": \"dynamic_field_name\",\n        \"font\": {\n            \"family\": \"UNKNOWN\",\n            \"italic\": False,\n            \"bold\": True\n        }\n    },\n    datetime_={\n        \"size\": 8.01,\n        \"font\": {\n            \"family\": \"UNKNOWN\",\n            \"italic\": False,\n            \"bold\": True\n        },\n        \"color\": \"color\",\n        \"auto_fill\": False,\n        \"timezone\": \"timezone\",\n        \"timestamp\": 5,\n        \"format\": \"DMY_NUMERIC_SLASH\"\n    },\n    checkbox={\n        \"checked\": False,\n        \"style\": \"CIRCLE_CHECK\"\n    }\n)\n\nresult = sdk.signplus.add_envelope_annotation(\n    request_body=request_body,\n    envelope_id=\"envelope_id\"\n)\n\nprint(result)\n"
+    },
+    "/envelope/{envelope_id}/annotation/{annotation_id}": {
+      "delete": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.delete_envelope_annotation(\n    envelope_id=\"envelope_id\",\n    annotation_id=\"annotation_id\"\n)\n\nprint(result)\n"
+    },
+    "/template": {
+      "post": "from signplus import Signplus\nfrom signplus.models import CreateTemplateRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = CreateTemplateRequest(\n    name=\"name\"\n)\n\nresult = sdk.signplus.create_template(request_body=request_body)\n\nprint(result)\n"
+    },
+    "/templates": {
+      "post": "from signplus import Signplus\nfrom signplus.models import ListTemplatesRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = ListTemplatesRequest(\n    name=\"name\",\n    tags=[\n        \"tags\"\n    ],\n    ids=[\n        \"ids\"\n    ],\n    first=5,\n    last=3,\n    after=\"after\",\n    before=\"before\",\n    order_field=\"TEMPLATE_ID\",\n    ascending=True\n)\n\nresult = sdk.signplus.list_templates(request_body=request_body)\n\nprint(result)\n"
+    },
+    "/template/{template_id}": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_template(template_id=\"template_id\")\n\nprint(result)\n",
+      "delete": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.delete_template(template_id=\"template_id\")\n\nprint(result)\n"
+    },
+    "/template/{template_id}/duplicate": {
+      "post": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.duplicate_template(template_id=\"template_id\")\n\nprint(result)\n"
+    },
+    "/template/{template_id}/document": {
+      "post": "from signplus import Signplus\nfrom signplus.models import AddTemplateDocumentRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = AddTemplateDocumentRequest(\n    file=\"file\"\n)\n\nresult = sdk.signplus.add_template_document(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/document/{document_id}": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_template_document(\n    template_id=\"template_id\",\n    document_id=\"document_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/documents": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_template_documents(template_id=\"template_id\")\n\nprint(result)\n"
+    },
+    "/template/{template_id}/signing_steps": {
+      "post": "from signplus import Signplus\nfrom signplus.models import AddTemplateSigningStepsRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = AddTemplateSigningStepsRequest(\n    signing_steps=[\n        {\n            \"recipients\": [\n                {\n                    \"id_\": \"id\",\n                    \"uid\": \"uid\",\n                    \"name\": \"name\",\n                    \"email\": \"email\",\n                    \"role\": \"SIGNER\"\n                }\n            ]\n        }\n    ]\n)\n\nresult = sdk.signplus.add_template_signing_steps(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/rename": {
+      "put": "from signplus import Signplus\nfrom signplus.models import RenameTemplateRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = RenameTemplateRequest(\n    name=\"name\"\n)\n\nresult = sdk.signplus.rename_template(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/set_comment": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetTemplateCommentRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetTemplateCommentRequest(\n    comment=\"comment\"\n)\n\nresult = sdk.signplus.set_template_comment(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/set_notification": {
+      "put": "from signplus import Signplus\nfrom signplus.models import EnvelopeNotification\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = EnvelopeNotification(\n    subject=\"subject\",\n    message=\"message\",\n    reminder_interval=4\n)\n\nresult = sdk.signplus.set_template_notification(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/annotations": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_template_annotations(template_id=\"template_id\")\n\nprint(result)\n"
+    },
+    "/template/{template_id}/annotations/{document_id}": {
+      "get": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_document_template_annotations(\n    template_id=\"template_id\",\n    document_id=\"document_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/annotation": {
+      "post": "from signplus import Signplus\nfrom signplus.models import AddAnnotationRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = AddAnnotationRequest(\n    recipient_id=\"recipient_id\",\n    document_id=\"document_id\",\n    page=7,\n    x=0.75,\n    y=7.6,\n    width=6.94,\n    height=2.06,\n    required=False,\n    type_=\"TEXT\",\n    signature={\n        \"id_\": \"id\"\n    },\n    initials={\n        \"id_\": \"id\"\n    },\n    text={\n        \"size\": 9.98,\n        \"color\": 3.73,\n        \"value\": \"value\",\n        \"tooltip\": \"tooltip\",\n        \"dynamic_field_name\": \"dynamic_field_name\",\n        \"font\": {\n            \"family\": \"UNKNOWN\",\n            \"italic\": False,\n            \"bold\": True\n        }\n    },\n    datetime_={\n        \"size\": 8.01,\n        \"font\": {\n            \"family\": \"UNKNOWN\",\n            \"italic\": False,\n            \"bold\": True\n        },\n        \"color\": \"color\",\n        \"auto_fill\": False,\n        \"timezone\": \"timezone\",\n        \"timestamp\": 5,\n        \"format\": \"DMY_NUMERIC_SLASH\"\n    },\n    checkbox={\n        \"checked\": False,\n        \"style\": \"CIRCLE_CHECK\"\n    }\n)\n\nresult = sdk.signplus.add_template_annotation(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/annotation/{annotation_id}": {
+      "delete": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.delete_template_annotation(\n    template_id=\"template_id\",\n    annotation_id=\"annotation_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/attachments/settings": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetEnvelopeAttachmentsSettingsRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetEnvelopeAttachmentsSettingsRequest(\n    settings={\n        \"visible_to_recipients\": True\n    }\n)\n\nresult = sdk.signplus.set_template_attachments_settings(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/template/{template_id}/attachments/placeholders": {
+      "put": "from signplus import Signplus\nfrom signplus.models import SetEnvelopeAttachmentsPlaceholdersRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = SetEnvelopeAttachmentsPlaceholdersRequest(\n    placeholders=[\n        {\n            \"recipient_id\": \"recipient_id\",\n            \"id_\": \"id\",\n            \"name\": \"name\",\n            \"hint\": \"hint\",\n            \"required\": True,\n            \"multiple\": True\n        }\n    ]\n)\n\nresult = sdk.signplus.set_template_attachments_placeholders(\n    request_body=request_body,\n    template_id=\"template_id\"\n)\n\nprint(result)\n"
+    },
+    "/webhook": {
+      "post": "from signplus import Signplus\nfrom signplus.models import CreateWebhookRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = CreateWebhookRequest(\n    event=\"ENVELOPE_EXPIRED\",\n    target=\"target\"\n)\n\nresult = sdk.signplus.create_webhook(request_body=request_body)\n\nprint(result)\n"
+    },
+    "/webhooks": {
+      "post": "from signplus import Signplus\nfrom signplus.models import ListWebhooksRequest\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nrequest_body = ListWebhooksRequest(\n    webhook_id=\"webhook_id\",\n    event=\"ENVELOPE_EXPIRED\"\n)\n\nresult = sdk.signplus.list_webhooks(request_body=request_body)\n\nprint(result)\n"
+    },
+    "/webhook/{webhook_id}": {
+      "delete": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.delete_webhook(webhook_id=\"webhook_id\")\n\nprint(result)\n"
+    }
+  },
+  "methodResponses": {
+    "/envelope": {
+      "post": "print(result)"
+    },
+    "/envelope/from_template/{template_id}": {
+      "post": "print(result)"
+    },
+    "/envelopes": {
+      "post": "print(result)"
+    },
+    "/envelope/{envelope_id}": {
+      "get": "print(result)"
+    },
+    "/envelope/{envelope_id}/signed_documents": {
+      "get": "print(result)"
+    },
+    "/envelope/{envelope_id}/certificate": {
+      "get": "print(result)"
+    },
+    "/envelope/{envelope_id}/document/{document_id}": {
+      "get": "print(result)"
+    },
+    "/envelope/{envelope_id}/documents": {
+      "get": "print(result)"
+    },
+    "/envelope/{envelope_id}/document": {
+      "post": "print(result)"
+    },
+    "/envelope/{envelope_id}/dynamic_fields": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/signing_steps": {
+      "post": "print(result)"
+    },
+    "/envelope/{envelope_id}/attachments/settings": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/attachments/placeholders": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/attachments/{file_id}": {
+      "get": "with open(\"output-file.ext\", \"wb\") as f:\n    f.write(result if isinstance(result, (bytes, bytearray)) else str(result).encode())"
+    },
+    "/envelope/{envelope_id}/send": {
+      "post": "print(result)"
+    },
+    "/envelope/{envelope_id}/duplicate": {
+      "post": "print(result)"
+    },
+    "/envelope/{envelope_id}/void": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/rename": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/set_comment": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/set_notification": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/set_expiration_date": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/set_legality_level": {
+      "put": "print(result)"
+    },
+    "/envelope/{envelope_id}/annotations": {
+      "get": "print(result)"
+    },
+    "/envelope/{envelope_id}/annotations/{document_id}": {
+      "get": "print(result)"
+    },
+    "/envelope/{envelope_id}/annotation": {
+      "post": "print(result)"
+    },
+    "/template": {
+      "post": "print(result)"
+    },
+    "/templates": {
+      "post": "print(result)"
+    },
+    "/template/{template_id}": {
+      "get": "print(result)"
+    },
+    "/template/{template_id}/duplicate": {
+      "post": "print(result)"
+    },
+    "/template/{template_id}/document": {
+      "post": "print(result)"
+    },
+    "/template/{template_id}/document/{document_id}": {
+      "get": "print(result)"
+    },
+    "/template/{template_id}/documents": {
+      "get": "print(result)"
+    },
+    "/template/{template_id}/signing_steps": {
+      "post": "print(result)"
+    },
+    "/template/{template_id}/rename": {
+      "put": "print(result)"
+    },
+    "/template/{template_id}/set_comment": {
+      "put": "print(result)"
+    },
+    "/template/{template_id}/set_notification": {
+      "put": "print(result)"
+    },
+    "/template/{template_id}/annotations": {
+      "get": "print(result)"
+    },
+    "/template/{template_id}/annotations/{document_id}": {
+      "get": "print(result)"
+    },
+    "/template/{template_id}/annotation": {
+      "post": "print(result)"
+    },
+    "/template/{template_id}/attachments/settings": {
+      "put": "print(result)"
+    },
+    "/template/{template_id}/attachments/placeholders": {
+      "put": "print(result)"
+    },
+    "/webhook": {
+      "post": "print(result)"
+    },
+    "/webhooks": {
+      "post": "print(result)"
+    }
+  },
+  "example": "from signplus import Signplus\n\nsdk = Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)\n\nresult = sdk.signplus.get_envelope(envelope_id=\"envelope_id\")\n\nprint(result)\n",
+  "authentication": {
+    "bearer": {
+      "constructor": "Signplus(\n    access_token=\"YOUR_ACCESS_TOKEN\",\n    timeout=10000\n)",
+      "setter": "sdk.set_access_token(\"YOUR_ACCESS_TOKEN\")"
+    }
+  }
+}

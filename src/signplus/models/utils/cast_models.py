@@ -1,7 +1,8 @@
 from enum import Enum
-from typing import get_args, Union
+from typing import Any, get_args, Union
 from inspect import isclass
 from .one_of_base_model import OneOfBaseModel
+from pydantic import ValidationError
 
 
 def cast_models(func):
@@ -23,7 +24,11 @@ def cast_models(func):
             new_cls_args.append(_get_instanced_type(input, input_type))
 
         for type_name, input in kwargs.items():
-            new_kwargs[type_name] = _get_instanced_type(input, cls_types[type_name])
+            # Config parameters pass through unchanged - they're already dicts
+            if type_name == "request_config":
+                new_kwargs[type_name] = input
+            else:
+                new_kwargs[type_name] = _get_instanced_type(input, cls_types[type_name])
 
         return func(self, *new_cls_args, **new_kwargs)
 
@@ -35,6 +40,14 @@ def cast_models(func):
         :param input_type: The type of the input.
         :return: The instanced type.
         """
+        # `typing.Any` means "no validation" — pass the data through
+        # unchanged. Without this guard, downstream branches eventually
+        # call `isinstance(data, Any)`, which raises
+        # `TypeError: typing.Any cannot be used with isinstance()` and
+        # crashes any method whose annotation propagates an Any-schema.
+        if input_type is Any:
+            return data
+
         # Instanciate oneOf models
         if _is_one_of_model(input_type):
             class_list = {
@@ -53,12 +66,35 @@ def cast_models(func):
 
         # Instanciate object models
         elif isinstance(data, dict) and input_type is not str:
-            return input_type(**data)
+            # Pydantic models: use model_validate() for better validation
+            if hasattr(input_type, "model_validate"):
+                try:
+                    return input_type.model_validate(data)
+                except ValidationError as e:
+                    # Convert ValidationError to TypeError for backward compatibility
+                    raise TypeError(f"Invalid data for {input_type.__name__}: {e}")
+            # Legacy models or direct instantiation
+            else:
+                return input_type(**data)
 
         # Instanciate list of object models
         elif isinstance(data, list) and all(isinstance(i, dict) for i in data):
             element_type = get_args(input_type)[0]
-            return [element_type(**item) for item in data]
+            # `List[Any]` — no per-item validation, just return the list as-is.
+            # Otherwise the else-branch would call `Any(**item)` which raises
+            # `TypeError: Cannot instantiate typing.Any`.
+            if element_type is Any:
+                return data
+            # Pydantic models: use model_validate() for each item
+            if hasattr(element_type, "model_validate"):
+                try:
+                    return [element_type.model_validate(item) for item in data]
+                except ValidationError as e:
+                    # Convert ValidationError to TypeError for backward compatibility
+                    raise TypeError(f"Invalid data for {element_type.__name__}: {e}")
+            # Legacy models or direct instantiation
+            else:
+                return [element_type(**item) for item in data]
 
         # Instanciate bytes if input is str
         elif input_type is bytes and isinstance(data, str):

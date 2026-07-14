@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class RecipientVerificationType(Enum):
+class RecipientVerificationType(str, Enum):
     """An enumeration representing different categories.
 
     :cvar SMS: "SMS"
@@ -16,10 +18,11 @@ class RecipientVerificationType(Enum):
     PASSCODE = "PASSCODE"
     IDVERIFICATION = "ID_VERIFICATION"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(

@@ -1,9 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
-from .utils.sentinel import SENTINEL
 
 
-@JsonMap({})
 class AddEnvelopeDocumentRequest(BaseModel):
     """AddEnvelopeDocumentRequest
 
@@ -11,12 +12,6 @@ class AddEnvelopeDocumentRequest(BaseModel):
     :type file: bytes, optional
     """
 
-    def __init__(self, file: bytes = SENTINEL, **kwargs):
-        """AddEnvelopeDocumentRequest
-
-        :param file: File to upload in binary format, defaults to None
-        :type file: bytes, optional
-        """
-        if file is not SENTINEL:
-            self.file = file
-        self._kwargs = kwargs
+    file: Optional[bytes] = Field(
+        default=None, description="File to upload in binary format"
+    )

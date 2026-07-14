@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name          | Type                      | Required | Description           |
-| :------------ | :------------------------ | :------- | :-------------------- |
-| signing_steps | List[TemplateSigningStep] | ✅       | List of signing steps |
+| Name          | Type                                                | Required | Description           |
+| :------------ | :-------------------------------------------------- | :------- | :-------------------- |
+| signing_steps | List[[TemplateSigningStep](TemplateSigningStep.md)] | ✅       | List of signing steps |

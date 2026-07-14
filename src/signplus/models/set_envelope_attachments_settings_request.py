@@ -1,10 +1,11 @@
 from __future__ import annotations
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
 from .attachment_settings import AttachmentSettings
 
 
-@JsonMap({})
 class SetEnvelopeAttachmentsSettingsRequest(BaseModel):
     """SetEnvelopeAttachmentsSettingsRequest
 
@@ -12,11 +13,4 @@ class SetEnvelopeAttachmentsSettingsRequest(BaseModel):
     :type settings: AttachmentSettings
     """
 
-    def __init__(self, settings: AttachmentSettings, **kwargs):
-        """SetEnvelopeAttachmentsSettingsRequest
-
-        :param settings: settings
-        :type settings: AttachmentSettings
-        """
-        self.settings = self._define_object(settings, AttachmentSettings)
-        self._kwargs = kwargs
+    settings: AttachmentSettings

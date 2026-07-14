@@ -1,12 +1,12 @@
 from __future__ import annotations
 from typing import List
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
-from .utils.sentinel import SENTINEL
 from .annotation import Annotation
 
 
-@JsonMap({})
 class ListTemplateAnnotationsResponse(BaseModel):
     """ListTemplateAnnotationsResponse
 
@@ -14,12 +14,4 @@ class ListTemplateAnnotationsResponse(BaseModel):
     :type annotations: List[Annotation], optional
     """
 
-    def __init__(self, annotations: List[Annotation] = SENTINEL, **kwargs):
-        """ListTemplateAnnotationsResponse
-
-        :param annotations: annotations, defaults to None
-        :type annotations: List[Annotation], optional
-        """
-        if annotations is not SENTINEL:
-            self.annotations = self._define_list(annotations, Annotation)
-        self._kwargs = kwargs
+    annotations: Optional[List[Annotation]] = Field(default=None)

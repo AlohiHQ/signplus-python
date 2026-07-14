@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class AnnotationCheckboxStyle(Enum):
+class AnnotationCheckboxStyle(str, Enum):
     """An enumeration representing different categories.
 
     :cvar CIRCLECHECK: "CIRCLE_CHECK"
@@ -25,10 +27,11 @@ class AnnotationCheckboxStyle(Enum):
     CHECKMARK = "CHECK_MARK"
     TIMESSQUARE = "TIMES_SQUARE"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(

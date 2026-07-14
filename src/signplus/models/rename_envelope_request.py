@@ -1,9 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
-from .utils.sentinel import SENTINEL
 
 
-@JsonMap({})
 class RenameEnvelopeRequest(BaseModel):
     """RenameEnvelopeRequest
 
@@ -11,12 +12,4 @@ class RenameEnvelopeRequest(BaseModel):
     :type name: str, optional
     """
 
-    def __init__(self, name: str = SENTINEL, **kwargs):
-        """RenameEnvelopeRequest
-
-        :param name: Name of the envelope, defaults to None
-        :type name: str, optional
-        """
-        if name is not SENTINEL:
-            self.name = name
-        self._kwargs = kwargs
+    name: Optional[str] = Field(default=None, description="Name of the envelope")

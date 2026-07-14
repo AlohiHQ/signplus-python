@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class AnnotationFontFamily(Enum):
+class AnnotationFontFamily(str, Enum):
     """An enumeration representing different categories.
 
     :cvar UNKNOWN: "UNKNOWN"
@@ -19,10 +21,11 @@ class AnnotationFontFamily(Enum):
     SANS = "SANS"
     MONO = "MONO"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(map(lambda x: x.value, AnnotationFontFamily._member_map_.values()))

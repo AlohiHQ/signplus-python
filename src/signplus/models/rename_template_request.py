@@ -1,8 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
 
 
-@JsonMap({})
 class RenameTemplateRequest(BaseModel):
     """RenameTemplateRequest
 
@@ -10,11 +12,4 @@ class RenameTemplateRequest(BaseModel):
     :type name: str
     """
 
-    def __init__(self, name: str, **kwargs):
-        """RenameTemplateRequest
-
-        :param name: Name of the template
-        :type name: str
-        """
-        self.name = name
-        self._kwargs = kwargs
+    name: str = Field(description="Name of the template")

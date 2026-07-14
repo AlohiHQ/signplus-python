@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class AnnotationDateTimeFormat(Enum):
+class AnnotationDateTimeFormat(str, Enum):
     """An enumeration representing different categories.
 
     :cvar DMYNUMERICSLASH: "DMY_NUMERIC_SLASH"
@@ -34,10 +36,11 @@ class AnnotationDateTimeFormat(Enum):
     MDYTEXTSPACESHORT = "MDY_TEXT_SPACE_SHORT"
     MDYTEXTSPACE = "MDY_TEXT_SPACE"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(

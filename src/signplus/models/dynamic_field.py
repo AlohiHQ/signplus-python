@@ -1,9 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
-from .utils.sentinel import SENTINEL
 
 
-@JsonMap({})
 class DynamicField(BaseModel):
     """DynamicField
 
@@ -13,16 +14,5 @@ class DynamicField(BaseModel):
     :type value: str, optional
     """
 
-    def __init__(self, name: str = SENTINEL, value: str = SENTINEL, **kwargs):
-        """DynamicField
-
-        :param name: Name of the dynamic field, defaults to None
-        :type name: str, optional
-        :param value: Value of the dynamic field, defaults to None
-        :type value: str, optional
-        """
-        if name is not SENTINEL:
-            self.name = name
-        if value is not SENTINEL:
-            self.value = value
-        self._kwargs = kwargs
+    name: Optional[str] = Field(default=None, description="Name of the dynamic field")
+    value: Optional[str] = Field(default=None, description="Value of the dynamic field")

@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class AnnotationType(Enum):
+class AnnotationType(str, Enum):
     """An enumeration representing different categories.
 
     :cvar TEXT: "TEXT"
@@ -22,10 +24,11 @@ class AnnotationType(Enum):
     CHECKBOX = "CHECKBOX"
     DATE = "DATE"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(map(lambda x: x.value, AnnotationType._member_map_.values()))

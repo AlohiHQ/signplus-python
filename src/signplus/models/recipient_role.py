@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class RecipientRole(Enum):
+class RecipientRole(str, Enum):
     """An enumeration representing different categories.
 
     :cvar SIGNER: "SIGNER"
@@ -16,10 +18,11 @@ class RecipientRole(Enum):
     RECEIVESCOPY = "RECEIVES_COPY"
     INPERSONSIGNER = "IN_PERSON_SIGNER"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(map(lambda x: x.value, RecipientRole._member_map_.values()))

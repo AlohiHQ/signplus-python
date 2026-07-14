@@ -1,8 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
 
 
-@JsonMap({})
 class AddTemplateDocumentRequest(BaseModel):
     """AddTemplateDocumentRequest
 
@@ -10,11 +12,4 @@ class AddTemplateDocumentRequest(BaseModel):
     :type file: bytes
     """
 
-    def __init__(self, file: bytes, **kwargs):
-        """AddTemplateDocumentRequest
-
-        :param file: File to upload in binary format
-        :type file: bytes
-        """
-        self.file = file
-        self._kwargs = kwargs
+    file: bytes = Field(description="File to upload in binary format")

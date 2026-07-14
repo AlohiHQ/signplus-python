@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class EnvelopeLegalityLevel(Enum):
+class EnvelopeLegalityLevel(str, Enum):
     """An enumeration representing different categories.
 
     :cvar SES: "SES"
@@ -16,10 +18,11 @@ class EnvelopeLegalityLevel(Enum):
     QESEIDAS = "QES_EIDAS"
     QESZERTES = "QES_ZERTES"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(map(lambda x: x.value, EnvelopeLegalityLevel._member_map_.values()))

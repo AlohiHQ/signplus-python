@@ -1,11 +1,12 @@
 from __future__ import annotations
 from typing import List
-from .utils.json_map import JsonMap
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
 from .attachment_placeholder_request import AttachmentPlaceholderRequest
 
 
-@JsonMap({})
 class SetEnvelopeAttachmentsPlaceholdersRequest(BaseModel):
     """SetEnvelopeAttachmentsPlaceholdersRequest
 
@@ -13,13 +14,4 @@ class SetEnvelopeAttachmentsPlaceholdersRequest(BaseModel):
     :type placeholders: List[AttachmentPlaceholderRequest]
     """
 
-    def __init__(self, placeholders: List[AttachmentPlaceholderRequest], **kwargs):
-        """SetEnvelopeAttachmentsPlaceholdersRequest
-
-        :param placeholders: placeholders
-        :type placeholders: List[AttachmentPlaceholderRequest]
-        """
-        self.placeholders = self._define_list(
-            placeholders, AttachmentPlaceholderRequest
-        )
-        self._kwargs = kwargs
+    placeholders: List[AttachmentPlaceholderRequest]

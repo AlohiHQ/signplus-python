@@ -1,7 +1,9 @@
+from __future__ import annotations
 from enum import Enum
+from typing import Any
 
 
-class EnvelopeOrderField(Enum):
+class EnvelopeOrderField(str, Enum):
     """An enumeration representing different categories.
 
     :cvar CREATIONDATE: "CREATION_DATE"
@@ -22,10 +24,11 @@ class EnvelopeOrderField(Enum):
     STATUS = "STATUS"
     LASTDOCUMENTCHANGE = "LAST_DOCUMENT_CHANGE"
 
+    @staticmethod
     def list():
-        """Lists all category values.
+        """Lists all enum values.
 
-        :return: A list of all category values.
+        :return: A list of all enum values.
         :rtype: list
         """
         return list(map(lambda x: x.value, EnvelopeOrderField._member_map_.values()))

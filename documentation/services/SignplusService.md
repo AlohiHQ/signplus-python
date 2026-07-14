@@ -180,16 +180,16 @@ request_body = ListEnvelopesRequest(
     folder_ids=[
         "folder_ids"
     ],
-    only_root_folder=True,
-    date_from=5,
-    date_to=9,
+    only_root_folder=False,
+    date_from=0,
+    date_to=1,
     uid="uid",
-    first=9,
-    last=7,
+    first=6,
+    last=6,
     after="after",
     before="before",
     order_field="CREATION_DATE",
-    ascending=True,
+    ascending=False,
     include_trash=True
 )
 
@@ -274,7 +274,7 @@ Download signed documents for an envelope
 
 **Return Type**
 
-`any`
+`Any`
 
 **Example Usage Code Snippet**
 
@@ -309,7 +309,7 @@ Download certificate of completion for an envelope
 
 **Return Type**
 
-`any`
+`Any`
 
 **Example Usage Code Snippet**
 
@@ -569,7 +569,7 @@ sdk = Signplus(
 
 request_body = SetEnvelopeAttachmentsSettingsRequest(
     settings={
-        "visible_to_recipients": False
+        "visible_to_recipients": True
     }
 )
 
@@ -617,7 +617,7 @@ request_body = SetEnvelopeAttachmentsPlaceholdersRequest(
             "id_": "id",
             "name": "name",
             "hint": "hint",
-            "required": False,
+            "required": True,
             "multiple": True
         }
     ]
@@ -665,7 +665,7 @@ result = sdk.signplus.get_attachment_file(
 )
 
 with open("output-file.ext", "wb") as f:
-    f.write(result)
+    f.write(result if isinstance(result, (bytes, bytearray)) else str(result).encode())
 ```
 
 ## send_envelope
@@ -878,7 +878,7 @@ sdk = Signplus(
 request_body = EnvelopeNotification(
     subject="subject",
     message="message",
-    reminder_interval=1
+    reminder_interval=4
 )
 
 result = sdk.signplus.set_envelope_notification(
@@ -919,7 +919,7 @@ sdk = Signplus(
 )
 
 request_body = SetEnvelopeExpirationRequest(
-    expires_at=0
+    expires_at=8
 )
 
 result = sdk.signplus.set_envelope_expiration_date(
@@ -1071,11 +1071,11 @@ sdk = Signplus(
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=2,
-    x=1.99,
-    y=8.2,
-    width=4.89,
-    height=9.43,
+    page=7,
+    x=0.75,
+    y=7.6,
+    width=6.94,
+    height=2.06,
     required=False,
     type_="TEXT",
     signature={
@@ -1085,32 +1085,32 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 5.96,
-        "color": 8.73,
+        "size": 9.98,
+        "color": 3.73,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
-            "italic": True,
+            "italic": False,
             "bold": True
         }
     },
     datetime_={
-        "size": 0.26,
+        "size": 8.01,
         "font": {
             "family": "UNKNOWN",
-            "italic": True,
+            "italic": False,
             "bold": True
         },
         "color": "color",
-        "auto_fill": True,
+        "auto_fill": False,
         "timezone": "timezone",
-        "timestamp": 1,
+        "timestamp": 5,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
-        "checked": True,
+        "checked": False,
         "style": "CIRCLE_CHECK"
     }
 )
@@ -1228,12 +1228,12 @@ request_body = ListTemplatesRequest(
     ids=[
         "ids"
     ],
-    first=1,
-    last=6,
+    first=5,
+    last=3,
     after="after",
     before="before",
     order_field="TEMPLATE_ID",
-    ascending=False
+    ascending=True
 )
 
 result = sdk.signplus.list_templates(request_body=request_body)
@@ -1609,7 +1609,7 @@ sdk = Signplus(
 request_body = EnvelopeNotification(
     subject="subject",
     message="message",
-    reminder_interval=1
+    reminder_interval=4
 )
 
 result = sdk.signplus.set_template_notification(
@@ -1720,11 +1720,11 @@ sdk = Signplus(
 request_body = AddAnnotationRequest(
     recipient_id="recipient_id",
     document_id="document_id",
-    page=2,
-    x=1.99,
-    y=8.2,
-    width=4.89,
-    height=9.43,
+    page=7,
+    x=0.75,
+    y=7.6,
+    width=6.94,
+    height=2.06,
     required=False,
     type_="TEXT",
     signature={
@@ -1734,32 +1734,32 @@ request_body = AddAnnotationRequest(
         "id_": "id"
     },
     text={
-        "size": 5.96,
-        "color": 8.73,
+        "size": 9.98,
+        "color": 3.73,
         "value": "value",
         "tooltip": "tooltip",
         "dynamic_field_name": "dynamic_field_name",
         "font": {
             "family": "UNKNOWN",
-            "italic": True,
+            "italic": False,
             "bold": True
         }
     },
     datetime_={
-        "size": 0.26,
+        "size": 8.01,
         "font": {
             "family": "UNKNOWN",
-            "italic": True,
+            "italic": False,
             "bold": True
         },
         "color": "color",
-        "auto_fill": True,
+        "auto_fill": False,
         "timezone": "timezone",
-        "timestamp": 1,
+        "timestamp": 5,
         "format": "DMY_NUMERIC_SLASH"
     },
     checkbox={
-        "checked": True,
+        "checked": False,
         "style": "CIRCLE_CHECK"
     }
 )
@@ -1835,7 +1835,7 @@ sdk = Signplus(
 
 request_body = SetEnvelopeAttachmentsSettingsRequest(
     settings={
-        "visible_to_recipients": False
+        "visible_to_recipients": True
     }
 )
 
@@ -1883,7 +1883,7 @@ request_body = SetEnvelopeAttachmentsPlaceholdersRequest(
             "id_": "id",
             "name": "name",
             "hint": "hint",
-            "required": False,
+            "required": True,
             "multiple": True
         }
     ]

@@ -1,8 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
 
 
-@JsonMap({})
 class SetEnvelopeExpirationRequest(BaseModel):
     """SetEnvelopeExpirationRequest
 
@@ -10,11 +12,4 @@ class SetEnvelopeExpirationRequest(BaseModel):
     :type expires_at: int
     """
 
-    def __init__(self, expires_at: int, **kwargs):
-        """SetEnvelopeExpirationRequest
-
-        :param expires_at: Unix timestamp of the expiration date
-        :type expires_at: int
-        """
-        self.expires_at = expires_at
-        self._kwargs = kwargs
+    expires_at: int = Field(description="Unix timestamp of the expiration date")

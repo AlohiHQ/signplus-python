@@ -1,9 +1,10 @@
-from .utils.json_map import JsonMap
+from __future__ import annotations
+from pydantic import Field
+from typing import Optional
+from typing import Any
 from .utils.base_model import BaseModel
-from .utils.sentinel import SENTINEL
 
 
-@JsonMap({})
 class EnvelopeNotification(BaseModel):
     """EnvelopeNotification
 
@@ -15,26 +16,12 @@ class EnvelopeNotification(BaseModel):
     :type reminder_interval: int, optional
     """
 
-    def __init__(
-        self,
-        subject: str = SENTINEL,
-        message: str = SENTINEL,
-        reminder_interval: int = SENTINEL,
-        **kwargs
-    ):
-        """EnvelopeNotification
-
-        :param subject: Subject of the notification, defaults to None
-        :type subject: str, optional
-        :param message: Message of the notification, defaults to None
-        :type message: str, optional
-        :param reminder_interval: Interval in days to send reminder, defaults to None
-        :type reminder_interval: int, optional
-        """
-        if subject is not SENTINEL:
-            self.subject = subject
-        if message is not SENTINEL:
-            self.message = message
-        if reminder_interval is not SENTINEL:
-            self.reminder_interval = reminder_interval
-        self._kwargs = kwargs
+    subject: Optional[str] = Field(
+        default=None, description="Subject of the notification"
+    )
+    message: Optional[str] = Field(
+        default=None, description="Message of the notification"
+    )
+    reminder_interval: Optional[int] = Field(
+        default=None, description="Interval in days to send reminder"
+    )
